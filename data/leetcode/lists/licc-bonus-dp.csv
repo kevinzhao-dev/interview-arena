@@ -1,0 +1,16 @@
+source_key,source_name,source_type,source_url,problem_id,slug,title,difficulty,acceptance,problem_url,imported_at
+licc-bonus-dp,LICC Bonus: DP,problem-list,https://leetcode.com/problem-list/ajczh9c3/,118,pascals-triangle,Pascal's Triangle,Easy,78.9%,https://leetcode.com/problems/pascals-triangle/,2026-05-17
+licc-bonus-dp,LICC Bonus: DP,problem-list,https://leetcode.com/problem-list/ajczh9c3/,139,word-break,Word Break,Medium,49.4%,https://leetcode.com/problems/word-break/,2026-05-17
+licc-bonus-dp,LICC Bonus: DP,problem-list,https://leetcode.com/problem-list/ajczh9c3/,213,house-robber-ii,House Robber II,Medium,44.9%,https://leetcode.com/problems/house-robber-ii/,2026-05-17
+licc-bonus-dp,LICC Bonus: DP,problem-list,https://leetcode.com/problem-list/ajczh9c3/,221,maximal-square,Maximal Square,Medium,50.3%,https://leetcode.com/problems/maximal-square/,2026-05-17
+licc-bonus-dp,LICC Bonus: DP,problem-list,https://leetcode.com/problem-list/ajczh9c3/,337,house-robber-iii,House Robber III,Medium,55.9%,https://leetcode.com/problems/house-robber-iii/,2026-05-17
+licc-bonus-dp,LICC Bonus: DP,problem-list,https://leetcode.com/problem-list/ajczh9c3/,368,largest-divisible-subset,Largest Divisible Subset,Medium,49.6%,https://leetcode.com/problems/largest-divisible-subset/,2026-05-17
+licc-bonus-dp,LICC Bonus: DP,problem-list,https://leetcode.com/problem-list/ajczh9c3/,474,ones-and-zeroes,Ones and Zeroes,Medium,53.3%,https://leetcode.com/problems/ones-and-zeroes/,2026-05-17
+licc-bonus-dp,LICC Bonus: DP,problem-list,https://leetcode.com/problem-list/ajczh9c3/,494,target-sum,Target Sum,Medium,52.2%,https://leetcode.com/problems/target-sum/,2026-05-17
+licc-bonus-dp,LICC Bonus: DP,problem-list,https://leetcode.com/problem-list/ajczh9c3/,518,coin-change-ii,Coin Change II,Medium,60.1%,https://leetcode.com/problems/coin-change-ii/,2026-05-17
+licc-bonus-dp,LICC Bonus: DP,problem-list,https://leetcode.com/problem-list/ajczh9c3/,1027,longest-arithmetic-subsequence,Longest Arithmetic Subsequence,Medium,50.0%,https://leetcode.com/problems/longest-arithmetic-subsequence/,2026-05-17
+licc-bonus-dp,LICC Bonus: DP,problem-list,https://leetcode.com/problem-list/ajczh9c3/,1035,uncrossed-lines,Uncrossed Lines,Medium,65.2%,https://leetcode.com/problems/uncrossed-lines/,2026-05-17
+licc-bonus-dp,LICC Bonus: DP,problem-list,https://leetcode.com/problem-list/ajczh9c3/,1137,n-th-tribonacci-number,N-th Tribonacci Number,Easy,63.2%,https://leetcode.com/problems/n-th-tribonacci-number/,2026-05-17
+licc-bonus-dp,LICC Bonus: DP,problem-list,https://leetcode.com/problem-list/ajczh9c3/,1155,number-of-dice-rolls-with-target-sum,Number of Dice Rolls With Target Sum,Medium,62.3%,https://leetcode.com/problems/number-of-dice-rolls-with-target-sum/,2026-05-17
+licc-bonus-dp,LICC Bonus: DP,problem-list,https://leetcode.com/problem-list/ajczh9c3/,1218,longest-arithmetic-subsequence-of-given-difference,Longest Arithmetic Subsequence of Given Difference,Medium,54.3%,https://leetcode.com/problems/longest-arithmetic-subsequence-of-given-difference/,2026-05-17
+licc-bonus-dp,LICC Bonus: DP,problem-list,https://leetcode.com/problem-list/ajczh9c3/,1406,stone-game-iii,Stone Game III,Hard,63.3%,https://leetcode.com/problems/stone-game-iii/,2026-05-17

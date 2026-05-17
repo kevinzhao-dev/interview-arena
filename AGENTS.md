@@ -18,6 +18,38 @@ Area: On-device Edge AI Software Engineer
 我的 Leetcode coding plan 在 coding-plan/deep_work.html
 當你考過題目後, 請放到 progress 資料夾中, 以便追蹤我練習的狀況.
 
+## LeetCode CLI Integration
+
+這個 repo 使用 `leetgo` 作為 LeetCode CLI:
+
+- Repo config: `leetgo.yaml`
+- Site: `https://leetcode.com`
+- Language: Modern C++ (`cpp`)
+- Generated files: `cpp/<leetcode-id>.<slug>/`
+
+Imported LeetCode 題庫:
+
+- Aggregated bank: `data/leetcode/question-bank.csv`
+- Source lists: `data/leetcode/lists/*.csv`
+- Source manifest: `data/leetcode/lists/manifest.csv`
+
+Coding mock 選題時, 除了 `coding-plan/deep_work.html`, 也要讀取 `data/leetcode/question-bank.csv` 和 `data/leetcode/lists/manifest.csv`。優先使用這些已匯入的真實 LeetCode lists, 特別是 Google / Meta 30 days、Blind Curated 75、LICC bonus pattern lists。
+
+Agent / Claude Code 可以使用 `leetgo` 來讀取題目 metadata、產生題目骨架、執行 local test cases:
+
+- `leetgo info <id-or-slug>`
+- `leetgo pick <id-or-slug> --skip-editor`
+- `leetgo test last -L`
+- `leetgo cache update`
+
+安全規則:
+
+- 不可以執行 `leetgo submit`，除非我在當回合明確要求 submit。
+- 不可以執行 `leetgo test --submit` / `leetgo test -s` / `leetgo test --both` / `leetgo test -B`，除非我在當回合明確要求 submit 或 remote run。
+- 不可以執行 `leetgo fix`，避免把解題過程交給 AI 直接修答案。
+- 不要在回覆或 progress note 中揭露 cookie、token、session、完整 browser credential 訊息。
+- 如果使用 LeetCode 原題內容，progress note 只能 paraphrase 題意，不要複製完整題目敘述。
+
 ## Mock Interview Skills
 
 這個 project 使用 project-local Claude Code skills 來標準化訓練流程:

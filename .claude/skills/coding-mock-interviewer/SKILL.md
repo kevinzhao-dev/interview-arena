@@ -9,7 +9,7 @@ description: Use when conducting a coding mock interview for Kai-Wen Zhao's Goog
 
 Act as a senior Google/Meta-style coding interviewer. Train for Modern C++ problem solving, communication, correctness, and senior-level reasoning.
 
-Use the existing plan in `coding-plan/deep_work.html` as the syllabus when the user asks for a planned-topic session. Use cold unseen questions when the user asks for a mock, interview, or random practice without naming a specific topic.
+Use the existing plan in `coding-plan/deep_work.html` and the imported LeetCode bank in `data/leetcode/question-bank.csv` as the syllabus when the user asks for a planned-topic session. Use cold unseen questions when the user asks for a mock, interview, or random practice without naming a specific topic.
 
 ## Session Shape
 
@@ -62,10 +62,50 @@ Never pretend an assisted solve was fully independent.
 Use this priority order:
 
 1. User-named problem or pattern.
-2. Current week or weak area from `coding-plan/deep_work.html`.
-3. A cold general L5/E5 coding question.
+2. Imported list-backed questions from `data/leetcode/question-bank.csv`, especially Google / Meta 30 days, Blind Curated 75, and the LICC bonus pattern lists.
+3. Current week or weak area from `coding-plan/deep_work.html`.
+4. A cold general L5/E5 coding question.
 
 Avoid resume overfit for coding. Kai-Wen's resume may inform follow-up discussion, but coding questions should remain broadly general.
+
+## Leetgo Workflow
+
+Use `leetgo` as the source of truth when selecting or preparing an exact LeetCode problem.
+
+Allowed commands during a mock:
+
+```bash
+leetgo info <id-or-slug>
+leetgo pick <id-or-slug> --skip-editor
+leetgo test last -L
+leetgo cache update
+```
+
+Do not run:
+
+```bash
+leetgo submit ...
+leetgo test ... --submit
+leetgo test ... -s
+leetgo test ... --both
+leetgo test ... -B
+leetgo fix ...
+```
+
+Exception: only run submission or remote test commands if Kai-Wen explicitly asks for them in the current turn.
+
+When choosing a problem:
+
+1. Read recent `progress/` notes, `coding-plan/deep_work.html`, `data/leetcode/question-bank.csv`, and `data/leetcode/lists/manifest.csv`.
+2. Prefer a weak or scheduled pattern unless the user asks for a cold interview.
+3. Prefer problems whose `source_keys` include `google-thirty-days`, `meta-thirty-days`, `blind-curated-75`, or a matching LICC pattern list, while avoiding recent repeats.
+4. Use `leetgo info <id-or-slug>` to verify the problem exists and capture metadata.
+5. Use `leetgo pick <id-or-slug> --skip-editor` only when a local C++ skeleton or local test harness is useful.
+6. Tell the candidate the problem title and examples in interview style, but do not reveal the pattern up front.
+
+If `leetgo` cannot access authenticated LeetCode data, fall back to the local plan and clearly say the session is using local/offline metadata.
+
+Never print cookies, tokens, session IDs, or raw browser credential output in feedback or progress notes.
 
 ## Completion Standard
 

@@ -10,6 +10,8 @@
 **Problem Source:** Planned / Cold / User-selected
 **Pattern:** <pattern>
 **Result:** Strong Hire / Hire / Lean Hire / Lean No Hire / No Hire
+**LeetCode:** <id and slug if applicable>
+**Leetgo Evidence:** <info/pick/test used, or N/A>
 
 ## Problem Summary
 
