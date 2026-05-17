@@ -1,0 +1,2052 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Deep Work · 十週刀口計畫</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f7f3e8;
+  --bg-2: #efeada;
+  --surface: #e9e2cf;
+  --surface-2: #e0d8c1;
+  --border: #d4cab1;
+  --border-2: #beb39a;
+  --text: #1f1a12;
+  --text-2: #5e5645;
+  --text-3: #8e8472;
+  --accent: #a3742a;
+  --accent-dim: #7a571f;
+  --accent-soft: rgba(163, 116, 42, 0.08);
+  --green: #5d8052;
+  --red: #b25540;
+  --blue: #426280;
+  --easy: #5d8052;
+  --medium: #a3742a;
+  --hard: #b25540;
+  --serif: 'Fraunces', 'Times New Roman', serif;
+  --sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --mono: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.6;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background-image:
+    radial-gradient(circle at 15% 50%, rgba(163, 116, 42, 0.06), transparent 50%),
+    radial-gradient(circle at 85% 30%, rgba(66, 98, 128, 0.04), transparent 50%);
+  min-height: 100vh;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ─────── Top Bar ─────── */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(247, 243, 232, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 32px;
+}
+
+.topbar-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-2);
+}
+
+.brand-dot {
+  display: inline-block;
+  width: 6px; height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(163, 116, 42, 0.5);
+  animation: pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.brand-title {
+  color: var(--text);
+  font-weight: 500;
+  letter-spacing: 0.22em;
+}
+
+.topbar-stats {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-2);
+}
+
+.topbar-stat {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.topbar-stat-label {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-3);
+}
+
+.topbar-stat-value {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.progress-bar {
+  width: 140px;
+  height: 4px;
+  background: var(--border);
+  border-radius: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-dim), var(--accent));
+  transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ─────── Container ─────── */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 48px 32px 80px;
+}
+
+/* ─────── Hero ─────── */
+.hero {
+  padding: 48px 0 64px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 48px;
+}
+
+.hero-eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  color: var(--accent);
+  margin-bottom: 24px;
+}
+
+.hero-title {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(48px, 7vw, 88px);
+  line-height: 0.96;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 16px;
+  font-variation-settings: "opsz" 144;
+}
+
+.hero-title em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--accent);
+}
+
+.hero-subtitle {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 22px;
+  line-height: 1.4;
+  color: var(--text-2);
+  max-width: 720px;
+  margin-bottom: 32px;
+}
+
+.hero-meta {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--text-3);
+}
+
+.hero-meta span strong {
+  color: var(--text);
+  font-weight: 500;
+  margin-left: 8px;
+}
+
+/* ─────── Strategy Section ─────── */
+.strategy-section {
+  margin-bottom: 64px;
+}
+
+.section-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--text-3);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-label::before {
+  content: "";
+  width: 24px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.strategy-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+
+.strategy-card {
+  background: var(--bg);
+  padding: 28px 24px;
+}
+
+.strategy-card-num {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--accent);
+  letter-spacing: 0.18em;
+  margin-bottom: 16px;
+}
+
+.strategy-card-title {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+
+.strategy-card-body {
+  font-size: 13px;
+  color: var(--text-2);
+  line-height: 1.65;
+}
+
+/* ─────── Ratio Display ─────── */
+.ratio-display {
+  margin-top: 32px;
+  padding: 24px 0;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+
+.ratio-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--text-3);
+  flex-shrink: 0;
+}
+
+.ratio-bar {
+  flex: 1;
+  display: flex;
+  height: 6px;
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.ratio-seg-easy { background: var(--easy); width: 10%; }
+.ratio-seg-medium { background: var(--medium); width: 60%; }
+.ratio-seg-hard { background: var(--red); width: 30%; }
+
+.ratio-legend {
+  display: flex;
+  gap: 24px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-2);
+}
+
+.ratio-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ratio-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+}
+
+/* ─────── Week Nav ─────── */
+.weeks-section {
+  margin-top: 64px;
+}
+
+.weeks-nav {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  margin-bottom: 48px;
+}
+
+.week-tab {
+  background: var(--bg);
+  padding: 16px 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: left;
+  border: none;
+  font-family: var(--mono);
+  color: var(--text-2);
+}
+
+.week-tab:hover {
+  background: var(--surface);
+  color: var(--text);
+}
+
+.week-tab.active {
+  background: var(--surface-2);
+  color: var(--text);
+}
+
+.week-tab.active .week-tab-num {
+  color: var(--accent);
+}
+
+.week-tab-num {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: var(--text-3);
+  margin-bottom: 8px;
+}
+
+.week-tab-title {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0;
+  text-transform: none;
+  margin-bottom: 10px;
+}
+
+.week-tab-progress {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  color: var(--text-3);
+}
+
+.week-tab-progress-bar {
+  flex: 1;
+  height: 2px;
+  background: var(--border);
+  overflow: hidden;
+}
+
+.week-tab-progress-fill {
+  height: 100%;
+  background: var(--accent);
+  transition: width 0.4s;
+}
+
+/* ─────── Week Panel ─────── */
+.week-panel {
+  display: none;
+}
+
+.week-panel.active {
+  display: block;
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.week-header {
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 48px;
+}
+
+.week-header-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 24px;
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--text-3);
+  margin-bottom: 20px;
+}
+
+.week-header-num {
+  color: var(--accent);
+}
+
+.week-header-title {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(36px, 5vw, 56px);
+  line-height: 1.04;
+  letter-spacing: -0.015em;
+  margin-bottom: 16px;
+  font-variation-settings: "opsz" 144;
+}
+
+.week-header-title em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.week-header-mantra {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 1.5;
+  color: var(--text-2);
+  max-width: 760px;
+  position: relative;
+  padding-left: 24px;
+}
+
+.week-header-mantra::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: var(--accent);
+}
+
+.week-priority {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text-2);
+}
+
+.week-priority-label {
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 10px;
+  color: var(--accent);
+}
+
+/* ─────── Two-column layout ─────── */
+.week-content {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 64px;
+}
+
+@media (max-width: 980px) {
+  .week-content {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .strategy-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ─────── Problem Section ─────── */
+.problem-section {
+  margin-bottom: 40px;
+}
+
+.problem-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.problem-section-title {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 18px;
+  color: var(--text);
+}
+
+.problem-section-count {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-3);
+  letter-spacing: 0.1em;
+}
+
+/* ─────── Problem Row ─────── */
+.problem {
+  border-bottom: 1px solid var(--border);
+  transition: background 0.15s;
+}
+
+.problem:hover {
+  background: var(--surface);
+}
+
+.problem.solved .problem-name { color: var(--text-3); text-decoration: line-through; text-decoration-color: var(--border-2); }
+.problem.mastered { background: linear-gradient(90deg, rgba(163, 116, 42, 0.07), transparent 70%); }
+
+.problem-row {
+  display: grid;
+  grid-template-columns: 32px 1fr auto auto auto;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.status-toggle {
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--border-2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text-3);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.15s;
+  flex-shrink: 0;
+}
+
+.status-toggle:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.problem.attempting .status-toggle {
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
+.problem.attempting .status-toggle::after {
+  content: "";
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--blue);
+  opacity: 0.5;
+}
+
+.problem.solved .status-toggle {
+  border-color: var(--green);
+  background: var(--green);
+  color: #fff;
+}
+
+.problem.solved .status-toggle::after {
+  content: "✓";
+  color: #fff;
+  font-weight: 600;
+}
+
+.problem.mastered .status-toggle {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #fff;
+}
+
+.problem.mastered .status-toggle::after {
+  content: "★";
+  color: #fff;
+  font-size: 11px;
+}
+
+.problem-name {
+  font-size: 14px;
+  color: var(--text);
+  font-weight: 400;
+  transition: color 0.15s;
+}
+
+.problem-meta {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.difficulty {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border: 1px solid;
+  font-weight: 500;
+}
+
+.difficulty.easy { color: var(--easy); border-color: rgba(93, 128, 82, 0.4); background: rgba(93, 128, 82, 0.06); }
+.difficulty.medium { color: var(--medium); border-color: rgba(163, 116, 42, 0.4); background: rgba(163, 116, 42, 0.06); }
+.difficulty.hard { color: var(--hard); border-color: rgba(178, 85, 64, 0.4); background: rgba(178, 85, 64, 0.06); }
+
+.premium-tag {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  padding: 3px 6px;
+  color: var(--text-3);
+  border: 1px solid var(--border-2);
+  text-transform: uppercase;
+}
+
+.external-link {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-3);
+  transition: all 0.15s;
+  border-radius: 4px;
+}
+
+.external-link:hover {
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.problem-expand {
+  display: none;
+  padding: 8px 24px 24px 64px;
+  background: var(--bg-2);
+  border-top: 1px solid var(--border);
+}
+
+.problem.expanded .problem-expand {
+  display: block;
+}
+
+.checklist-title {
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--text-3);
+  margin: 8px 0 12px;
+}
+
+.checklist {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 24px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 720px) {
+  .checklist { grid-template-columns: 1fr; }
+}
+
+.check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--text-2);
+  cursor: pointer;
+  padding: 4px 0;
+}
+
+.check-item input {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 14px; height: 14px;
+  border: 1px solid var(--border-2);
+  background: transparent;
+  position: relative;
+  cursor: pointer;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.check-item input:checked {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.check-item input:checked::after {
+  content: "✓";
+  position: absolute;
+  inset: -1px 0 0 1px;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.check-item input:checked + span { color: var(--text-3); text-decoration: line-through; }
+
+.notes-area {
+  width: 100%;
+  background: #fdfaf0;
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 10px 14px;
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 1.6;
+  resize: vertical;
+  min-height: 64px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.notes-area:focus { border-color: var(--accent-dim); }
+
+/* ─────── Sidebar Cards ─────── */
+.sidebar-card {
+  margin-bottom: 40px;
+}
+
+.sidebar-card-title {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.mental-list {
+  list-style: none;
+  padding: 0;
+}
+
+.mental-list li {
+  font-size: 13px;
+  color: var(--text-2);
+  padding: 8px 0 8px 24px;
+  border-bottom: 1px dotted var(--border);
+  position: relative;
+  line-height: 1.55;
+}
+
+.mental-list li::before {
+  content: counter(mental-counter, decimal-leading-zero);
+  counter-increment: mental-counter;
+  position: absolute;
+  left: 0;
+  top: 8px;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--accent);
+}
+
+.mental-list { counter-reset: mental-counter; }
+
+.mental-list li:last-child { border-bottom: none; }
+
+/* ─────── Template Code ─────── */
+.template-block {
+  background: #f0ead8;
+  border: 1px solid var(--border);
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.template-header {
+  padding: 10px 16px;
+  background: #e6dfc8;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--text-3);
+}
+
+.template-header-lang {
+  color: var(--accent);
+}
+
+.template-code {
+  padding: 16px;
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 1.65;
+  color: var(--text);
+  overflow-x: auto;
+  white-space: pre;
+  background: #f0ead8;
+}
+
+.template-code .kw { color: #8a5e1a; }
+.template-code .fn { color: #6b4f2a; font-weight: 500; }
+.template-code .str { color: #3a5f2e; }
+.template-code .num { color: #2f5878; }
+.template-code .cmt { color: #8a8270; font-style: italic; }
+.template-code .typ { color: #7d3f2a; }
+
+.copy-btn {
+  background: transparent;
+  border: 1px solid var(--border-2);
+  color: var(--text-3);
+  padding: 3px 8px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.copy-btn:hover { color: var(--accent); border-color: var(--accent-dim); }
+
+/* ─────── Schedule ─────── */
+.schedule-section {
+  margin-top: 80px;
+  padding-top: 48px;
+  border-top: 1px solid var(--border);
+}
+
+.schedule-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+
+@media (max-width: 720px) {
+  .schedule-grid { grid-template-columns: 1fr; }
+}
+
+.schedule-card {
+  background: var(--bg);
+  padding: 28px 24px;
+}
+
+.schedule-day {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.schedule-title {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.schedule-block {
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px dotted var(--border);
+  font-size: 13px;
+  color: var(--text-2);
+}
+
+.schedule-block:last-child { border-bottom: none; }
+
+.schedule-block-time {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text);
+  margin-bottom: 6px;
+  letter-spacing: 0.06em;
+}
+
+/* ─────── Stats Dashboard ─────── */
+.dashboard-section {
+  margin-top: 80px;
+  padding-top: 48px;
+  border-top: 1px solid var(--border);
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+
+@media (max-width: 720px) {
+  .dashboard-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.dash-card {
+  background: var(--bg);
+  padding: 24px;
+}
+
+.dash-card-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--text-3);
+  margin-bottom: 12px;
+}
+
+.dash-card-value {
+  font-family: var(--serif);
+  font-size: 44px;
+  font-weight: 300;
+  line-height: 1;
+  color: var(--text);
+  margin-bottom: 6px;
+  font-variation-settings: "opsz" 144;
+}
+
+.dash-card-sub {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-2);
+}
+
+.dash-card-sub .accent { color: var(--accent); }
+
+/* ─────── Footer ─────── */
+.footer {
+  margin-top: 96px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--text-3);
+}
+
+.footer em {
+  color: var(--accent);
+  font-style: normal;
+}
+
+.reset-btn {
+  background: transparent;
+  border: 1px solid var(--border-2);
+  color: var(--text-3);
+  padding: 6px 14px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: 16px;
+  transition: all 0.15s;
+}
+
+.reset-btn:hover {
+  color: var(--red);
+  border-color: var(--red);
+}
+
+/* ─────── Scrollbar ─────── */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-2); }
+::-webkit-scrollbar-thumb { background: var(--border-2); }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-dim); }
+</style>
+</head>
+<body>
+
+<!-- ═══════════ TOP BAR ═══════════ -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <span class="brand-dot"></span>
+      <span class="brand-title">Deep Work</span>
+      <span>· 十週刀口計畫</span>
+    </div>
+    <div class="topbar-stats">
+      <div class="topbar-stat">
+        <span class="topbar-stat-label">Week</span>
+        <span class="topbar-stat-value" id="topWeek">01 / 08</span>
+      </div>
+      <div class="topbar-stat">
+        <span class="topbar-stat-label">Solved</span>
+        <span class="topbar-stat-value" id="topSolved">0</span>
+      </div>
+      <div class="topbar-stat">
+        <span class="topbar-stat-label">Progress</span>
+        <div class="progress-bar"><div class="progress-bar-fill" id="topProgress" style="width: 0%"></div></div>
+        <span class="topbar-stat-value" id="topPct">0%</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ HERO ═══════════ -->
+<div class="container">
+  <section class="hero">
+    <div class="hero-eyebrow">G · Coding Interview · September 2026</div>
+    <h1 class="hero-title">The <em>cutting edge</em>,<br>ten weeks.</h1>
+    <p class="hero-subtitle">
+      Stop stacking volume on Easy. Pattern over count. Hard tolerance up.
+      每題的完成標準不是 AC，是能用嘴解釋 invariant、state、proof intuition。
+    </p>
+    <div class="hero-meta">
+      <span>Started <strong id="startDate">—</strong></span>
+      <span>Target <strong>Sep 2026</strong></span>
+      <span>Days elapsed <strong id="daysElapsed">0</strong></span>
+      <span>Cadence <strong>5 · 2 split</strong></span>
+    </div>
+  </section>
+
+  <!-- ═══════════ STRATEGY ═══════════ -->
+  <section class="strategy-section">
+    <div class="section-label">strategy · the rules</div>
+    <div class="strategy-grid">
+      <div class="strategy-card">
+        <div class="strategy-card-num">01</div>
+        <div class="strategy-card-title">Pattern over volume</div>
+        <div class="strategy-card-body">
+          已刷 159 題，瓶頸不在「會不會寫 code」，是中高難度的 pattern 整合與 Hard 耐受度。停止追求題數。每題追求 invariant / state / template 三件套產出。
+        </div>
+      </div>
+      <div class="strategy-card">
+        <div class="strategy-card-num">02</div>
+        <div class="strategy-card-title">Mother problem first</div>
+        <div class="strategy-card-body">
+          每週末挑 2 題母題慢做，把 mental model 打進去。平日做變形題只是在驗證模板。沒有母題就沒有變形，順序顛倒就是浪費。
+        </div>
+      </div>
+      <div class="strategy-card">
+        <div class="strategy-card-num">03</div>
+        <div class="strategy-card-title">Seven questions or it didn't count</div>
+        <div class="strategy-card-body">
+          每題做完要能回答七個問題（pattern / 暴力 / bottleneck / optimal / invariant / 複雜度 / edge case）。AC 不算完成。勾完七題才算。
+        </div>
+      </div>
+    </div>
+    <div class="ratio-display">
+      <div class="ratio-label">Target Mix</div>
+      <div class="ratio-bar">
+        <div class="ratio-seg-easy"></div>
+        <div class="ratio-seg-medium"></div>
+        <div class="ratio-seg-hard"></div>
+      </div>
+      <div class="ratio-legend">
+        <div class="ratio-legend-item"><span class="ratio-dot" style="background:var(--easy)"></span>Easy 10%</div>
+        <div class="ratio-legend-item"><span class="ratio-dot" style="background:var(--medium)"></span>Medium 60%</div>
+        <div class="ratio-legend-item"><span class="ratio-dot" style="background:var(--hard)"></span>Hard 30%</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ WEEKS ═══════════ -->
+  <section class="weeks-section">
+    <div class="section-label">the plan · ten weeks</div>
+    <div class="weeks-nav" id="weeksNav"></div>
+    <div id="weekPanels"></div>
+  </section>
+
+  <!-- ═══════════ SCHEDULE ═══════════ -->
+  <section class="schedule-section">
+    <div class="section-label">cadence · time budget</div>
+    <div class="schedule-grid">
+      <div class="schedule-card">
+        <div class="schedule-day">Saturday</div>
+        <div class="schedule-title">Mother problems, slow</div>
+        <div class="schedule-block">
+          <div class="schedule-block-time">AM · 2.5h</div>
+          看主題 mental model。第一題母題：先暴力、再 optimal。寫下 invariant。
+        </div>
+        <div class="schedule-block">
+          <div class="schedule-block-time">PM · 2.5h</div>
+          第二題母題 + 一題相似變形。整理 common bugs。
+        </div>
+      </div>
+      <div class="schedule-card">
+        <div class="schedule-day">Sunday</div>
+        <div class="schedule-title">Variant burst</div>
+        <div class="schedule-block">
+          <div class="schedule-block-time">AM · 2.5h</div>
+          重寫週六最重要的一題。做 2 題變形。
+        </div>
+        <div class="schedule-block">
+          <div class="schedule-block-time">PM · 2.5h</div>
+          再 2 題變形。整理本週模板。產出一句話 mental model。
+        </div>
+      </div>
+      <div class="schedule-card">
+        <div class="schedule-day">Weekdays</div>
+        <div class="schedule-title">Don&rsquo;t be greedy</div>
+        <div class="schedule-block">
+          <div class="schedule-block-time">Mon — Thu · 45-60min</div>
+          每天一題同主題。慢就慢，不求快。
+        </div>
+        <div class="schedule-block">
+          <div class="schedule-block-time">Friday · 1h</div>
+          重寫本週最重要 1 題。做一次 35 分鐘 mock。
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ DASHBOARD ═══════════ -->
+  <section class="dashboard-section">
+    <div class="section-label">dashboard · vitals</div>
+    <div class="dashboard-grid">
+      <div class="dash-card">
+        <div class="dash-card-label">Total Solved</div>
+        <div class="dash-card-value" id="statSolved">0</div>
+        <div class="dash-card-sub">of <span id="statTotal">0</span> problems</div>
+      </div>
+      <div class="dash-card">
+        <div class="dash-card-label">Hard Solved</div>
+        <div class="dash-card-value" id="statHard">0</div>
+        <div class="dash-card-sub">target <span class="accent">30%</span> of mix</div>
+      </div>
+      <div class="dash-card">
+        <div class="dash-card-label">Mastered</div>
+        <div class="dash-card-value" id="statMastered">0</div>
+        <div class="dash-card-sub">7-question complete</div>
+      </div>
+      <div class="dash-card">
+        <div class="dash-card-label">In Progress</div>
+        <div class="dash-card-value" id="statAttempting">0</div>
+        <div class="dash-card-sub">currently working</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">
+    <div>Tap the circle to cycle status: <em>○ none → ◐ attempting → ● solved → ★ mastered</em></div>
+    <div style="margin-top:8px">All progress saved locally in your browser. No server.</div>
+    <button class="reset-btn" onclick="if(confirm('重置所有進度？此操作無法復原。')){localStorage.removeItem('deepwork-v1');location.reload();}">Reset All Progress</button>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════════
+//   DATA
+// ═══════════════════════════════════════════════════════════
+const PLAN = [
+  {
+    n: 1, slug: "sliding-window",
+    title: "Sliding Window / Two Pointers",
+    titleZh: "滑動窗口 / 雙指針",
+    mantra: "valid 後 shrink、invalid 後 shrink、fixed-size 雙計數 — 三種變形打通就贏。",
+    priority: "Minimum Window Substring · Sliding Window Maximum",
+    mental: [
+      "fixed window vs variable window",
+      "valid window vs invalid window",
+      "什麼時候 expand right、什麼時候 shrink left",
+      "answer 在 shrink 前、shrink 中、還是 expand 後更新",
+      "count map 代表 need 還是 window"
+    ],
+    weekend: [
+      { slug: "minimum-window-substring", name: "Minimum Window Substring", diff: "Hard" },
+      { slug: "sliding-window-maximum", name: "Sliding Window Maximum", diff: "Hard" },
+      { slug: "longest-substring-without-repeating-characters", name: "Longest Substring Without Repeating Characters", diff: "Medium" },
+      { slug: "longest-repeating-character-replacement", name: "Longest Repeating Character Replacement", diff: "Medium" }
+    ],
+    weekday: [
+      { slug: "permutation-in-string", name: "Permutation in String", diff: "Medium" },
+      { slug: "find-all-anagrams-in-a-string", name: "Find All Anagrams in a String", diff: "Medium" },
+      { slug: "minimum-size-subarray-sum", name: "Minimum Size Subarray Sum", diff: "Medium" },
+      { slug: "fruit-into-baskets", name: "Fruit Into Baskets", diff: "Medium" },
+      { slug: "substring-with-concatenation-of-all-words", name: "Substring with Concatenation of All Words", diff: "Hard" }
+    ],
+    stretch: [
+      { slug: "longest-substring-with-at-most-k-distinct-characters", name: "Longest Substring with At Most K Distinct Characters", diff: "Medium", premium: true },
+      { slug: "subarrays-with-k-different-integers", name: "Subarrays with K Different Integers", diff: "Hard" },
+      { slug: "max-consecutive-ones-iii", name: "Max Consecutive Ones III", diff: "Medium" },
+      { slug: "replace-the-substring-for-balanced-string", name: "Replace the Substring for Balanced String", diff: "Medium" }
+    ],
+    template: {
+      title: "Variable-size sliding window",
+      code: `<span class="typ">int</span> <span class="fn">slidingWindow</span>(string s, string t) {
+    <span class="typ">unordered_map</span>&lt;<span class="typ">char</span>, <span class="typ">int</span>&gt; need, window;
+    <span class="kw">for</span> (<span class="typ">char</span> c : t) need[c]++;
+
+    <span class="typ">int</span> left = <span class="num">0</span>, valid = <span class="num">0</span>;
+    <span class="typ">int</span> ans = INT_MAX, start = <span class="num">0</span>;
+
+    <span class="kw">for</span> (<span class="typ">int</span> right = <span class="num">0</span>; right &lt; s.size(); right++) {
+        <span class="typ">char</span> c = s[right];
+        <span class="kw">if</span> (need.count(c)) {
+            window[c]++;
+            <span class="kw">if</span> (window[c] == need[c]) valid++;
+        }
+        <span class="cmt">// shrink when valid</span>
+        <span class="kw">while</span> (valid == need.size()) {
+            <span class="kw">if</span> (right - left + <span class="num">1</span> &lt; ans) {
+                ans = right - left + <span class="num">1</span>;
+                start = left;
+            }
+            <span class="typ">char</span> d = s[left++];
+            <span class="kw">if</span> (need.count(d)) {
+                <span class="kw">if</span> (window[d] == need[d]) valid--;
+                window[d]--;
+            }
+        }
+    }
+    <span class="kw">return</span> ans == INT_MAX ? <span class="str">""</span> : s.substr(start, ans);
+}`
+    }
+  },
+
+  {
+    n: 2, slug: "graph",
+    title: "Graph Modeling / BFS / Topo",
+    titleZh: "圖建模 / BFS / 拓撲排序",
+    mantra: "node 是什麼？edge 是什麼？visited 代表什麼？— 建模問對了，演算法就直白了。",
+    priority: "Word Ladder · Alien Dictionary",
+    mental: [
+      "node / edge / visited 的語意是什麼",
+      "BFS level 代表 distance 還是 layer",
+      "什麼時候需要 indegree（topo）",
+      "什麼時候是 shortest path（BFS）vs Dijkstra",
+      "Union-Find 適合靜態 connectivity，圖 BFS 適合動態探索"
+    ],
+    weekend: [
+      { slug: "word-ladder", name: "Word Ladder", diff: "Hard" },
+      { slug: "course-schedule", name: "Course Schedule", diff: "Medium" },
+      { slug: "course-schedule-ii", name: "Course Schedule II", diff: "Medium" },
+      { slug: "alien-dictionary", name: "Alien Dictionary", diff: "Hard", premium: true }
+    ],
+    weekday: [
+      { slug: "number-of-islands", name: "Number of Islands", diff: "Medium" },
+      { slug: "clone-graph", name: "Clone Graph", diff: "Medium" },
+      { slug: "pacific-atlantic-water-flow", name: "Pacific Atlantic Water Flow", diff: "Medium" },
+      { slug: "rotting-oranges", name: "Rotting Oranges", diff: "Medium" },
+      { slug: "shortest-path-in-binary-matrix", name: "Shortest Path in Binary Matrix", diff: "Medium" },
+      { slug: "network-delay-time", name: "Network Delay Time", diff: "Medium" }
+    ],
+    stretch: [
+      { slug: "cheapest-flights-within-k-stops", name: "Cheapest Flights Within K Stops", diff: "Medium" },
+      { slug: "reconstruct-itinerary", name: "Reconstruct Itinerary", diff: "Hard" },
+      { slug: "word-ladder-ii", name: "Word Ladder II", diff: "Hard" },
+      { slug: "accounts-merge", name: "Accounts Merge", diff: "Medium" },
+      { slug: "redundant-connection", name: "Redundant Connection", diff: "Medium" },
+      { slug: "bus-routes", name: "Bus Routes", diff: "Hard" },
+      { slug: "walls-and-gates", name: "Walls and Gates", diff: "Medium", premium: true },
+      { slug: "surrounded-regions", name: "Surrounded Regions", diff: "Medium" }
+    ],
+    template: {
+      title: "Topological sort (Kahn)",
+      code: `<span class="typ">vector</span>&lt;<span class="typ">int</span>&gt; <span class="fn">topoSort</span>(<span class="typ">int</span> n, <span class="typ">vector</span>&lt;<span class="typ">vector</span>&lt;<span class="typ">int</span>&gt;&gt;&amp; edges) {
+    <span class="typ">vector</span>&lt;<span class="typ">vector</span>&lt;<span class="typ">int</span>&gt;&gt; adj(n);
+    <span class="typ">vector</span>&lt;<span class="typ">int</span>&gt; indeg(n, <span class="num">0</span>);
+    <span class="kw">for</span> (<span class="kw">auto</span>&amp; e : edges) {
+        adj[e[<span class="num">0</span>]].push_back(e[<span class="num">1</span>]);
+        indeg[e[<span class="num">1</span>]]++;
+    }
+    <span class="typ">queue</span>&lt;<span class="typ">int</span>&gt; q;
+    <span class="kw">for</span> (<span class="typ">int</span> i = <span class="num">0</span>; i &lt; n; i++)
+        <span class="kw">if</span> (indeg[i] == <span class="num">0</span>) q.push(i);
+
+    <span class="typ">vector</span>&lt;<span class="typ">int</span>&gt; order;
+    <span class="kw">while</span> (!q.empty()) {
+        <span class="typ">int</span> u = q.front(); q.pop();
+        order.push_back(u);
+        <span class="kw">for</span> (<span class="typ">int</span> v : adj[u])
+            <span class="kw">if</span> (--indeg[v] == <span class="num">0</span>) q.push(v);
+    }
+    <span class="kw">return</span> order.size() == n ? order : <span class="typ">vector</span>&lt;<span class="typ">int</span>&gt;{}; <span class="cmt">// cycle if empty</span>
+}`
+    }
+  },
+
+  {
+    n: 3, slug: "heap",
+    title: "Heap / Priority Queue",
+    titleZh: "堆 / 優先佇列",
+    mantra: "Top-K 用 size-k 的反向堆；K-way merge 每次拿最小 candidate；median 用兩個堆。",
+    priority: "Find Median from Data Stream · Merge k Sorted Lists",
+    mental: [
+      "priority_queue 預設 max heap（C++）",
+      "min heap：priority_queue&lt;T, vector&lt;T&gt;, greater&lt;T&gt;&gt;",
+      "Top K largest → size-k min heap；Top K smallest → size-k max heap",
+      "K-way merge：每路放一個 candidate，pop 最小，push 該路下一個",
+      "streaming median：lo (max heap) + hi (min heap)，size 差不超過 1"
+    ],
+    weekend: [
+      { slug: "merge-k-sorted-lists", name: "Merge k Sorted Lists", diff: "Hard" },
+      { slug: "find-median-from-data-stream", name: "Find Median from Data Stream", diff: "Hard" },
+      { slug: "top-k-frequent-elements", name: "Top K Frequent Elements", diff: "Medium" },
+      { slug: "kth-largest-element-in-an-array", name: "Kth Largest Element in an Array", diff: "Medium" }
+    ],
+    weekday: [
+      { slug: "k-closest-points-to-origin", name: "K Closest Points to Origin", diff: "Medium" },
+      { slug: "meeting-rooms-ii", name: "Meeting Rooms II", diff: "Medium", premium: true },
+      { slug: "task-scheduler", name: "Task Scheduler", diff: "Medium" },
+      { slug: "smallest-range-covering-elements-from-k-lists", name: "Smallest Range Covering Elements from K Lists", diff: "Hard" },
+      { slug: "reorganize-string", name: "Reorganize String", diff: "Medium" }
+    ],
+    stretch: [
+      { slug: "sliding-window-median", name: "Sliding Window Median", diff: "Hard" },
+      { slug: "kth-smallest-element-in-a-sorted-matrix", name: "Kth Smallest Element in a Sorted Matrix", diff: "Medium" },
+      { slug: "find-k-pairs-with-smallest-sums", name: "Find K Pairs with Smallest Sums", diff: "Medium" },
+      { slug: "ipo", name: "IPO", diff: "Hard" },
+      { slug: "furthest-building-you-can-reach", name: "Furthest Building You Can Reach", diff: "Medium" }
+    ],
+    template: {
+      title: "Two-heap streaming median",
+      code: `<span class="kw">class</span> <span class="typ">MedianFinder</span> {
+    <span class="typ">priority_queue</span>&lt;<span class="typ">int</span>&gt; lo;                                <span class="cmt">// max heap, lower half</span>
+    <span class="typ">priority_queue</span>&lt;<span class="typ">int</span>, <span class="typ">vector</span>&lt;<span class="typ">int</span>&gt;, <span class="typ">greater</span>&lt;&gt;&gt; hi; <span class="cmt">// min heap, upper half</span>
+<span class="kw">public</span>:
+    <span class="typ">void</span> <span class="fn">addNum</span>(<span class="typ">int</span> num) {
+        lo.push(num);
+        hi.push(lo.top()); lo.pop();      <span class="cmt">// balance: largest of lo → hi</span>
+        <span class="kw">if</span> (hi.size() &gt; lo.size()) {     <span class="cmt">// keep |lo| ≥ |hi|</span>
+            lo.push(hi.top()); hi.pop();
+        }
+    }
+    <span class="typ">double</span> <span class="fn">findMedian</span>() {
+        <span class="kw">return</span> lo.size() &gt; hi.size()
+            ? lo.top()
+            : (lo.top() + hi.top()) / <span class="num">2.0</span>;
+    }
+};`
+    }
+  },
+
+  {
+    n: 4, slug: "tree",
+    title: "Tree DFS Return Value / Tree DP",
+    titleZh: "樹狀 DFS 回傳值 / 樹狀 DP",
+    mantra: "return value 給 parent 用；global answer 給整棵樹用。兩件事別混。",
+    priority: "Binary Tree Maximum Path Sum · Serialize/Deserialize",
+    mental: [
+      "DFS function 的語意：對「以 node 為根的子樹」算什麼",
+      "return value 是給 parent 看的；global answer 是整棵樹的",
+      "path 題：return 通常只能走一邊，但 answer 可以左+右+node",
+      "BST 性質：中序遞增；validate 要傳上下界",
+      "Tree DP：state 通常分 take(node) / skip(node)"
+    ],
+    weekend: [
+      { slug: "binary-tree-maximum-path-sum", name: "Binary Tree Maximum Path Sum", diff: "Hard" },
+      { slug: "serialize-and-deserialize-binary-tree", name: "Serialize and Deserialize Binary Tree", diff: "Hard" },
+      { slug: "lowest-common-ancestor-of-a-binary-tree", name: "Lowest Common Ancestor of a Binary Tree", diff: "Medium" },
+      { slug: "diameter-of-binary-tree", name: "Diameter of Binary Tree", diff: "Easy" }
+    ],
+    weekday: [
+      { slug: "validate-binary-search-tree", name: "Validate Binary Search Tree", diff: "Medium" },
+      { slug: "kth-smallest-element-in-a-bst", name: "Kth Smallest Element in a BST", diff: "Medium" },
+      { slug: "construct-binary-tree-from-preorder-and-inorder-traversal", name: "Construct Binary Tree from Preorder and Inorder Traversal", diff: "Medium" },
+      { slug: "path-sum-ii", name: "Path Sum II", diff: "Medium" },
+      { slug: "binary-tree-right-side-view", name: "Binary Tree Right Side View", diff: "Medium" }
+    ],
+    stretch: [
+      { slug: "house-robber-iii", name: "House Robber III", diff: "Medium" },
+      { slug: "sum-root-to-leaf-numbers", name: "Sum Root to Leaf Numbers", diff: "Medium" },
+      { slug: "binary-tree-cameras", name: "Binary Tree Cameras", diff: "Hard" },
+      { slug: "all-nodes-distance-k-in-binary-tree", name: "All Nodes Distance K in Binary Tree", diff: "Medium" },
+      { slug: "vertical-order-traversal-of-a-binary-tree", name: "Vertical Order Traversal of a Binary Tree", diff: "Hard" },
+      { slug: "count-complete-tree-nodes", name: "Count Complete Tree Nodes", diff: "Easy" }
+    ],
+    template: {
+      title: "DFS with return-value + global state",
+      code: `<span class="typ">int</span> ans = INT_MIN;
+<span class="typ">function</span>&lt;<span class="typ">int</span>(TreeNode*)&gt; dfs = [&amp;](TreeNode* node) -&gt; <span class="typ">int</span> {
+    <span class="kw">if</span> (!node) <span class="kw">return</span> <span class="num">0</span>;
+    <span class="typ">int</span> l = max(<span class="num">0</span>, dfs(node-&gt;left));   <span class="cmt">// drop negative gain</span>
+    <span class="typ">int</span> r = max(<span class="num">0</span>, dfs(node-&gt;right));
+    ans = max(ans, node-&gt;val + l + r);    <span class="cmt">// update GLOBAL: can use both sides</span>
+    <span class="kw">return</span> node-&gt;val + max(l, r);          <span class="cmt">// RETURN: parent can only extend one side</span>
+};
+dfs(root);`
+    }
+  },
+
+  {
+    n: 5, slug: "backtracking",
+    title: "Backtracking / Pruning",
+    titleZh: "回溯 / 搜尋空間剪枝",
+    mantra: "path、choice、prune 是回溯的三條腿。差一條就跌倒。",
+    priority: "Word Search · Combination Sum",
+    mental: [
+      "path：當前已選的東西",
+      "choice：當前一層可以做什麼選擇",
+      "start index：避免重複組合（subset/combo）",
+      "used[] array：避免重複排列（permutation with duplicates）",
+      "什麼時候要 undo choice（pop_back），什麼時候 pass by value 不用 undo",
+      "排序 + 跳過相等元素 → 去重"
+    ],
+    weekend: [
+      { slug: "subsets", name: "Subsets", diff: "Medium" },
+      { slug: "permutations", name: "Permutations", diff: "Medium" },
+      { slug: "combination-sum", name: "Combination Sum", diff: "Medium" },
+      { slug: "word-search", name: "Word Search", diff: "Medium" }
+    ],
+    weekday: [
+      { slug: "palindrome-partitioning", name: "Palindrome Partitioning", diff: "Medium" },
+      { slug: "letter-combinations-of-a-phone-number", name: "Letter Combinations of a Phone Number", diff: "Medium" },
+      { slug: "n-queens", name: "N-Queens", diff: "Hard" },
+      { slug: "generate-parentheses", name: "Generate Parentheses", diff: "Medium" },
+      { slug: "sudoku-solver", name: "Sudoku Solver", diff: "Hard" }
+    ],
+    stretch: [
+      { slug: "word-break-ii", name: "Word Break II", diff: "Hard" },
+      { slug: "restore-ip-addresses", name: "Restore IP Addresses", diff: "Medium" },
+      { slug: "combination-sum-ii", name: "Combination Sum II", diff: "Medium" },
+      { slug: "permutations-ii", name: "Permutations II", diff: "Medium" },
+      { slug: "expression-add-operators", name: "Expression Add Operators", diff: "Hard" },
+      { slug: "remove-invalid-parentheses", name: "Remove Invalid Parentheses", diff: "Hard" }
+    ],
+    template: {
+      title: "Backtracking with start index",
+      code: `<span class="typ">vector</span>&lt;<span class="typ">vector</span>&lt;<span class="typ">int</span>&gt;&gt; ans;
+<span class="typ">vector</span>&lt;<span class="typ">int</span>&gt; path;
+
+<span class="typ">void</span> <span class="fn">backtrack</span>(<span class="typ">vector</span>&lt;<span class="typ">int</span>&gt;&amp; nums, <span class="typ">int</span> start, <span class="typ">int</span> target) {
+    <span class="kw">if</span> (target == <span class="num">0</span>) { ans.push_back(path); <span class="kw">return</span>; }
+    <span class="kw">if</span> (target &lt; <span class="num">0</span>) <span class="kw">return</span>;             <span class="cmt">// prune</span>
+
+    <span class="kw">for</span> (<span class="typ">int</span> i = start; i &lt; nums.size(); i++) {
+        <span class="kw">if</span> (i &gt; start &amp;&amp; nums[i] == nums[i-<span class="num">1</span>]) <span class="kw">continue</span>;  <span class="cmt">// dedupe</span>
+        path.push_back(nums[i]);
+        backtrack(nums, i + <span class="num">1</span>, target - nums[i]);            <span class="cmt">// i+1 if no reuse, i if reuse</span>
+        path.pop_back();
+    }
+}`
+    }
+  },
+
+  {
+    n: 6, slug: "dp",
+    title: "DP: from Memo to Table",
+    titleZh: "動態規劃：從備忘到表格",
+    mantra: "先寫 dfs + memo，跑通了再翻成 table。順序錯了就在亂猜 transition。",
+    priority: "Edit Distance · Word Break",
+    mental: [
+      "dp state 是什麼（下標 + 必要狀態）",
+      "choice：站在 state(i) 可以做什麼動作",
+      "transition：從哪些 state 來",
+      "base case：最小 state 答案",
+      "answer 在哪個 state（不一定是 dp[n][m]）",
+      "top-down vs bottom-up：先用 top-down 推 state，再轉 bottom-up"
+    ],
+    weekend: [
+      { slug: "house-robber", name: "House Robber", diff: "Medium" },
+      { slug: "coin-change", name: "Coin Change", diff: "Medium" },
+      { slug: "word-break", name: "Word Break", diff: "Medium" },
+      { slug: "edit-distance", name: "Edit Distance", diff: "Medium" }
+    ],
+    weekday: [
+      { slug: "decode-ways", name: "Decode Ways", diff: "Medium" },
+      { slug: "longest-increasing-subsequence", name: "Longest Increasing Subsequence", diff: "Medium" },
+      { slug: "longest-common-subsequence", name: "Longest Common Subsequence", diff: "Medium" },
+      { slug: "unique-paths", name: "Unique Paths", diff: "Medium" },
+      { slug: "regular-expression-matching", name: "Regular Expression Matching", diff: "Hard" }
+    ],
+    stretch: [
+      { slug: "maximum-subarray", name: "Maximum Subarray", diff: "Medium" },
+      { slug: "longest-palindromic-substring", name: "Longest Palindromic Substring", diff: "Medium" },
+      { slug: "best-time-to-buy-and-sell-stock-with-cooldown", name: "Best Time to Buy and Sell Stock with Cooldown", diff: "Medium" },
+      { slug: "partition-equal-subset-sum", name: "Partition Equal Subset Sum", diff: "Medium" },
+      { slug: "burst-balloons", name: "Burst Balloons", diff: "Hard" },
+      { slug: "longest-string-chain", name: "Longest String Chain", diff: "Medium" },
+      { slug: "maximum-product-subarray", name: "Maximum Product Subarray", diff: "Medium" },
+      { slug: "longest-increasing-path-in-a-matrix", name: "Longest Increasing Path in a Matrix", diff: "Hard" },
+      { slug: "interleaving-string", name: "Interleaving String", diff: "Medium" }
+    ],
+    template: {
+      title: "Top-down DP with memo",
+      code: `<span class="typ">vector</span>&lt;<span class="typ">vector</span>&lt;<span class="typ">int</span>&gt;&gt; memo;
+
+<span class="typ">int</span> <span class="fn">dp</span>(<span class="typ">int</span> i, <span class="typ">int</span> j, string&amp; a, string&amp; b) {
+    <span class="kw">if</span> (i == a.size()) <span class="kw">return</span> b.size() - j;        <span class="cmt">// base</span>
+    <span class="kw">if</span> (j == b.size()) <span class="kw">return</span> a.size() - i;
+    <span class="kw">if</span> (memo[i][j] != -<span class="num">1</span>) <span class="kw">return</span> memo[i][j];
+
+    <span class="typ">int</span> res;
+    <span class="kw">if</span> (a[i] == b[j]) {
+        res = dp(i + <span class="num">1</span>, j + <span class="num">1</span>, a, b);                <span class="cmt">// no edit</span>
+    } <span class="kw">else</span> {
+        res = <span class="num">1</span> + min({
+            dp(i + <span class="num">1</span>, j, a, b),     <span class="cmt">// delete</span>
+            dp(i, j + <span class="num">1</span>, a, b),     <span class="cmt">// insert</span>
+            dp(i + <span class="num">1</span>, j + <span class="num">1</span>, a, b)  <span class="cmt">// replace</span>
+        });
+    }
+    <span class="kw">return</span> memo[i][j] = res;
+}`
+    }
+  },
+
+  {
+    n: 7, slug: "binary-search",
+    title: "Binary Search on Answer",
+    titleZh: "二分搜尋（含答案二分）",
+    mantra: "找值還是找邊界？predicate 單調嗎？mid 符合條件要往哪邊收？",
+    priority: "Split Array Largest Sum",
+    mental: [
+      "我要找 exact value 還是 boundary（first true / last false）",
+      "predicate(x) 是否單調（true 一定在右邊或左邊）",
+      "left / right 是 inclusive [l, r] 還是 exclusive [l, r)",
+      "mid 符合條件時，hi = mid 還是 lo = mid + 1",
+      "loop 結束時，answer 是 left 還是 right（兩種寫法不同）",
+      "binary search on answer：把「最小化最大值」轉成 feasibility"
+    ],
+    weekend: [
+      { slug: "search-in-rotated-sorted-array", name: "Search in Rotated Sorted Array", diff: "Medium" },
+      { slug: "find-minimum-in-rotated-sorted-array", name: "Find Minimum in Rotated Sorted Array", diff: "Medium" },
+      { slug: "koko-eating-bananas", name: "Koko Eating Bananas", diff: "Medium" },
+      { slug: "split-array-largest-sum", name: "Split Array Largest Sum", diff: "Hard" }
+    ],
+    weekday: [
+      { slug: "median-of-two-sorted-arrays", name: "Median of Two Sorted Arrays", diff: "Hard" },
+      { slug: "capacity-to-ship-packages-within-d-days", name: "Capacity To Ship Packages Within D Days", diff: "Medium" },
+      { slug: "find-peak-element", name: "Find Peak Element", diff: "Medium" },
+      { slug: "time-based-key-value-store", name: "Time Based Key-Value Store", diff: "Medium" },
+      { slug: "search-a-2d-matrix-ii", name: "Search a 2D Matrix II", diff: "Medium" }
+    ],
+    stretch: [
+      { slug: "find-first-and-last-position-of-element-in-sorted-array", name: "Find First and Last Position of Element", diff: "Medium" },
+      { slug: "kth-smallest-number-in-multiplication-table", name: "Kth Smallest Number in Multiplication Table", diff: "Hard" },
+      { slug: "find-k-th-smallest-pair-distance", name: "Find K-th Smallest Pair Distance", diff: "Hard" },
+      { slug: "find-k-closest-elements", name: "Find K Closest Elements", diff: "Medium" },
+      { slug: "russian-doll-envelopes", name: "Russian Doll Envelopes", diff: "Hard" },
+      { slug: "search-in-rotated-sorted-array-ii", name: "Search in Rotated Sorted Array II", diff: "Medium" }
+    ],
+    template: {
+      title: "Binary search on answer (feasibility)",
+      code: `<span class="typ">int</span> <span class="fn">binarySearchAnswer</span>(<span class="typ">vector</span>&lt;<span class="typ">int</span>&gt;&amp; arr, <span class="typ">int</span> k) {
+    <span class="typ">int</span> lo = <span class="num">1</span>, hi = accumulate(arr.begin(), arr.end(), <span class="num">0</span>);
+
+    <span class="kw">auto</span> feasible = [&amp;](<span class="typ">int</span> cap) -&gt; <span class="typ">bool</span> {
+        <span class="typ">int</span> groups = <span class="num">1</span>, sum = <span class="num">0</span>;
+        <span class="kw">for</span> (<span class="typ">int</span> x : arr) {
+            <span class="kw">if</span> (sum + x &gt; cap) { groups++; sum = x; }
+            <span class="kw">else</span> sum += x;
+        }
+        <span class="kw">return</span> groups &lt;= k;            <span class="cmt">// monotonic: larger cap → easier</span>
+    };
+
+    <span class="kw">while</span> (lo &lt; hi) {                  <span class="cmt">// find smallest feasible</span>
+        <span class="typ">int</span> mid = lo + (hi - lo) / <span class="num">2</span>;
+        <span class="kw">if</span> (feasible(mid)) hi = mid;
+        <span class="kw">else</span> lo = mid + <span class="num">1</span>;
+    }
+    <span class="kw">return</span> lo;
+}`
+    }
+  },
+
+  {
+    n: 8, slug: "monotonic-stack",
+    title: "Monotonic Stack / Queue",
+    titleZh: "單調棧 / 單調隊列",
+    mantra: "存 index，維持嚴格單調。pop 的瞬間就是答案被計算的瞬間。",
+    priority: "Largest Rectangle in Histogram · Sliding Window Maximum",
+    mental: [
+      "stack 裡維持 increasing 還是 decreasing（找 next greater / smaller 對應反方向）",
+      "存 value 還是 index（通常存 index，方便算寬度）",
+      "pop 的時候代表「找到了某個答案」",
+      "answer 在 push 前算還是 pop 時算",
+      "histogram：左右各找一次「比當前矮的」邊界",
+      "monotonic deque（雙端）= sliding window max/min"
+    ],
+    weekend: [
+      { slug: "daily-temperatures", name: "Daily Temperatures", diff: "Medium" },
+      { slug: "next-greater-element-ii", name: "Next Greater Element II", diff: "Medium" },
+      { slug: "largest-rectangle-in-histogram", name: "Largest Rectangle in Histogram", diff: "Hard" },
+      { slug: "trapping-rain-water", name: "Trapping Rain Water", diff: "Hard" }
+    ],
+    weekday: [
+      { slug: "remove-k-digits", name: "Remove K Digits", diff: "Medium" },
+      { slug: "online-stock-span", name: "Online Stock Span", diff: "Medium" },
+      { slug: "sum-of-subarray-minimums", name: "Sum of Subarray Minimums", diff: "Medium" },
+      { slug: "maximal-rectangle", name: "Maximal Rectangle", diff: "Hard" },
+      { slug: "sliding-window-maximum", name: "Sliding Window Maximum", diff: "Hard" }
+    ],
+    stretch: [
+      { slug: "132-pattern", name: "132 Pattern", diff: "Medium" },
+      { slug: "shortest-subarray-with-sum-at-least-k", name: "Shortest Subarray with Sum at Least K", diff: "Hard" },
+      { slug: "maximum-width-ramp", name: "Maximum Width Ramp", diff: "Medium" },
+      { slug: "number-of-visible-people-in-a-queue", name: "Number of Visible People in a Queue", diff: "Hard" },
+      { slug: "asteroid-collision", name: "Asteroid Collision", diff: "Medium" },
+      { slug: "car-fleet", name: "Car Fleet", diff: "Medium" },
+      { slug: "constrained-subsequence-sum", name: "Constrained Subsequence Sum", diff: "Hard" }
+    ],
+    template: {
+      title: "Monotonic stack (next greater)",
+      code: `<span class="typ">vector</span>&lt;<span class="typ">int</span>&gt; <span class="fn">nextGreater</span>(<span class="typ">vector</span>&lt;<span class="typ">int</span>&gt;&amp; nums) {
+    <span class="typ">int</span> n = nums.size();
+    <span class="typ">vector</span>&lt;<span class="typ">int</span>&gt; ans(n, -<span class="num">1</span>);
+    <span class="typ">stack</span>&lt;<span class="typ">int</span>&gt; st;                <span class="cmt">// indices, values DECREASING from bottom to top</span>
+
+    <span class="kw">for</span> (<span class="typ">int</span> i = <span class="num">0</span>; i &lt; n; i++) {
+        <span class="kw">while</span> (!st.empty() &amp;&amp; nums[st.top()] &lt; nums[i]) {
+            ans[st.top()] = nums[i];   <span class="cmt">// the moment we pop = answer found</span>
+            st.pop();
+        }
+        st.push(i);
+    }
+    <span class="kw">return</span> ans;
+}`
+    }
+  },
+
+  {
+    n: 9, slug: "intervals-greedy-prefix",
+    title: "Intervals · Greedy · Prefix Sum",
+    titleZh: "區間 / 貪心 / 前綴和",
+    mantra: "排序、區間端點、累積和 — 把 O(n²) 拉到 O(n log n) 的三條捷徑。",
+    priority: "Merge Intervals · Subarray Sum Equals K",
+    mental: [
+      "區間題：先排序，看排「起點」還是「終點」決定演算法",
+      "貪心題：要能說出 exchange argument，不能只憑直覺",
+      "prefix sum：處理 range sum query，O(1) 查詢",
+      "prefix sum + hash：處理「存在 subarray 滿足條件」，把 O(n²) 拉到 O(n)",
+      "餘數同義性：sum % k 相同的兩個前綴 → 中間段和被 k 整除",
+      "差分數組：區間更新 O(1)，查詢 O(n)，是 prefix sum 的反操作"
+    ],
+    weekend: [
+      { slug: "merge-intervals", name: "Merge Intervals", diff: "Medium" },
+      { slug: "insert-interval", name: "Insert Interval", diff: "Medium" },
+      { slug: "non-overlapping-intervals", name: "Non-overlapping Intervals", diff: "Medium" },
+      { slug: "subarray-sum-equals-k", name: "Subarray Sum Equals K", diff: "Medium" }
+    ],
+    weekday: [
+      { slug: "meeting-rooms", name: "Meeting Rooms", diff: "Easy", premium: true },
+      { slug: "minimum-number-of-arrows-to-burst-balloons", name: "Minimum Number of Arrows to Burst Balloons", diff: "Medium" },
+      { slug: "partition-labels", name: "Partition Labels", diff: "Medium" },
+      { slug: "gas-station", name: "Gas Station", diff: "Medium" },
+      { slug: "jump-game-ii", name: "Jump Game II", diff: "Medium" },
+      { slug: "continuous-subarray-sum", name: "Continuous Subarray Sum", diff: "Medium" }
+    ],
+    stretch: [
+      { slug: "employee-free-time", name: "Employee Free Time", diff: "Hard", premium: true },
+      { slug: "contiguous-array", name: "Contiguous Array", diff: "Medium" },
+      { slug: "maximum-size-subarray-sum-equals-k", name: "Maximum Size Subarray Sum Equals k", diff: "Medium", premium: true },
+      { slug: "range-sum-query-2d-immutable", name: "Range Sum Query 2D Immutable", diff: "Medium" },
+      { slug: "candy", name: "Candy", diff: "Hard" },
+      { slug: "interval-list-intersections", name: "Interval List Intersections", diff: "Medium" }
+    ],
+    template: {
+      title: "Subarray sum equals k (prefix + hash)",
+      code: `<span class="typ">int</span> <span class="fn">subarraySum</span>(<span class="typ">vector</span>&lt;<span class="typ">int</span>&gt;&amp; nums, <span class="typ">int</span> k) {
+    <span class="typ">unordered_map</span>&lt;<span class="typ">int</span>, <span class="typ">int</span>&gt; cnt;   <span class="cmt">// prefix_sum -&gt; #times seen</span>
+    cnt[<span class="num">0</span>] = <span class="num">1</span>;                          <span class="cmt">// empty prefix</span>
+    <span class="typ">int</span> sum = <span class="num">0</span>, ans = <span class="num">0</span>;
+
+    <span class="kw">for</span> (<span class="typ">int</span> x : nums) {
+        sum += x;
+        <span class="kw">if</span> (cnt.count(sum - k))         <span class="cmt">// some prefix s' satisfies sum - s' = k</span>
+            ans += cnt[sum - k];
+        cnt[sum]++;
+    }
+    <span class="kw">return</span> ans;
+}
+
+<span class="cmt">// Same skeleton solves:</span>
+<span class="cmt">//   Continuous Subarray Sum  → key by (sum % k)</span>
+<span class="cmt">//   Contiguous Array         → map 0→-1, treat 0 as -1, look for sum==0</span>
+<span class="cmt">//   Max Subarray Sum Eq K    → store FIRST index of each prefix</span>`
+    }
+  },
+
+  {
+    n: 10, slug: "trie-design-singles",
+    title: "Trie · Design · Critical Singles",
+    titleZh: "Trie / 系統設計 / Google 必考單題",
+    mantra: "這些不屬於任何 pattern family，但 Google 一定考。各個擊破。",
+    priority: "LRU Cache · Word Search II",
+    mental: [
+      "Trie：前綴查詢的標準資料結構，O(L) 查詢",
+      "LRU：hash + 雙向鏈表，hash 指向 list node，得到 O(1) 隨機存取與刪除",
+      "設計題答題順序：先問清 API → 列資料結構 → 估複雜度 → 寫 code",
+      "Random Pick with Weight：累積和 + binary search 找區間",
+      "Decode String：遞迴或棧處理 nested 結構，先把當前處理完再回上一層",
+      "在白板上把 class member 寫清楚比動筆寫邏輯更重要"
+    ],
+    weekend: [
+      { slug: "lru-cache", name: "LRU Cache", diff: "Medium" },
+      { slug: "implement-trie-prefix-tree", name: "Implement Trie (Prefix Tree)", diff: "Medium" },
+      { slug: "word-search-ii", name: "Word Search II", diff: "Hard" },
+      { slug: "random-pick-with-weight", name: "Random Pick with Weight", diff: "Medium" }
+    ],
+    weekday: [
+      { slug: "decode-string", name: "Decode String", diff: "Medium" },
+      { slug: "copy-list-with-random-pointer", name: "Copy List with Random Pointer", diff: "Medium" },
+      { slug: "insert-delete-getrandom-o1", name: "Insert Delete GetRandom O(1)", diff: "Medium" },
+      { slug: "design-add-and-search-words-data-structure", name: "Design Add and Search Words Data Structure", diff: "Medium" },
+      { slug: "basic-calculator", name: "Basic Calculator", diff: "Hard" },
+      { slug: "encode-and-decode-tinyurl", name: "Encode and Decode TinyURL", diff: "Medium" }
+    ],
+    stretch: [
+      { slug: "lfu-cache", name: "LFU Cache", diff: "Hard" },
+      { slug: "stream-of-characters", name: "Stream of Characters", diff: "Hard" },
+      { slug: "robot-room-cleaner", name: "Robot Room Cleaner", diff: "Hard", premium: true },
+      { slug: "number-of-atoms", name: "Number of Atoms", diff: "Hard" },
+      { slug: "design-twitter", name: "Design Twitter", diff: "Medium" },
+      { slug: "snake-game", name: "Design Snake Game", diff: "Medium", premium: true },
+      { slug: "tiny-url", name: "Encode and Decode Strings", diff: "Medium", premium: true }
+    ],
+    template: {
+      title: "LRU Cache (hash + doubly linked list)",
+      code: `<span class="kw">class</span> <span class="typ">LRUCache</span> {
+    <span class="kw">struct</span> Node { <span class="typ">int</span> k, v; Node *prev, *next; };
+    <span class="typ">int</span> cap;
+    <span class="typ">unordered_map</span>&lt;<span class="typ">int</span>, Node*&gt; mp;
+    Node *head, *tail;       <span class="cmt">// dummy head = MRU side, tail = LRU side</span>
+
+    <span class="typ">void</span> <span class="fn">remove</span>(Node* n) { n-&gt;prev-&gt;next = n-&gt;next; n-&gt;next-&gt;prev = n-&gt;prev; }
+    <span class="typ">void</span> <span class="fn">addFront</span>(Node* n) {
+        n-&gt;next = head-&gt;next; n-&gt;prev = head;
+        head-&gt;next-&gt;prev = n; head-&gt;next = n;
+    }
+<span class="kw">public</span>:
+    <span class="fn">LRUCache</span>(<span class="typ">int</span> c) : cap(c) {
+        head = <span class="kw">new</span> Node{}; tail = <span class="kw">new</span> Node{};
+        head-&gt;next = tail; tail-&gt;prev = head;
+    }
+    <span class="typ">int</span> <span class="fn">get</span>(<span class="typ">int</span> k) {
+        <span class="kw">if</span> (!mp.count(k)) <span class="kw">return</span> -<span class="num">1</span>;
+        Node* n = mp[k]; remove(n); addFront(n);   <span class="cmt">// touch -&gt; MRU</span>
+        <span class="kw">return</span> n-&gt;v;
+    }
+    <span class="typ">void</span> <span class="fn">put</span>(<span class="typ">int</span> k, <span class="typ">int</span> v) {
+        <span class="kw">if</span> (mp.count(k)) { mp[k]-&gt;v = v; remove(mp[k]); addFront(mp[k]); <span class="kw">return</span>; }
+        <span class="kw">if</span> (mp.size() == cap) {                            <span class="cmt">// evict LRU</span>
+            Node* lru = tail-&gt;prev; mp.erase(lru-&gt;k);
+            remove(lru); <span class="kw">delete</span> lru;
+        }
+        Node* n = <span class="kw">new</span> Node{k, v}; mp[k] = n; addFront(n);
+    }
+};`
+    }
+  }
+];
+
+const CHECKLIST_QUESTIONS = [
+  "Pattern 是什麼？",
+  "暴力法是什麼？",
+  "Bottleneck 在哪？",
+  "Optimal 省掉了什麼重複計算？",
+  "Invariant / state / dfs return value 是什麼？",
+  "Time / space complexity？",
+  "Edge cases 都想過了嗎？"
+];
+
+// ═══════════════════════════════════════════════════════════
+//   STATE (localStorage)
+// ═══════════════════════════════════════════════════════════
+const STORAGE_KEY = 'deepwork-v1';
+let state = loadState();
+
+function loadState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) return JSON.parse(raw);
+  } catch (e) {}
+  return {
+    problems: {},
+    activeWeek: 1,
+    startDate: Date.now(),
+    expanded: {}
+  };
+}
+
+function saveState() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  } catch (e) { console.error(e); }
+}
+
+function getProb(slug) {
+  if (!state.problems[slug]) {
+    state.problems[slug] = { status: 'none', checks: Array(7).fill(false), notes: '' };
+  }
+  return state.problems[slug];
+}
+
+const STATUS_CYCLE = ['none', 'attempting', 'solved', 'mastered'];
+function cycleStatus(slug) {
+  const p = getProb(slug);
+  p.status = STATUS_CYCLE[(STATUS_CYCLE.indexOf(p.status) + 1) % STATUS_CYCLE.length];
+  saveState();
+  renderAll();
+}
+
+// ═══════════════════════════════════════════════════════════
+//   RENDER
+// ═══════════════════════════════════════════════════════════
+function renderWeekNav() {
+  const nav = document.getElementById('weeksNav');
+  const total = PLAN.length;
+  nav.innerHTML = PLAN.map(w => {
+    const all = [...w.weekend, ...w.weekday, ...(w.stretch || [])];
+    const solved = all.filter(p => {
+      const s = state.problems[p.slug]?.status;
+      return s === 'solved' || s === 'mastered';
+    }).length;
+    const pct = all.length ? Math.round(100 * solved / all.length) : 0;
+    return `
+      <button class="week-tab ${w.n === state.activeWeek ? 'active' : ''}" onclick="setWeek(${w.n})">
+        <div class="week-tab-num">Week ${String(w.n).padStart(2, '0')} / ${String(total).padStart(2, '0')}</div>
+        <div class="week-tab-title">${w.title}</div>
+        <div class="week-tab-progress">
+          <div class="week-tab-progress-bar">
+            <div class="week-tab-progress-fill" style="width: ${pct}%"></div>
+          </div>
+          <span>${solved}/${all.length}</span>
+        </div>
+      </button>`;
+  }).join('');
+}
+
+function setWeek(n) {
+  state.activeWeek = n;
+  saveState();
+  renderAll();
+  window.scrollTo({ top: document.getElementById('weeksNav').offsetTop - 80, behavior: 'smooth' });
+}
+
+function renderProblem(p, weekN) {
+  const data = getProb(p.slug);
+  const isExpanded = state.expanded[p.slug];
+  const diffClass = p.diff.toLowerCase();
+
+  return `
+    <div class="problem ${data.status} ${isExpanded ? 'expanded' : ''}" data-slug="${p.slug}">
+      <div class="problem-row" onclick="toggleExpand('${p.slug}')">
+        <button class="status-toggle" onclick="event.stopPropagation(); cycleStatus('${p.slug}')"></button>
+        <div class="problem-name">${p.name}</div>
+        <div class="problem-meta">
+          <span class="difficulty ${diffClass}">${p.diff}</span>
+          ${p.premium ? '<span class="premium-tag">Premium</span>' : ''}
+        </div>
+        <a href="https://leetcode.com/problems/${p.slug}/" target="_blank" rel="noopener" class="external-link" onclick="event.stopPropagation()" title="Open on LeetCode">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+            <polyline points="15 3 21 3 21 9"/>
+            <line x1="10" y1="14" x2="21" y2="3"/>
+          </svg>
+        </a>
+        <div></div>
+      </div>
+      <div class="problem-expand">
+        <div class="checklist-title">Seven-question completion check</div>
+        <div class="checklist">
+          ${CHECKLIST_QUESTIONS.map((q, i) => `
+            <label class="check-item">
+              <input type="checkbox" ${data.checks[i] ? 'checked' : ''} onchange="toggleCheck('${p.slug}', ${i})" />
+              <span>${q}</span>
+            </label>
+          `).join('')}
+        </div>
+        <div class="checklist-title">Notes / templates / bugs</div>
+        <textarea class="notes-area" placeholder="invariant、bug、key insight、複雜度推導..." oninput="updateNotes('${p.slug}', this.value)">${data.notes || ''}</textarea>
+      </div>
+    </div>`;
+}
+
+function toggleExpand(slug) {
+  state.expanded[slug] = !state.expanded[slug];
+  saveState();
+  renderActiveWeek();
+}
+
+function toggleCheck(slug, i) {
+  const p = getProb(slug);
+  p.checks[i] = !p.checks[i];
+  // auto-promote to mastered when all 7 checked AND solved
+  if (p.checks.every(Boolean) && p.status === 'solved') {
+    p.status = 'mastered';
+  }
+  saveState();
+  renderAll();
+}
+
+function updateNotes(slug, val) {
+  getProb(slug).notes = val;
+  saveState();
+}
+
+function renderActiveWeek() {
+  const w = PLAN.find(x => x.n === state.activeWeek);
+  if (!w) return;
+  const total = PLAN.length;
+
+  const container = document.getElementById('weekPanels');
+  container.innerHTML = `
+    <div class="week-panel active">
+      <div class="week-header">
+        <div class="week-header-meta">
+          <span class="week-header-num">Week ${String(w.n).padStart(2, '0')} / ${String(total).padStart(2, '0')}</span>
+          <span>${w.titleZh}</span>
+        </div>
+        <h2 class="week-header-title">${w.title}</h2>
+        <p class="week-header-mantra">${w.mantra}</p>
+        <div class="week-priority">
+          <span class="week-priority-label">Priority</span>
+          <span>${w.priority}</span>
+        </div>
+      </div>
+
+      <div class="week-content">
+        <div>
+          <div class="problem-section">
+            <div class="problem-section-header">
+              <div class="problem-section-title">Weekend · mother problems</div>
+              <div class="problem-section-count">${w.weekend.length} problems</div>
+            </div>
+            ${w.weekend.map(p => renderProblem(p, w.n)).join('')}
+          </div>
+
+          <div class="problem-section">
+            <div class="problem-section-header">
+              <div class="problem-section-title">Weekday · variants</div>
+              <div class="problem-section-count">${w.weekday.length} problems</div>
+            </div>
+            ${w.weekday.map(p => renderProblem(p, w.n)).join('')}
+          </div>
+
+          ${w.stretch && w.stretch.length ? `
+          <div class="problem-section">
+            <div class="problem-section-header">
+              <div class="problem-section-title">Stretch · Google high-frequency</div>
+              <div class="problem-section-count">${w.stretch.length} problems</div>
+            </div>
+            ${w.stretch.map(p => renderProblem(p, w.n)).join('')}
+          </div>
+          ` : ''}
+        </div>
+
+        <aside>
+          <div class="sidebar-card">
+            <div class="sidebar-card-title">To internalize this week</div>
+            <ul class="mental-list">
+              ${w.mental.map(m => `<li>${m}</li>`).join('')}
+            </ul>
+          </div>
+
+          <div class="sidebar-card">
+            <div class="sidebar-card-title">C++ pattern template</div>
+            <div class="template-block">
+              <div class="template-header">
+                <span>${w.template.title}</span>
+                <span class="template-header-lang">C++</span>
+              </div>
+              <pre class="template-code"><code>${w.template.code}</code></pre>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>`;
+}
+
+function renderStats() {
+  let total = 0, solved = 0, hard = 0, mastered = 0, attempting = 0;
+  PLAN.forEach(w => {
+    [...w.weekend, ...w.weekday, ...(w.stretch || [])].forEach(p => {
+      total++;
+      const s = state.problems[p.slug]?.status;
+      if (s === 'solved' || s === 'mastered') {
+        solved++;
+        if (p.diff === 'Hard') hard++;
+      }
+      if (s === 'mastered') mastered++;
+      if (s === 'attempting') attempting++;
+    });
+  });
+
+  document.getElementById('statSolved').textContent = solved;
+  document.getElementById('statTotal').textContent = total;
+  document.getElementById('statHard').textContent = hard;
+  document.getElementById('statMastered').textContent = mastered;
+  document.getElementById('statAttempting').textContent = attempting;
+
+  const pct = total ? Math.round(100 * solved / total) : 0;
+  document.getElementById('topProgress').style.width = pct + '%';
+  document.getElementById('topPct').textContent = pct + '%';
+  document.getElementById('topSolved').textContent = solved + ' / ' + total;
+  document.getElementById('topWeek').textContent = String(state.activeWeek).padStart(2, '0') + ' / ' + String(PLAN.length).padStart(2, '0');
+
+  // Date stats
+  const start = new Date(state.startDate);
+  document.getElementById('startDate').textContent = start.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+  const days = Math.floor((Date.now() - state.startDate) / (1000 * 60 * 60 * 24));
+  document.getElementById('daysElapsed').textContent = days;
+}
+
+function renderAll() {
+  renderWeekNav();
+  renderActiveWeek();
+  renderStats();
+}
+
+// init
+renderAll();
+</script>
+</body>
+</html>
