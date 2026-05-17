@@ -1802,6 +1802,7 @@ const CHECKLIST_QUESTIONS = [
 // ═══════════════════════════════════════════════════════════
 const STORAGE_KEY = 'deepwork-v1';
 let state = loadState();
+if (normalizeState()) saveState();
 
 function loadState() {
   try {
@@ -1829,6 +1830,32 @@ function getProb(slug) {
   return state.problems[slug];
 }
 
+function hasCompletedChecklist(p) {
+  return Array.isArray(p?.checks)
+    && p.checks.length >= CHECKLIST_QUESTIONS.length
+    && p.checks.slice(0, CHECKLIST_QUESTIONS.length).every(Boolean);
+}
+
+function isCompleted(p) {
+  return p?.status === 'solved' || p?.status === 'mastered' || hasCompletedChecklist(p);
+}
+
+function displayStatus(p) {
+  if (p?.status === 'mastered' || hasCompletedChecklist(p)) return 'mastered';
+  return p?.status || 'none';
+}
+
+function normalizeState() {
+  let changed = false;
+  Object.values(state.problems || {}).forEach(p => {
+    if (hasCompletedChecklist(p) && p.status !== 'mastered') {
+      p.status = 'mastered';
+      changed = true;
+    }
+  });
+  return changed;
+}
+
 const STATUS_CYCLE = ['none', 'attempting', 'solved', 'mastered'];
 function cycleStatus(slug) {
   const p = getProb(slug);
@@ -1846,8 +1873,7 @@ function renderWeekNav() {
   nav.innerHTML = PLAN.map(w => {
     const all = [...w.weekend, ...w.weekday, ...(w.stretch || [])];
     const solved = all.filter(p => {
-      const s = state.problems[p.slug]?.status;
-      return s === 'solved' || s === 'mastered';
+      return isCompleted(state.problems[p.slug]);
     }).length;
     const pct = all.length ? Math.round(100 * solved / all.length) : 0;
     return `
@@ -1875,9 +1901,10 @@ function renderProblem(p, weekN) {
   const data = getProb(p.slug);
   const isExpanded = state.expanded[p.slug];
   const diffClass = p.diff.toLowerCase();
+  const status = displayStatus(data);
 
   return `
-    <div class="problem ${data.status} ${isExpanded ? 'expanded' : ''}" data-slug="${p.slug}">
+    <div class="problem ${status} ${isExpanded ? 'expanded' : ''}" data-slug="${p.slug}">
       <div class="problem-row" onclick="toggleExpand('${p.slug}')">
         <button class="status-toggle" onclick="event.stopPropagation(); cycleStatus('${p.slug}')"></button>
         <div class="problem-name">${p.name}</div>
@@ -1919,8 +1946,8 @@ function toggleExpand(slug) {
 function toggleCheck(slug, i) {
   const p = getProb(slug);
   p.checks[i] = !p.checks[i];
-  // auto-promote to mastered when all 7 checked AND solved
-  if (p.checks.every(Boolean) && p.status === 'solved') {
+  // Seven-question completion is the page's "done" contract.
+  if (hasCompletedChecklist(p)) {
     p.status = 'mastered';
   }
   saveState();
@@ -2010,8 +2037,9 @@ function renderStats() {
   PLAN.forEach(w => {
     [...w.weekend, ...w.weekday, ...(w.stretch || [])].forEach(p => {
       total++;
-      const s = state.problems[p.slug]?.status;
-      if (s === 'solved' || s === 'mastered') {
+      const progress = state.problems[p.slug];
+      const s = progress?.status;
+      if (isCompleted(progress)) {
         solved++;
         if (p.diff === 'Hard') hard++;
       }
