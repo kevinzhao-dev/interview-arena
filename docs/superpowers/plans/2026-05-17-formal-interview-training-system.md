@@ -47,7 +47,7 @@ Define goals, scope, components, resume-use policy, and success criteria.
 
 Keep the plan aligned with the requested commit-by-section workflow.
 
-- [ ] **Step 3: Commit design and plan**
+- [x] **Step 3: Commit design and plan**
 
 Run:
 
@@ -62,15 +62,15 @@ git commit -m "docs: design formal interview training system"
 - Create: `.claude/skills/coding-mock-interviewer/SKILL.md`
 - Create: `.claude/skills/coding-mock-interviewer/references/session-template.md`
 
-- [ ] **Step 1: Create skill instructions**
+- [x] **Step 1: Create skill instructions**
 
 Write a concise workflow for conducting 35-45 minute Modern C++ coding interviews.
 
-- [ ] **Step 2: Create the session template**
+- [x] **Step 2: Create the session template**
 
 Define the final progress note format.
 
-- [ ] **Step 3: Commit coding skill**
+- [x] **Step 3: Commit coding skill**
 
 Run:
 
@@ -86,19 +86,19 @@ git commit -m "feat: add coding mock interviewer skill"
 - Create: `.claude/skills/system-design-mock-interviewer/references/question-bank.md`
 - Create: `system-design-plan/track.md`
 
-- [ ] **Step 1: Create system design skill**
+- [x] **Step 1: Create system design skill**
 
 Write a workflow for senior-level system design interviews.
 
-- [ ] **Step 2: Create a balanced question bank**
+- [x] **Step 2: Create a balanced question bank**
 
 Include general systems and edge AI systems.
 
-- [ ] **Step 3: Create the system design training track**
+- [x] **Step 3: Create the system design training track**
 
 Define cadence, topic sequence, and anti-overfit rotation.
 
-- [ ] **Step 4: Commit system design section**
+- [x] **Step 4: Commit system design section**
 
 Run:
 
@@ -116,19 +116,19 @@ git commit -m "feat: add system design mock track"
 - Create: `progress/TEMPLATE-coding-mock.md`
 - Create: `progress/TEMPLATE-system-design-mock.md`
 
-- [ ] **Step 1: Create senior rubric skill**
+- [x] **Step 1: Create senior rubric skill**
 
 Define scoring behavior and final recommendation language.
 
-- [ ] **Step 2: Create human-readable rubrics**
+- [x] **Step 2: Create human-readable rubrics**
 
 Separate coding and system design signals.
 
-- [ ] **Step 3: Create progress templates**
+- [x] **Step 3: Create progress templates**
 
 Make it easy to write consistent session records.
 
-- [ ] **Step 4: Commit rubric section**
+- [x] **Step 4: Commit rubric section**
 
 Run:
 
@@ -143,11 +143,11 @@ git commit -m "feat: add senior rubric and progress templates"
 - Modify: `AGENTS.md`
 - Modify: `CLAUDE.md`
 
-- [ ] **Step 1: Reference markdown resume**
+- [x] **Step 1: Reference markdown resume**
 
 Point agents to the markdown resume as the primary readable source.
 
-- [ ] **Step 2: Reference local skills and progress requirements**
+- [x] **Step 2: Reference local skills and progress requirements**
 
 Tell agents to use the relevant project-local skills for mocks.
 
