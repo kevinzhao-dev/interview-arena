@@ -62,7 +62,7 @@ Never pretend an assisted solve was fully independent.
 Use this priority order:
 
 1. User-named problem or pattern.
-2. Imported list-backed questions from `data/leetcode/question-bank.csv`, especially Google / Meta 30 days, Blind Curated 75, and the LICC bonus pattern lists.
+2. Imported list-backed questions from `data/leetcode/question-bank.csv`, especially `coding-plan-deep-work`, Google / Meta 30 days, Blind Curated 75, and the LICC bonus pattern lists.
 3. Current week or weak area from `coding-plan/deep_work.html`.
 4. A cold general L5/E5 coding question.
 
@@ -98,7 +98,7 @@ When choosing a problem:
 
 1. Read recent `progress/` notes, `coding-plan/deep_work.html`, `data/leetcode/question-bank.csv`, and `data/leetcode/lists/manifest.csv`.
 2. Prefer a weak or scheduled pattern unless the user asks for a cold interview.
-3. Prefer problems whose `source_keys` include `google-thirty-days`, `meta-thirty-days`, `blind-curated-75`, or a matching LICC pattern list, while avoiding recent repeats.
+3. Prefer problems whose `source_keys` include `coding-plan-deep-work`, `google-thirty-days`, `meta-thirty-days`, `blind-curated-75`, or a matching LICC pattern list, while avoiding recent repeats.
 4. Use `leetgo info <id-or-slug>` to verify the problem exists and capture metadata.
 5. Use `leetgo pick <id-or-slug> --skip-editor` only when a local C++ skeleton or local test harness is useful.
 6. Tell the candidate the problem title and examples in interview style, but do not reveal the pattern up front.

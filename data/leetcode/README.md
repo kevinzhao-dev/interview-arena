@@ -7,6 +7,7 @@ This folder stores imported LeetCode list metadata for mock interview selection.
 - `question-bank.csv`: deduplicated aggregate of all imported lists.
 - `lists/manifest.csv`: source list metadata, URL, imported count, progress, and import date.
 - `lists/*.csv`: per-source list exports.
+- `lists/coding-plan-deep-work.csv`: local mirror of `coding-plan/deep_work.html` problems.
 
 ## Schema
 
