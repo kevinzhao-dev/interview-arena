@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(coding-mock-interviewer)",
+      "Skill(system-design-mock-interviewer)",
+      "Skill(senior-interview-rubric)"
+    ]
+  }
+}
