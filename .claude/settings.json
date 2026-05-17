@@ -4,6 +4,7 @@
       "Skill(coding-mock-interviewer)",
       "Skill(system-design-mock-interviewer)",
       "Skill(senior-interview-rubric)",
+      "Skill(leetcode-list-importer)",
       "Bash(leetgo --version)",
       "Bash(leetgo info *)",
       "Bash(leetgo pick * --skip-editor)",

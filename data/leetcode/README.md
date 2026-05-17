@@ -29,3 +29,4 @@ Per-list CSV files store the source fields plus each problem's metadata.
 - Store metadata only. Do not store full LeetCode problem descriptions.
 - Use `leetgo info <id-or-slug>` to verify live metadata before an interview.
 - Use progress notes under `progress/` as the training history source of truth.
+- Use `.claude/skills/leetcode-list-importer` to refresh this folder from LeetCode URLs.

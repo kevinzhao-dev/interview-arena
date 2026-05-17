@@ -57,6 +57,7 @@ Agent / Claude Code 可以使用 `leetgo` 來讀取題目 metadata、產生題�
 - `.claude/skills/coding-mock-interviewer`: Coding mock interview, Modern C++, 35-45 分鐘.
 - `.claude/skills/system-design-mock-interviewer`: System Design mock interview, Google L5 / Meta E5 senior bar.
 - `.claude/skills/senior-interview-rubric`: 每次 mock 的 senior-level scoring rubric.
+- `.claude/skills/leetcode-list-importer`: 將 LeetCode list/company URL 匯入 `data/leetcode/` 題庫。
 
 進行 mock interview 時:
 
@@ -64,6 +65,7 @@ Agent / Claude Code 可以使用 `leetgo` 來讀取題目 metadata、產生題�
 - System Design 維持約 60% general system design, 40% edge AI / on-device AI.
 - 每 3-4 次 mock 要安排一次 cold general question, 避免 overfit.
 - 每次 mock 結束後都要在 `progress/` 新增一份 markdown 紀錄, 除非我明確說不要.
+- `data/leetcode/` 和 `progress/` 是這個 repo 的重要長期資料; `cpp/` 是 leetgo 產生的暫存練習 workspace, 不應取代 progress tracker。
 
 ## System Design Track
 
