@@ -2,9 +2,10 @@
 
 **Date:** YYYY-MM-DD
 **Track:** System Design
+**Mode:** Drill / Guided Mock / Onsite Mock
 **Question Type:** General / Edge AI / Cold General
 **Target Level:** Google L5 / Meta E5
-**Result:** Strong Hire / Hire / Lean Hire / Lean No Hire / No Hire
+**Result:** Pass / Needs Work / Repeat (Drill) OR Ready / Close / Needs Focus (Guided) OR Strong Hire / Hire / Lean Hire / Lean No Hire / No Hire (Onsite)
 
 ## Prompt
 
@@ -27,6 +28,8 @@
 
 ## Score
 
+Use 1-4 scores for Guided Mock and Onsite Mock. For Drill Mode, score only the target skill.
+
 | Dimension | Score | Evidence |
 | --- | ---: | --- |
 | Requirements |  |  |
@@ -42,11 +45,15 @@
 
 ### Strong Signals
 
-- 
+-
+
+### Improvement Since Last Session
+
+-
 
 ### Weak Signals
 
-- 
+-
 
 ### Key Moment
 

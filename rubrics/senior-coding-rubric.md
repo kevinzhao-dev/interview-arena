@@ -6,6 +6,14 @@ Target: Google L5 / Meta E5, Modern C++.
 
 A senior coding performance is not just accepted code. It shows structured problem solving, clear invariants, independent correction, and clean implementation under time pressure.
 
+## Session Modes
+
+- **Drill Mode**: Practice one skill such as invariant proof, dry-run discipline, implementation hygiene, or edge-case enumeration. Result is `Pass`, `Needs Work`, or `Repeat`; no hire/no-hire label.
+- **Guided Mock Mode**: Normal training mode. Score dimensions from 1 to 4 and report `Ready`, `Close`, or `Needs Focus`. Hints and teaching are allowed, but must be recorded.
+- **Onsite Mock Mode**: Strict calibration mode. Score dimensions from 1 to 4 and give a formal `Strong Hire`, `Hire`, `Lean Hire`, `Lean No Hire`, or `No Hire` recommendation.
+
+Use Onsite Mock Mode only when explicitly requested or when calibrating final readiness.
+
 ## Dimensions
 
 | Dimension | 4 | 3 | 2 | 1 |
@@ -26,6 +34,13 @@ A senior coding performance is not just accepted code. It shows structured probl
 - Complexity claim does not match implementation.
 - C++ comparator, overflow, iterator, or ownership mistakes in core logic.
 - Cannot explain why a greedy choice is safe.
+
+## Feedback Guardrails
+
+- Always include one concrete improvement since the previous relevant session when history exists.
+- Critique the observed behavior, not the person.
+- Reserve final-judgment language such as "red flag" or "would fail onsite" for Onsite Mock Mode or repeated severe misses.
+- In Guided Mock Mode, describe risks as "onsite risk" and pair each risk with the next drill.
 
 ## Debrief Questions
 

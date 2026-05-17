@@ -6,6 +6,14 @@ Target: Google L5 / Meta E5.
 
 A senior system design performance turns ambiguity into a scoped system, makes justified tradeoffs, identifies bottlenecks, and explains how the system fails and recovers.
 
+## Session Modes
+
+- **Drill Mode**: Practice one design skill such as requirements scoping, data model, bottleneck math, reliability, observability, or edge AI rollout. Result is `Pass`, `Needs Work`, or `Repeat`; no hire/no-hire label.
+- **Guided Mock Mode**: Normal training mode. Score dimensions from 1 to 4 and report `Ready`, `Close`, or `Needs Focus`. Hints and teaching are allowed, but must be recorded.
+- **Onsite Mock Mode**: Strict calibration mode. Score dimensions from 1 to 4 and give a formal `Strong Hire`, `Hire`, `Lean Hire`, `Lean No Hire`, or `No Hire` recommendation.
+
+Use Onsite Mock Mode only when explicitly requested or when calibrating final readiness.
+
 ## Dimensions
 
 | Dimension | 4 | 3 | 2 | 1 |
@@ -40,3 +48,10 @@ For on-device AI systems, also evaluate:
 - Cannot define a v1 boundary.
 - Treats edge devices like cloud servers.
 - Ignores privacy, telemetry, and rollback for ML systems.
+
+## Feedback Guardrails
+
+- Always include one concrete improvement since the previous relevant session when history exists.
+- Critique observed design behavior, not the person.
+- Reserve final-judgment language such as "would fail onsite" for Onsite Mock Mode or repeated severe gaps.
+- In Guided Mock Mode, describe risks as "onsite risk" and pair each risk with the next drill.

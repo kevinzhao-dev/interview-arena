@@ -2,11 +2,12 @@
 
 **Date:** YYYY-MM-DD
 **Track:** Coding
+**Mode:** Drill / Guided Mock / Onsite Mock
 **Language:** Modern C++
 **Target Level:** Google L5 / Meta E5
 **Problem Source:** Planned / Cold / User-selected
 **Pattern:** <pattern>
-**Result:** Strong Hire / Hire / Lean Hire / Lean No Hire / No Hire
+**Result:** Pass / Needs Work / Repeat (Drill) OR Ready / Close / Needs Focus (Guided) OR Strong Hire / Hire / Lean Hire / Lean No Hire / No Hire (Onsite)
 **LeetCode:** <id and slug if applicable>
 **Leetgo Evidence:** <info/pick/test used, or N/A>
 
@@ -24,6 +25,8 @@
 
 ## Score
 
+Use 1-4 scores for Guided Mock and Onsite Mock. For Drill Mode, score only the target skill.
+
 | Dimension | Score | Evidence |
 | --- | ---: | --- |
 | Clarification |  |  |
@@ -38,11 +41,15 @@
 
 ### Strong Signals
 
-- 
+-
+
+### Improvement Since Last Session
+
+-
 
 ### Weak Signals
 
-- 
+-
 
 ### Key Moment
 
