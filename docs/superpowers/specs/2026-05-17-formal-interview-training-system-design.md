@@ -14,7 +14,7 @@ It does not replace the existing `coding-plan/deep_work.html`; that page remains
 
 - Train general interview ability first; use the resume for calibration and follow-up depth, not as a narrow题库.
 - Preserve the current coding plan's emphasis on pattern, invariant, state, proof intuition, and Hard tolerance.
-- Make every mock produce an artifact in `progress/`.
+- Make every Guided Mock and Onsite Mock produce an artifact in `progress/`. Teaching sessions stay lightweight and only write progress notes when explicitly requested or marked for retest.
 - Score at L5/E5 signal level: clarity, correctness, tradeoff judgment, debugging maturity, and communication.
 - Keep skills small and composable so Claude Code can trigger the right workflow without loading irrelevant instructions.
 
@@ -64,7 +64,7 @@ Stores human-readable scoring references that can be used by any agent or by the
 
 ### `progress/`
 
-Stores session artifacts. Each mock should create one markdown file with the date, topic, result, feedback, and next action.
+Stores session artifacts. Each Guided Mock and Onsite Mock should create one markdown file with the date, topic, result, feedback, and next action. Teaching Mode artifacts are opt-in and should include learning notes plus a retest plan.
 
 ## Resume Use Policy
 
@@ -79,7 +79,7 @@ The resume at `about-me/Kai-Wen_Zhao_Resume_2026_01_30.md` should be used as bac
 ## Success Criteria
 
 - Claude Code can trigger specialized mock-interview behavior from project-local skills.
-- Each mock ends with a clear score and a saved progress note.
+- Each Guided Mock and Onsite Mock ends with a clear score and a saved progress note. Teaching Mode can be recorded separately when the user explicitly wants a retest trail.
 - System design practice includes both general L5/E5 systems and edge AI systems.
 - The rubric distinguishes "solved eventually" from "senior interview signal."
 - The project remains readable and low-maintenance.

@@ -9,6 +9,7 @@ A senior system design performance turns ambiguity into a scoped system, makes j
 ## Session Modes
 
 - **Drill Mode**: Practice one design skill such as requirements scoping, data model, bottleneck math, reliability, observability, or edge AI rollout. Result is `Pass`, `Needs Work`, or `Repeat`; no hire/no-hire label.
+- **Teaching Mode**: Learn a full design prompt with active scaffolding, free questions, partial reveals, and guided tradeoff discussion. Do not score readiness or give hire/no-hire language. If a note is explicitly requested, use `Learned`, `Needs Review`, or `Retest Scheduled`, and include a retest plan.
 - **Guided Mock Mode**: Normal training mode. Score dimensions from 1 to 4 and report `Ready`, `Close`, or `Needs Focus`. Hints and teaching are allowed, but must be recorded.
 - **Onsite Mock Mode**: Strict calibration mode. Score dimensions from 1 to 4 and give a formal `Strong Hire`, `Hire`, `Lean Hire`, `Lean No Hire`, or `No Hire` recommendation.
 

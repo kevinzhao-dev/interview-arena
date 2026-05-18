@@ -2,10 +2,10 @@
 
 **Date:** YYYY-MM-DD
 **Track:** System Design
-**Mode:** Drill / Guided Mock / Onsite Mock
+**Mode:** Teaching / Drill / Guided Mock / Onsite Mock
 **Question Type:** General / Edge AI / Cold General
 **Target Level:** Google L5 / Meta E5
-**Result:** Pass / Needs Work / Repeat (Drill) OR Ready / Close / Needs Focus (Guided) OR Strong Hire / Hire / Lean Hire / Lean No Hire / No Hire (Onsite)
+**Result:** Learned / Needs Review / Retest Scheduled (Teaching) OR Pass / Needs Work / Repeat (Drill) OR Ready / Close / Needs Focus (Guided) OR Strong Hire / Hire / Lean Hire / Lean No Hire / No Hire (Onsite)
 
 ## Prompt
 
@@ -28,7 +28,7 @@
 
 ## Score
 
-Use 1-4 scores for Guided Mock and Onsite Mock. For Drill Mode, score only the target skill.
+Use 1-4 scores for Guided Mock and Onsite Mock. For Drill Mode, score only the target skill. For Teaching Mode, skip scores unless explicitly requested; record learning notes and retest plan instead.
 
 | Dimension | Score | Evidence |
 | --- | ---: | --- |
@@ -58,7 +58,16 @@ Use 1-4 scores for Guided Mock and Onsite Mock. For Drill Mode, score only the t
 ### Key Moment
 
 
-## Next Drill
+## Teaching Notes
+
+Use only when `Mode: Teaching`.
+
+- Concepts taught:
+- Scaffolding used:
+- Still shaky:
+
+## Next Drill / Retest Plan
 
 **Redo needed:** Yes / No
+**Redo date:** YYYY-MM-DD or N/A
 **Next topic:** 

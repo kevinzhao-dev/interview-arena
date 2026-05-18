@@ -1,6 +1,6 @@
 ---
 name: senior-interview-rubric
-description: Use when scoring Kai-Wen Zhao's coding, system design, or behavioral mock interviews for Google L5 / Meta E5 senior SWE readiness. Produces concrete hire signal, scores, evidence, and next drills.
+description: Use when scoring or debriefing Kai-Wen Zhao's coding, system design, or behavioral interview sessions for Google L5 / Meta E5 senior SWE readiness. Produces mode-aware feedback, evidence, and next drills.
 ---
 
 # Senior Interview Rubric
@@ -14,6 +14,7 @@ Score mock interviews with senior-level rigor. The output should help Kai-Wen im
 Before scoring, identify the session mode:
 
 - **Drill Mode**: Score only the target skill. Use `Pass`, `Needs Work`, or `Repeat`. Do not give a hire/no-hire recommendation.
+- **Teaching Mode**: Do not score readiness and do not give hire/no-hire language. If a note is explicitly requested, record learning status such as `Learned`, `Needs Review`, or `Retest Scheduled`, plus the scaffolded concepts and retest plan.
 - **Guided Mock Mode**: Score dimensions from 1 to 4, but label the result as training readiness: `Ready`, `Close`, or `Needs Focus`. Clearly mark where hints or teaching changed the result.
 - **Onsite Mock Mode**: Score dimensions from 1 to 4 and give the formal recommendation below.
 
@@ -71,7 +72,15 @@ Examples:
 
 ## Debrief Format
 
-Use this order:
+For Teaching Mode, use this order:
+
+1. Session mode and learning status.
+2. Concepts taught.
+3. Hints or scaffolding used.
+4. Still-shaky points.
+5. Retest plan, if a note was explicitly requested.
+
+For Drill, Guided Mock, and Onsite Mock, use this order:
 
 1. Session mode and mode-appropriate result.
 2. Score table.

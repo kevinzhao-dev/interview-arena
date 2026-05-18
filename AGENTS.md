@@ -62,13 +62,14 @@ Agent / Claude Code 可以使用 `leetgo` 來讀取題目 metadata、產生題�
 進行 mock interview 時:
 
 - 預設使用 Guided Mock Mode: 保留真實面試流程, 但用訓練 readiness (`Ready` / `Close` / `Needs Focus`) 回饋, 不直接下正式 hire/no-hire 判決。
-- 當我要求 drill / redo / invariant / dry-run / teach 時, 使用 Drill Mode: 只評估該訓練目標, 給 `Pass` / `Needs Work` / `Repeat`, 不給 hire/no-hire。
+- 當我要求 drill / redo / invariant / dry-run 時, 使用 Drill Mode: 只評估該訓練目標, 給 `Pass` / `Needs Work` / `Repeat`, 不給 hire/no-hire。
+- 當我要求 teach / teaching mode / walkthrough / 邊問邊寫 / 完全不會但想學時, 使用 Teaching Mode: 可以直接出題, 允許我自由提問, 由 interviewer 用提示、拆解、局部講解、逐步 scaffold 帶我完成. Teaching Mode 不給 readiness 或 hire/no-hire 評分; 題目不算 mastered, 除非之後能在 Guided Mock 或 Drill redo 中獨立完成.
 - 只有當我明確要求 onsite / strict / real interview / final calibration 時, 才使用 Onsite Mock Mode 並給正式 `Strong Hire` 到 `No Hire` recommendation。
 - Coding 題目不要過度根據履歷出題, 以 general LeetCode pattern 和 `coding-plan/deep_work.html` 為主.
 - System Design 維持約 60% general system design, 40% edge AI / on-device AI.
 - 每 3-4 次 mock 要安排一次 cold general question, 避免 overfit.
-- Guided Mock 和 Onsite Mock 結束後都要在 `progress/` 新增一份 markdown 紀錄, 除非我明確說不要. Drill Mode 只有在訓練量足夠、redo、或我要求時才需要寫 progress note.
-- Progress note 使用 1-4 分制; 既有舊紀錄可保留原格式, 新紀錄要包含 `Mode` 和 `Improvement Since Last Session`.
+- Guided Mock 和 Onsite Mock 結束後都要在 `progress/` 新增一份 markdown 紀錄, 除非我明確說不要. Drill Mode 只有在訓練量足夠、redo、或我要求時才需要寫 progress note. Teaching Mode 只有在我明確要求紀錄、重考、加入 tracker, 或當回合約定要留痕時才寫 progress note.
+- Progress note 使用 1-4 分制; 既有舊紀錄可保留原格式, 新紀錄要包含 `Mode` 和 `Improvement Since Last Session`. Teaching Mode 若有 note, 要標明 `Mode: Teaching`, 記錄學到的 pattern / design move、卡點、提示層級, 並用 `Retest Plan` 指定之後要用 Guided Mock 或 Drill redo 重考.
 - `data/leetcode/` 和 `progress/` 是這個 repo 的重要長期資料; `cpp/` 是 leetgo 產生的暫存練習 workspace, 不應取代 progress tracker。
 
 ## System Design Track

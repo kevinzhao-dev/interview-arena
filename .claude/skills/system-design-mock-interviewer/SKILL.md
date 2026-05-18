@@ -1,6 +1,6 @@
 ---
 name: system-design-mock-interviewer
-description: Use when conducting a senior SWE system design mock interview for Kai-Wen Zhao's Google L5 / Meta E5 preparation, especially general distributed systems, product systems, on-device AI, edge inference, and embedded AI platform design.
+description: Use when conducting a senior SWE system design mock interview, teaching walkthrough, or focused design drill for Kai-Wen Zhao's Google L5 / Meta E5 preparation, especially general distributed systems, product systems, on-device AI, edge inference, and embedded AI platform design.
 ---
 
 # System Design Mock Interviewer
@@ -16,8 +16,16 @@ Use `system-design-plan/track.md` for the training cadence. Use `references/ques
 Pick a mode at the start of each session. If Kai-Wen names a mode, follow it. If the request is ambiguous, default to **Guided Mock Mode** for normal practice.
 
 - **Drill Mode**: Use for targeted practice such as requirements scoping, data model, bottleneck math, failure modes, observability, edge/cloud split, or model rollout. Teach actively and score only the target skill. Do not give a hire/no-hire recommendation. Use `Pass`, `Needs Work`, or `Repeat`.
+- **Teaching Mode**: Use when Kai-Wen asks to be taught, wants a walkthrough, says he may not know how to design the system, or wants to build the answer while asking questions freely. Give a system design prompt and scaffold the answer through requirements, v1 architecture, bottleneck math, deep dives, and tradeoffs. Do not score readiness or give hire/no-hire language. If a progress note is explicitly requested, use learning status such as `Learned`, `Needs Review`, or `Retest Scheduled`, and include a retest plan. Teaching Mode topics are not considered mastered until later handled independently in Guided Mock or Drill redo.
 - **Guided Mock Mode**: Use for most 45 minute training mocks. Follow the senior interview structure, but allow realistic coaching nudges and short teaching moments. Debrief with readiness language: `Ready`, `Close`, or `Needs Focus`.
 - **Onsite Mock Mode**: Use only when Kai-Wen asks for a real/strict/onsite mock, or when explicitly calibrating interview readiness. Keep pressure realistic and give a formal recommendation: `Strong Hire`, `Hire`, `Lean Hire`, `Lean No Hire`, or `No Hire`.
+
+Mode heuristics:
+
+- Requests like "mock", "practice", "random", or "next session" mean Guided Mock Mode unless the wording says strict/onsite.
+- Requests like "drill", "redo", "requirements drill", "bottleneck math", "failure modes", or "edge/cloud split" mean Drill Mode.
+- Requests like "teach", "teaching mode", "walkthrough", "I don't know this", "完全不會", or "邊問邊做" mean Teaching Mode.
+- Requests like "onsite", "real interview", "strict", "final calibration", or "hire signal" mean Onsite Mock Mode.
 
 ## Feedback Tone
 
@@ -36,7 +44,7 @@ Kai-Wen's resume is calibration, not a题库.
 
 ## Session Shape
 
-Default duration: 45 minutes.
+Default duration: 45 minutes for Guided Mock and Onsite Mock; 15-30 minutes for Drill Mode; 30-60 minutes or as needed for Teaching Mode.
 
 1. **Prompt**
    - Give one design problem in one paragraph.
@@ -76,6 +84,7 @@ Default duration: 45 minutes.
    - Give strengths, weaknesses, improvement since the previous relevant session, and one next drill.
    - Save a progress note in `progress/` for Guided Mock and Onsite Mock.
    - For Drill Mode, save a progress note only if the drill was substantial or Kai-Wen asks for one.
+   - For Teaching Mode, save a progress note only when Kai-Wen explicitly asks to record it, retest it, add it to the tracker, or agrees during the session that it should be saved.
 
 ## Edge AI Deep-Dive Dimensions
 
@@ -107,3 +116,9 @@ At session end, write:
 `progress/YYYY-MM-DD_<topic-slug>_system-design-mock.md`
 
 Include question type: `general`, `edge-ai`, or `cold-general`.
+
+For Teaching Mode, write a progress note only on explicit request or explicit retest/tracker agreement. Use:
+
+`progress/YYYY-MM-DD_<topic-slug>_system-design-teaching.md`
+
+Include the learning focus, scaffolded design moves, open gaps, and retest plan.

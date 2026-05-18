@@ -9,6 +9,7 @@ A senior coding performance is not just accepted code. It shows structured probl
 ## Session Modes
 
 - **Drill Mode**: Practice one skill such as invariant proof, dry-run discipline, implementation hygiene, or edge-case enumeration. Result is `Pass`, `Needs Work`, or `Repeat`; no hire/no-hire label.
+- **Teaching Mode**: Learn a full problem with active scaffolding, free questions, partial reveals, and guided implementation. Do not score readiness or give hire/no-hire language. If a note is explicitly requested, use `Learned`, `Needs Review`, or `Retest Scheduled`, and include a retest plan.
 - **Guided Mock Mode**: Normal training mode. Score dimensions from 1 to 4 and report `Ready`, `Close`, or `Needs Focus`. Hints and teaching are allowed, but must be recorded.
 - **Onsite Mock Mode**: Strict calibration mode. Score dimensions from 1 to 4 and give a formal `Strong Hire`, `Hire`, `Lean Hire`, `Lean No Hire`, or `No Hire` recommendation.
 

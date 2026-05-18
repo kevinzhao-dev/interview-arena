@@ -5,12 +5,12 @@
 
 **Date:** YYYY-MM-DD
 **Track:** Coding
-**Mode:** Drill / Guided Mock / Onsite Mock
+**Mode:** Teaching / Drill / Guided Mock / Onsite Mock
 **Language:** Modern C++
 **Target Level:** Google L5 / Meta E5
 **Problem Source:** Planned / Cold / User-selected
 **Pattern:** <pattern>
-**Result:** Pass / Needs Work / Repeat (Drill) OR Ready / Close / Needs Focus (Guided) OR Strong Hire / Hire / Lean Hire / Lean No Hire / No Hire (Onsite)
+**Result:** Learned / Needs Review / Retest Scheduled (Teaching) OR Pass / Needs Work / Repeat (Drill) OR Ready / Close / Needs Focus (Guided) OR Strong Hire / Hire / Lean Hire / Lean No Hire / No Hire (Onsite)
 **LeetCode:** <id and slug if applicable>
 **Leetgo Evidence:** <info/pick/test used, or N/A>
 
@@ -35,7 +35,7 @@
 
 ## Score
 
-Use 1-4 scores for Guided Mock and Onsite Mock. For Drill Mode, score only the target skill.
+Use 1-4 scores for Guided Mock and Onsite Mock. For Drill Mode, score only the target skill. For Teaching Mode, skip scores unless explicitly requested; record learning notes and retest plan instead.
 
 | Dimension | Score | Evidence |
 | --- | ---: | --- |
@@ -75,7 +75,15 @@ Use 1-4 scores for Guided Mock and Onsite Mock. For Drill Mode, score only the t
 - [ ] Time / space complexity
 - [ ] Edge cases
 
-## Follow-Up
+## Teaching Notes
+
+Use only when `Mode: Teaching`.
+
+- Concepts taught:
+- Hints / scaffolding used:
+- Still shaky:
+
+## Follow-Up / Retest Plan
 
 **Redo needed:** Yes / No
 **Redo date:** YYYY-MM-DD or N/A
