@@ -10,3 +10,6 @@ licc-bonus-hashing,LICC Bonus: Hashing,problem-list,https://leetcode.com/problem
 google-thirty-days,Google 30 Days,company,https://leetcode.com/company/google/?favoriteSlug=google-thirty-days,128,31/128,2026-05-17
 meta-thirty-days,Meta 30 Days,company,https://leetcode.com/company/facebook/?favoriteSlug=facebook-thirty-days,22,5/22,2026-05-17
 coding-plan-deep-work,Coding Plan Deep Work,local-plan,coding-plan/deep_work.html,156,,2026-05-17
+classic-3-topics-array-string,Classic 3 Topics: Array / String,local-curated,local:classic-3-topics/array-string,15,,2026-05-19
+classic-3-topics-graph-tree,Classic 3 Topics: Graph / Tree,local-curated,local:classic-3-topics/graph-tree,15,,2026-05-19
+classic-3-topics-dp,Classic 3 Topics: Dynamic Programming,local-curated,local:classic-3-topics/dynamic-programming,15,,2026-05-19

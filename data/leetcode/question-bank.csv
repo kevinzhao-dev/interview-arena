@@ -1,16 +1,16 @@
 problem_id,slug,title,difficulty,acceptance,problem_url,source_keys,source_count,imported_at
-1,two-sum,Two Sum,Easy,57.5%,https://leetcode.com/problems/two-sum/,blind-curated-75;google-thirty-days;meta-thirty-days,3,2026-05-17
+1,two-sum,Two Sum,Easy,57.5%,https://leetcode.com/problems/two-sum/,blind-curated-75;google-thirty-days;meta-thirty-days;classic-3-topics-array-string,4,2026-05-17
 2,add-two-numbers,Add Two Numbers,Medium,48.4%,https://leetcode.com/problems/add-two-numbers/,google-thirty-days,1,2026-05-17
-3,longest-substring-without-repeating-characters,Longest Substring Without Repeating Characters,Medium,39.0%,https://leetcode.com/problems/longest-substring-without-repeating-characters/,blind-curated-75;coding-plan-deep-work;google-thirty-days,3,2026-05-17
+3,longest-substring-without-repeating-characters,Longest Substring Without Repeating Characters,Medium,39.0%,https://leetcode.com/problems/longest-substring-without-repeating-characters/,blind-curated-75;coding-plan-deep-work;google-thirty-days;classic-3-topics-array-string,4,2026-05-17
 4,median-of-two-sorted-arrays,Median of Two Sorted Arrays,Hard,46.5%,https://leetcode.com/problems/median-of-two-sorted-arrays/,coding-plan-deep-work;google-thirty-days,2,2026-05-17
 5,longest-palindromic-substring,Longest Palindromic Substring,Medium,37.8%,https://leetcode.com/problems/longest-palindromic-substring/,blind-curated-75;coding-plan-deep-work;google-thirty-days,3,2026-05-17
 7,reverse-integer,Reverse Integer,Medium,31.9%,https://leetcode.com/problems/reverse-integer/,google-thirty-days,1,2026-05-17
 9,palindrome-number,Palindrome Number,Easy,60.5%,https://leetcode.com/problems/palindrome-number/,google-thirty-days,1,2026-05-17
 10,regular-expression-matching,Regular Expression Matching,Hard,,https://leetcode.com/problems/regular-expression-matching/,coding-plan-deep-work,1,2026-05-17
-11,container-with-most-water,Container With Most Water,Medium,60.0%,https://leetcode.com/problems/container-with-most-water/,blind-curated-75;google-thirty-days,2,2026-05-17
+11,container-with-most-water,Container With Most Water,Medium,60.0%,https://leetcode.com/problems/container-with-most-water/,blind-curated-75;google-thirty-days;classic-3-topics-array-string,3,2026-05-17
 12,integer-to-roman,Integer to Roman,Medium,71.0%,https://leetcode.com/problems/integer-to-roman/,google-thirty-days,1,2026-05-17
 13,roman-to-integer,Roman to Integer,Easy,66.6%,https://leetcode.com/problems/roman-to-integer/,google-thirty-days,1,2026-05-17
-15,3sum,3Sum,Medium,39.1%,https://leetcode.com/problems/3sum/,blind-curated-75;google-thirty-days,2,2026-05-17
+15,3sum,3Sum,Medium,39.1%,https://leetcode.com/problems/3sum/,blind-curated-75;google-thirty-days;classic-3-topics-array-string,3,2026-05-17
 17,letter-combinations-of-a-phone-number,Letter Combinations of a Phone Number,Medium,,https://leetcode.com/problems/letter-combinations-of-a-phone-number/,coding-plan-deep-work,1,2026-05-17
 18,4sum,4Sum,Medium,40.6%,https://leetcode.com/problems/4sum/,meta-thirty-days,1,2026-05-17
 19,remove-nth-node-from-end-of-list,Remove Nth Node From End of List,Medium,51.6%,https://leetcode.com/problems/remove-nth-node-from-end-of-list/,blind-curated-75,1,2026-05-17
@@ -23,7 +23,7 @@ problem_id,slug,title,difficulty,acceptance,problem_url,source_keys,source_count
 29,divide-two-integers,Divide Two Integers,Medium,19.8%,https://leetcode.com/problems/divide-two-integers/,google-thirty-days,1,2026-05-17
 30,substring-with-concatenation-of-all-words,Substring with Concatenation of All Words,Hard,,https://leetcode.com/problems/substring-with-concatenation-of-all-words/,coding-plan-deep-work,1,2026-05-17
 31,next-permutation,Next Permutation,Medium,45.2%,https://leetcode.com/problems/next-permutation/,google-thirty-days,1,2026-05-17
-33,search-in-rotated-sorted-array,Search in Rotated Sorted Array,Medium,44.5%,https://leetcode.com/problems/search-in-rotated-sorted-array/,blind-curated-75;coding-plan-deep-work;google-thirty-days;licc-bonus-binary-search,4,2026-05-17
+33,search-in-rotated-sorted-array,Search in Rotated Sorted Array,Medium,44.5%,https://leetcode.com/problems/search-in-rotated-sorted-array/,blind-curated-75;coding-plan-deep-work;google-thirty-days;licc-bonus-binary-search;classic-3-topics-array-string,5,2026-05-17
 34,find-first-and-last-position-of-element-in-sorted-array,Find First and Last Position of Element in Sorted Array,Medium,48.9%,https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/,coding-plan-deep-work;meta-thirty-days,2,2026-05-17
 37,sudoku-solver,Sudoku Solver,Hard,,https://leetcode.com/problems/sudoku-solver/,coding-plan-deep-work,1,2026-05-17
 39,combination-sum,Combination Sum,Medium,76.5%,https://leetcode.com/problems/combination-sum/,blind-curated-75;coding-plan-deep-work,2,2026-05-17
@@ -33,30 +33,30 @@ problem_id,slug,title,difficulty,acceptance,problem_url,source_keys,source_count
 46,permutations,Permutations,Medium,81.9%,https://leetcode.com/problems/permutations/,coding-plan-deep-work;google-thirty-days,2,2026-05-17
 47,permutations-ii,Permutations II,Medium,63.4%,https://leetcode.com/problems/permutations-ii/,coding-plan-deep-work;licc-bonus-backtracking,2,2026-05-17
 48,rotate-image,Rotate Image,Medium,80.1%,https://leetcode.com/problems/rotate-image/,blind-curated-75;google-thirty-days,2,2026-05-17
-49,group-anagrams,Group Anagrams,Medium,72.6%,https://leetcode.com/problems/group-anagrams/,blind-curated-75,1,2026-05-17
+49,group-anagrams,Group Anagrams,Medium,72.6%,https://leetcode.com/problems/group-anagrams/,blind-curated-75;classic-3-topics-array-string,2,2026-05-17
 51,n-queens,N-Queens,Hard,,https://leetcode.com/problems/n-queens/,coding-plan-deep-work,1,2026-05-17
-53,maximum-subarray,Maximum Subarray,Medium,53.3%,https://leetcode.com/problems/maximum-subarray/,blind-curated-75;coding-plan-deep-work;google-thirty-days,3,2026-05-17
+53,maximum-subarray,Maximum Subarray,Medium,53.3%,https://leetcode.com/problems/maximum-subarray/,blind-curated-75;coding-plan-deep-work;google-thirty-days;classic-3-topics-array-string,4,2026-05-17
 54,spiral-matrix,Spiral Matrix,Medium,56.8%,https://leetcode.com/problems/spiral-matrix/,blind-curated-75;google-thirty-days,2,2026-05-17
 55,jump-game,Jump Game,Medium,40.9%,https://leetcode.com/problems/jump-game/,blind-curated-75;google-thirty-days,2,2026-05-17
-56,merge-intervals,Merge Intervals,Medium,51.8%,https://leetcode.com/problems/merge-intervals/,blind-curated-75;coding-plan-deep-work;google-thirty-days,3,2026-05-17
-57,insert-interval,Insert Interval,Medium,45.2%,https://leetcode.com/problems/insert-interval/,blind-curated-75;coding-plan-deep-work;google-thirty-days,3,2026-05-17
+56,merge-intervals,Merge Intervals,Medium,51.8%,https://leetcode.com/problems/merge-intervals/,blind-curated-75;coding-plan-deep-work;google-thirty-days;classic-3-topics-array-string,4,2026-05-17
+57,insert-interval,Insert Interval,Medium,45.2%,https://leetcode.com/problems/insert-interval/,blind-curated-75;coding-plan-deep-work;google-thirty-days;classic-3-topics-array-string,4,2026-05-17
 61,rotate-list,Rotate List,Medium,42.6%,https://leetcode.com/problems/rotate-list/,google-thirty-days,1,2026-05-17
-62,unique-paths,Unique Paths,Medium,66.8%,https://leetcode.com/problems/unique-paths/,blind-curated-75;coding-plan-deep-work,2,2026-05-17
+62,unique-paths,Unique Paths,Medium,66.8%,https://leetcode.com/problems/unique-paths/,blind-curated-75;coding-plan-deep-work;classic-3-topics-dp,3,2026-05-17
 65,valid-number,Valid Number,Hard,23.0%,https://leetcode.com/problems/valid-number/,meta-thirty-days,1,2026-05-17
 67,add-binary,Add Binary,Easy,58.0%,https://leetcode.com/problems/add-binary/,google-thirty-days,1,2026-05-17
-68,text-justification,Text Justification,Hard,51.1%,https://leetcode.com/problems/text-justification/,google-thirty-days,1,2026-05-17
-70,climbing-stairs,Climbing Stairs,Easy,54.1%,https://leetcode.com/problems/climbing-stairs/,blind-curated-75;google-thirty-days,2,2026-05-17
-72,edit-distance,Edit Distance,Medium,,https://leetcode.com/problems/edit-distance/,coding-plan-deep-work,1,2026-05-17
+68,text-justification,Text Justification,Hard,51.1%,https://leetcode.com/problems/text-justification/,google-thirty-days;classic-3-topics-array-string,2,2026-05-17
+70,climbing-stairs,Climbing Stairs,Easy,54.1%,https://leetcode.com/problems/climbing-stairs/,blind-curated-75;google-thirty-days;classic-3-topics-dp,3,2026-05-17
+72,edit-distance,Edit Distance,Medium,,https://leetcode.com/problems/edit-distance/,coding-plan-deep-work;classic-3-topics-dp,2,2026-05-17
 73,set-matrix-zeroes,Set Matrix Zeroes,Medium,62.9%,https://leetcode.com/problems/set-matrix-zeroes/,blind-curated-75;meta-thirty-days,2,2026-05-17
-76,minimum-window-substring,Minimum Window Substring,Hard,47.5%,https://leetcode.com/problems/minimum-window-substring/,blind-curated-75;coding-plan-deep-work,2,2026-05-17
+76,minimum-window-substring,Minimum Window Substring,Hard,47.5%,https://leetcode.com/problems/minimum-window-substring/,blind-curated-75;coding-plan-deep-work;classic-3-topics-array-string,3,2026-05-17
 78,subsets,Subsets,Medium,,https://leetcode.com/problems/subsets/,coding-plan-deep-work,1,2026-05-17
 79,word-search,Word Search,Medium,47.3%,https://leetcode.com/problems/word-search/,blind-curated-75;coding-plan-deep-work;google-thirty-days,3,2026-05-17
 81,search-in-rotated-sorted-array-ii,Search in Rotated Sorted Array II,Medium,,https://leetcode.com/problems/search-in-rotated-sorted-array-ii/,coding-plan-deep-work,1,2026-05-17
 82,remove-duplicates-from-sorted-list-ii,Remove Duplicates from Sorted List II,Medium,51.8%,https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/,meta-thirty-days,1,2026-05-17
 84,largest-rectangle-in-histogram,Largest Rectangle in Histogram,Hard,,https://leetcode.com/problems/largest-rectangle-in-histogram/,coding-plan-deep-work,1,2026-05-17
-85,maximal-rectangle,Maximal Rectangle,Hard,,https://leetcode.com/problems/maximal-rectangle/,coding-plan-deep-work,1,2026-05-17
+85,maximal-rectangle,Maximal Rectangle,Hard,,https://leetcode.com/problems/maximal-rectangle/,coding-plan-deep-work;classic-3-topics-dp,2,2026-05-17
 88,merge-sorted-array,Merge Sorted Array,Easy,54.8%,https://leetcode.com/problems/merge-sorted-array/,google-thirty-days,1,2026-05-17
-91,decode-ways,Decode Ways,Medium,38.0%,https://leetcode.com/problems/decode-ways/,blind-curated-75;coding-plan-deep-work,2,2026-05-17
+91,decode-ways,Decode Ways,Medium,38.0%,https://leetcode.com/problems/decode-ways/,blind-curated-75;coding-plan-deep-work;classic-3-topics-dp,3,2026-05-17
 93,restore-ip-addresses,Restore IP Addresses,Medium,56.0%,https://leetcode.com/problems/restore-ip-addresses/,coding-plan-deep-work;licc-bonus-backtracking,2,2026-05-17
 97,interleaving-string,Interleaving String,Medium,,https://leetcode.com/problems/interleaving-string/,coding-plan-deep-work,1,2026-05-17
 98,validate-binary-search-tree,Validate Binary Search Tree,Medium,35.7%,https://leetcode.com/problems/validate-binary-search-tree/,blind-curated-75;coding-plan-deep-work,2,2026-05-17
@@ -67,20 +67,20 @@ problem_id,slug,title,difficulty,acceptance,problem_url,source_keys,source_count
 109,convert-sorted-list-to-binary-search-tree,Convert Sorted List to Binary Search Tree,Medium,66.6%,https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/,google-thirty-days,1,2026-05-17
 113,path-sum-ii,Path Sum II,Medium,,https://leetcode.com/problems/path-sum-ii/,coding-plan-deep-work,1,2026-05-17
 118,pascals-triangle,Pascal's Triangle,Easy,78.9%,https://leetcode.com/problems/pascals-triangle/,google-thirty-days;licc-bonus-dp,2,2026-05-17
-121,best-time-to-buy-and-sell-stock,Best Time to Buy and Sell Stock,Easy,56.8%,https://leetcode.com/problems/best-time-to-buy-and-sell-stock/,blind-curated-75;google-thirty-days,2,2026-05-17
-124,binary-tree-maximum-path-sum,Binary Tree Maximum Path Sum,Hard,42.3%,https://leetcode.com/problems/binary-tree-maximum-path-sum/,blind-curated-75;coding-plan-deep-work,2,2026-05-17
+121,best-time-to-buy-and-sell-stock,Best Time to Buy and Sell Stock,Easy,56.8%,https://leetcode.com/problems/best-time-to-buy-and-sell-stock/,blind-curated-75;google-thirty-days;classic-3-topics-array-string,3,2026-05-17
+124,binary-tree-maximum-path-sum,Binary Tree Maximum Path Sum,Hard,42.3%,https://leetcode.com/problems/binary-tree-maximum-path-sum/,blind-curated-75;coding-plan-deep-work;classic-3-topics-graph-tree,3,2026-05-17
 125,valid-palindrome,Valid Palindrome,Easy,53.3%,https://leetcode.com/problems/valid-palindrome/,blind-curated-75,1,2026-05-17
 126,word-ladder-ii,Word Ladder II,Hard,27.7%,https://leetcode.com/problems/word-ladder-ii/,coding-plan-deep-work;google-thirty-days,2,2026-05-17
-127,word-ladder,Word Ladder,Hard,,https://leetcode.com/problems/word-ladder/,coding-plan-deep-work,1,2026-05-17
+127,word-ladder,Word Ladder,Hard,,https://leetcode.com/problems/word-ladder/,coding-plan-deep-work;classic-3-topics-graph-tree,2,2026-05-17
 128,longest-consecutive-sequence,Longest Consecutive Sequence,Medium,47.1%,https://leetcode.com/problems/longest-consecutive-sequence/,blind-curated-75;google-thirty-days,2,2026-05-17
 129,sum-root-to-leaf-numbers,Sum Root to Leaf Numbers,Medium,,https://leetcode.com/problems/sum-root-to-leaf-numbers/,coding-plan-deep-work,1,2026-05-17
 130,surrounded-regions,Surrounded Regions,Medium,,https://leetcode.com/problems/surrounded-regions/,coding-plan-deep-work,1,2026-05-17
 131,palindrome-partitioning,Palindrome Partitioning,Medium,74.0%,https://leetcode.com/problems/palindrome-partitioning/,coding-plan-deep-work;licc-bonus-backtracking,2,2026-05-17
-133,clone-graph,Clone Graph,Medium,65.3%,https://leetcode.com/problems/clone-graph/,blind-curated-75;coding-plan-deep-work;meta-thirty-days,3,2026-05-17
+133,clone-graph,Clone Graph,Medium,65.3%,https://leetcode.com/problems/clone-graph/,blind-curated-75;coding-plan-deep-work;meta-thirty-days;classic-3-topics-graph-tree,4,2026-05-17
 134,gas-station,Gas Station,Medium,,https://leetcode.com/problems/gas-station/,coding-plan-deep-work,1,2026-05-17
 135,candy,Candy,Hard,,https://leetcode.com/problems/candy/,coding-plan-deep-work,1,2026-05-17
 138,copy-list-with-random-pointer,Copy List with Random Pointer,Medium,,https://leetcode.com/problems/copy-list-with-random-pointer/,coding-plan-deep-work,1,2026-05-17
-139,word-break,Word Break,Medium,49.4%,https://leetcode.com/problems/word-break/,blind-curated-75;coding-plan-deep-work;licc-bonus-dp,3,2026-05-17
+139,word-break,Word Break,Medium,49.4%,https://leetcode.com/problems/word-break/,blind-curated-75;coding-plan-deep-work;licc-bonus-dp;classic-3-topics-dp,4,2026-05-17
 140,word-break-ii,Word Break II,Hard,,https://leetcode.com/problems/word-break-ii/,coding-plan-deep-work,1,2026-05-17
 141,linked-list-cycle,Linked List Cycle,Easy,54.3%,https://leetcode.com/problems/linked-list-cycle/,blind-curated-75,1,2026-05-17
 143,reorder-list,Reorder List,Medium,65.2%,https://leetcode.com/problems/reorder-list/,blind-curated-75,1,2026-05-17
@@ -98,20 +98,20 @@ problem_id,slug,title,difficulty,acceptance,problem_url,source_keys,source_count
 190,reverse-bits,Reverse Bits,Easy,68.4%,https://leetcode.com/problems/reverse-bits/,blind-curated-75;google-thirty-days,2,2026-05-17
 191,number-of-1-bits,Number of 1 Bits,Easy,76.8%,https://leetcode.com/problems/number-of-1-bits/,blind-curated-75;google-thirty-days,2,2026-05-17
 197,rising-temperature,Rising Temperature,Easy,51.3%,https://leetcode.com/problems/rising-temperature/,google-thirty-days,1,2026-05-17
-198,house-robber,House Robber,Medium,53.2%,https://leetcode.com/problems/house-robber/,blind-curated-75;coding-plan-deep-work;google-thirty-days,3,2026-05-17
+198,house-robber,House Robber,Medium,53.2%,https://leetcode.com/problems/house-robber/,blind-curated-75;coding-plan-deep-work;google-thirty-days;classic-3-topics-dp,4,2026-05-17
 199,binary-tree-right-side-view,Binary Tree Right Side View,Medium,,https://leetcode.com/problems/binary-tree-right-side-view/,coding-plan-deep-work,1,2026-05-17
-200,number-of-islands,Number of Islands,Medium,64.4%,https://leetcode.com/problems/number-of-islands/,blind-curated-75;coding-plan-deep-work;meta-thirty-days,3,2026-05-17
+200,number-of-islands,Number of Islands,Medium,64.4%,https://leetcode.com/problems/number-of-islands/,blind-curated-75;coding-plan-deep-work;meta-thirty-days;classic-3-topics-graph-tree,4,2026-05-17
 202,happy-number,Happy Number,Easy,59.6%,https://leetcode.com/problems/happy-number/,google-thirty-days,1,2026-05-17
 204,count-primes,Count Primes,Medium,36.0%,https://leetcode.com/problems/count-primes/,google-thirty-days,1,2026-05-17
 205,isomorphic-strings,Isomorphic Strings,Easy,48.4%,https://leetcode.com/problems/isomorphic-strings/,licc-bonus-hashing,1,2026-05-17
 206,reverse-linked-list,Reverse Linked List,Easy,80.5%,https://leetcode.com/problems/reverse-linked-list/,blind-curated-75,1,2026-05-17
-207,course-schedule,Course Schedule,Medium,51.4%,https://leetcode.com/problems/course-schedule/,blind-curated-75;coding-plan-deep-work,2,2026-05-17
+207,course-schedule,Course Schedule,Medium,51.4%,https://leetcode.com/problems/course-schedule/,blind-curated-75;coding-plan-deep-work;classic-3-topics-graph-tree,3,2026-05-17
 208,implement-trie-prefix-tree,Implement Trie (Prefix Tree),Medium,69.5%,https://leetcode.com/problems/implement-trie-prefix-tree/,blind-curated-75;coding-plan-deep-work,2,2026-05-17
 209,minimum-size-subarray-sum,Minimum Size Subarray Sum,Medium,51.6%,https://leetcode.com/problems/minimum-size-subarray-sum/,coding-plan-deep-work;licc-bonus-arrays-and-strings,2,2026-05-17
-210,course-schedule-ii,Course Schedule II,Medium,,https://leetcode.com/problems/course-schedule-ii/,coding-plan-deep-work,1,2026-05-17
+210,course-schedule-ii,Course Schedule II,Medium,,https://leetcode.com/problems/course-schedule-ii/,coding-plan-deep-work;classic-3-topics-graph-tree,2,2026-05-17
 211,design-add-and-search-words-data-structure,Design Add and Search Words Data Structure,Medium,48.5%,https://leetcode.com/problems/design-add-and-search-words-data-structure/,blind-curated-75;coding-plan-deep-work,2,2026-05-17
 212,word-search-ii,Word Search II,Hard,38.4%,https://leetcode.com/problems/word-search-ii/,blind-curated-75;coding-plan-deep-work,2,2026-05-17
-213,house-robber-ii,House Robber II,Medium,44.9%,https://leetcode.com/problems/house-robber-ii/,blind-curated-75;google-thirty-days;licc-bonus-dp,3,2026-05-17
+213,house-robber-ii,House Robber II,Medium,44.9%,https://leetcode.com/problems/house-robber-ii/,blind-curated-75;google-thirty-days;licc-bonus-dp;classic-3-topics-dp,4,2026-05-17
 215,kth-largest-element-in-an-array,Kth Largest Element in an Array,Medium,68.9%,https://leetcode.com/problems/kth-largest-element-in-an-array/,coding-plan-deep-work;google-thirty-days,2,2026-05-17
 217,contains-duplicate,Contains Duplicate,Easy,64.3%,https://leetcode.com/problems/contains-duplicate/,blind-curated-75;google-thirty-days;licc-bonus-hashing,3,2026-05-17
 221,maximal-square,Maximal Square,Medium,50.3%,https://leetcode.com/problems/maximal-square/,licc-bonus-dp,1,2026-05-17
@@ -123,16 +123,16 @@ problem_id,slug,title,difficulty,acceptance,problem_url,source_keys,source_count
 231,power-of-two,Power of Two,Easy,50.1%,https://leetcode.com/problems/power-of-two/,google-thirty-days,1,2026-05-17
 232,implement-queue-using-stacks,Implement Queue using Stacks,Easy,69.8%,https://leetcode.com/problems/implement-queue-using-stacks/,licc-bonus-stacks-and-queues,1,2026-05-17
 235,lowest-common-ancestor-of-a-binary-search-tree,Lowest Common Ancestor of a Binary Search Tree,Medium,70.6%,https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/,blind-curated-75,1,2026-05-17
-236,lowest-common-ancestor-of-a-binary-tree,Lowest Common Ancestor of a Binary Tree,Medium,69.3%,https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/,coding-plan-deep-work;meta-thirty-days,2,2026-05-17
-238,product-of-array-except-self,Product of Array Except Self,Medium,68.9%,https://leetcode.com/problems/product-of-array-except-self/,blind-curated-75;google-thirty-days;meta-thirty-days,3,2026-05-17
-239,sliding-window-maximum,Sliding Window Maximum,Hard,,https://leetcode.com/problems/sliding-window-maximum/,coding-plan-deep-work,1,2026-05-17
+236,lowest-common-ancestor-of-a-binary-tree,Lowest Common Ancestor of a Binary Tree,Medium,69.3%,https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/,coding-plan-deep-work;meta-thirty-days;classic-3-topics-graph-tree,3,2026-05-17
+238,product-of-array-except-self,Product of Array Except Self,Medium,68.9%,https://leetcode.com/problems/product-of-array-except-self/,blind-curated-75;google-thirty-days;meta-thirty-days;classic-3-topics-array-string,4,2026-05-17
+239,sliding-window-maximum,Sliding Window Maximum,Hard,,https://leetcode.com/problems/sliding-window-maximum/,coding-plan-deep-work;classic-3-topics-array-string,2,2026-05-17
 240,search-a-2d-matrix-ii,Search a 2D Matrix II,Medium,,https://leetcode.com/problems/search-a-2d-matrix-ii/,coding-plan-deep-work,1,2026-05-17
 242,valid-anagram,Valid Anagram,Easy,68.1%,https://leetcode.com/problems/valid-anagram/,blind-curated-75,1,2026-05-17
 252,meeting-rooms,Meeting Rooms,Easy,59.4%,https://leetcode.com/problems/meeting-rooms/,blind-curated-75;coding-plan-deep-work,2,2026-05-17
 253,meeting-rooms-ii,Meeting Rooms II,Medium,52.7%,https://leetcode.com/problems/meeting-rooms-ii/,blind-curated-75;coding-plan-deep-work;google-thirty-days,3,2026-05-17
 261,graph-valid-tree,Graph Valid Tree,Medium,50.0%,https://leetcode.com/problems/graph-valid-tree/,blind-curated-75,1,2026-05-17
 268,missing-number,Missing Number,Easy,72.0%,https://leetcode.com/problems/missing-number/,blind-curated-75,1,2026-05-17
-269,alien-dictionary,Alien Dictionary,Hard,37.2%,https://leetcode.com/problems/alien-dictionary/,blind-curated-75;coding-plan-deep-work,2,2026-05-17
+269,alien-dictionary,Alien Dictionary,Hard,37.2%,https://leetcode.com/problems/alien-dictionary/,blind-curated-75;coding-plan-deep-work;classic-3-topics-graph-tree,3,2026-05-17
 271,encode-and-decode-strings,Encode and Decode Strings,Medium,51.6%,https://leetcode.com/problems/encode-and-decode-strings/,blind-curated-75;coding-plan-deep-work,2,2026-05-17
 282,expression-add-operators,Expression Add Operators,Hard,,https://leetcode.com/problems/expression-add-operators/,coding-plan-deep-work,1,2026-05-17
 283,move-zeroes,Move Zeroes,Easy,63.8%,https://leetcode.com/problems/move-zeroes/,licc-bonus-arrays-and-strings,1,2026-05-17
@@ -141,13 +141,13 @@ problem_id,slug,title,difficulty,acceptance,problem_url,source_keys,source_count
 290,word-pattern,Word Pattern,Easy,44.1%,https://leetcode.com/problems/word-pattern/,licc-bonus-hashing,1,2026-05-17
 295,find-median-from-data-stream,Find Median from Data Stream,Hard,54.5%,https://leetcode.com/problems/find-median-from-data-stream/,blind-curated-75;coding-plan-deep-work;google-thirty-days,3,2026-05-17
 297,serialize-and-deserialize-binary-tree,Serialize and Deserialize Binary Tree,Hard,60.7%,https://leetcode.com/problems/serialize-and-deserialize-binary-tree/,blind-curated-75;coding-plan-deep-work,2,2026-05-17
-300,longest-increasing-subsequence,Longest Increasing Subsequence,Medium,59.4%,https://leetcode.com/problems/longest-increasing-subsequence/,blind-curated-75;coding-plan-deep-work;google-thirty-days,3,2026-05-17
+300,longest-increasing-subsequence,Longest Increasing Subsequence,Medium,59.4%,https://leetcode.com/problems/longest-increasing-subsequence/,blind-curated-75;coding-plan-deep-work;google-thirty-days;classic-3-topics-dp,4,2026-05-17
 301,remove-invalid-parentheses,Remove Invalid Parentheses,Hard,,https://leetcode.com/problems/remove-invalid-parentheses/,coding-plan-deep-work,1,2026-05-17
 303,range-sum-query-immutable,Range Sum Query - Immutable,Easy,72.1%,https://leetcode.com/problems/range-sum-query-immutable/,licc-bonus-arrays-and-strings,1,2026-05-17
 304,range-sum-query-2d-immutable,Range Sum Query 2D - Immutable,Medium,,https://leetcode.com/problems/range-sum-query-2d-immutable/,coding-plan-deep-work,1,2026-05-17
-309,best-time-to-buy-and-sell-stock-with-cooldown,Best Time to Buy and Sell Stock with Cooldown,Medium,,https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/,coding-plan-deep-work,1,2026-05-17
+309,best-time-to-buy-and-sell-stock-with-cooldown,Best Time to Buy and Sell Stock with Cooldown,Medium,,https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/,coding-plan-deep-work;classic-3-topics-dp,2,2026-05-17
 312,burst-balloons,Burst Balloons,Hard,,https://leetcode.com/problems/burst-balloons/,coding-plan-deep-work,1,2026-05-17
-322,coin-change,Coin Change,Medium,48.4%,https://leetcode.com/problems/coin-change/,blind-curated-75;coding-plan-deep-work;google-thirty-days,3,2026-05-17
+322,coin-change,Coin Change,Medium,48.4%,https://leetcode.com/problems/coin-change/,blind-curated-75;coding-plan-deep-work;google-thirty-days;classic-3-topics-dp,4,2026-05-17
 323,number-of-connected-components-in-an-undirected-graph,Number of Connected Components in an Undirected Graph,Medium,65.0%,https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/,blind-curated-75,1,2026-05-17
 325,maximum-size-subarray-sum-equals-k,Maximum Size Subarray Sum Equals k,Medium,,https://leetcode.com/problems/maximum-size-subarray-sum-equals-k/,coding-plan-deep-work,1,2026-05-17
 326,power-of-three,Power of Three,Easy,51.1%,https://leetcode.com/problems/power-of-three/,google-thirty-days,1,2026-05-17
@@ -172,10 +172,11 @@ problem_id,slug,title,difficulty,acceptance,problem_url,source_keys,source_count
 380,insert-delete-getrandom-o1,Insert Delete GetRandom O(1),Medium,,https://leetcode.com/problems/insert-delete-getrandom-o1/,coding-plan-deep-work,1,2026-05-17
 394,decode-string,Decode String,Medium,62.6%,https://leetcode.com/problems/decode-string/,coding-plan-deep-work;google-thirty-days,2,2026-05-17
 396,rotate-function,Rotate Function,Medium,54.1%,https://leetcode.com/problems/rotate-function/,google-thirty-days;meta-thirty-days,2,2026-05-17
+399,evaluate-division,Evaluate Division,Medium,,https://leetcode.com/problems/evaluate-division/,classic-3-topics-graph-tree,1,2026-05-19
 402,remove-k-digits,Remove K Digits,Medium,,https://leetcode.com/problems/remove-k-digits/,coding-plan-deep-work,1,2026-05-17
 410,split-array-largest-sum,Split Array Largest Sum,Hard,60.4%,https://leetcode.com/problems/split-array-largest-sum/,coding-plan-deep-work;google-thirty-days,2,2026-05-17
-416,partition-equal-subset-sum,Partition Equal Subset Sum,Medium,,https://leetcode.com/problems/partition-equal-subset-sum/,coding-plan-deep-work,1,2026-05-17
-417,pacific-atlantic-water-flow,Pacific Atlantic Water Flow,Medium,60.9%,https://leetcode.com/problems/pacific-atlantic-water-flow/,blind-curated-75;coding-plan-deep-work,2,2026-05-17
+416,partition-equal-subset-sum,Partition Equal Subset Sum,Medium,,https://leetcode.com/problems/partition-equal-subset-sum/,coding-plan-deep-work;classic-3-topics-dp,2,2026-05-17
+417,pacific-atlantic-water-flow,Pacific Atlantic Water Flow,Medium,60.9%,https://leetcode.com/problems/pacific-atlantic-water-flow/,blind-curated-75;coding-plan-deep-work;classic-3-topics-graph-tree,3,2026-05-17
 424,longest-repeating-character-replacement,Longest Repeating Character Replacement,Medium,59.6%,https://leetcode.com/problems/longest-repeating-character-replacement/,blind-curated-75;coding-plan-deep-work;google-thirty-days,3,2026-05-17
 435,non-overlapping-intervals,Non-overlapping Intervals,Medium,57.1%,https://leetcode.com/problems/non-overlapping-intervals/,blind-curated-75;coding-plan-deep-work,2,2026-05-17
 437,path-sum-iii,Path Sum III,Medium,46.4%,https://leetcode.com/problems/path-sum-iii/,google-thirty-days,1,2026-05-17
@@ -189,20 +190,20 @@ problem_id,slug,title,difficulty,acceptance,problem_url,source_keys,source_count
 485,max-consecutive-ones,Max Consecutive Ones,Easy,65.1%,https://leetcode.com/problems/max-consecutive-ones/,google-thirty-days,1,2026-05-17
 489,robot-room-cleaner,Robot Room Cleaner,Hard,,https://leetcode.com/problems/robot-room-cleaner/,coding-plan-deep-work,1,2026-05-17
 491,non-decreasing-subsequences,Non-decreasing Subsequences,Medium,62.7%,https://leetcode.com/problems/non-decreasing-subsequences/,licc-bonus-backtracking,1,2026-05-17
-494,target-sum,Target Sum,Medium,52.2%,https://leetcode.com/problems/target-sum/,licc-bonus-dp,1,2026-05-17
+494,target-sum,Target Sum,Medium,52.2%,https://leetcode.com/problems/target-sum/,licc-bonus-dp;classic-3-topics-dp,2,2026-05-17
 496,next-greater-element-i,Next Greater Element I,Easy,76.1%,https://leetcode.com/problems/next-greater-element-i/,google-thirty-days,1,2026-05-17
 502,ipo,IPO,Hard,,https://leetcode.com/problems/ipo/,coding-plan-deep-work,1,2026-05-17
 503,next-greater-element-ii,Next Greater Element II,Medium,,https://leetcode.com/problems/next-greater-element-ii/,coding-plan-deep-work,1,2026-05-17
-518,coin-change-ii,Coin Change II,Medium,60.1%,https://leetcode.com/problems/coin-change-ii/,licc-bonus-dp,1,2026-05-17
+518,coin-change-ii,Coin Change II,Medium,60.1%,https://leetcode.com/problems/coin-change-ii/,licc-bonus-dp;classic-3-topics-dp,2,2026-05-17
 523,continuous-subarray-sum,Continuous Subarray Sum,Medium,,https://leetcode.com/problems/continuous-subarray-sum/,coding-plan-deep-work,1,2026-05-17
 525,contiguous-array,Contiguous Array,Medium,,https://leetcode.com/problems/contiguous-array/,coding-plan-deep-work,1,2026-05-17
 528,random-pick-with-weight,Random Pick with Weight,Medium,,https://leetcode.com/problems/random-pick-with-weight/,coding-plan-deep-work,1,2026-05-17
 535,encode-and-decode-tinyurl,Encode and Decode TinyURL,Medium,,https://leetcode.com/problems/encode-and-decode-tinyurl/,coding-plan-deep-work,1,2026-05-17
 540,single-element-in-a-sorted-array,Single Element in a Sorted Array,Medium,59.3%,https://leetcode.com/problems/single-element-in-a-sorted-array/,google-thirty-days;licc-bonus-binary-search,2,2026-05-17
-542,01-matrix,01 Matrix,Medium,53.9%,https://leetcode.com/problems/01-matrix/,google-thirty-days,1,2026-05-17
+542,01-matrix,01 Matrix,Medium,53.9%,https://leetcode.com/problems/01-matrix/,google-thirty-days;classic-3-topics-graph-tree,2,2026-05-17
 543,diameter-of-binary-tree,Diameter of Binary Tree,Easy,,https://leetcode.com/problems/diameter-of-binary-tree/,coding-plan-deep-work,1,2026-05-17
 557,reverse-words-in-a-string-iii,Reverse Words in a String III,Easy,84.0%,https://leetcode.com/problems/reverse-words-in-a-string-iii/,licc-bonus-arrays-and-strings,1,2026-05-17
-560,subarray-sum-equals-k,Subarray Sum Equals K,Medium,47.3%,https://leetcode.com/problems/subarray-sum-equals-k/,coding-plan-deep-work;google-thirty-days,2,2026-05-17
+560,subarray-sum-equals-k,Subarray Sum Equals K,Medium,47.3%,https://leetcode.com/problems/subarray-sum-equals-k/,coding-plan-deep-work;google-thirty-days;classic-3-topics-array-string,3,2026-05-17
 567,permutation-in-string,Permutation in String,Medium,48.8%,https://leetcode.com/problems/permutation-in-string/,coding-plan-deep-work;licc-bonus-hashing,2,2026-05-17
 572,subtree-of-another-tree,Subtree of Another Tree,Easy,51.6%,https://leetcode.com/problems/subtree-of-another-tree/,blind-curated-75,1,2026-05-17
 577,employee-bonus,Employee Bonus,Easy,77.4%,https://leetcode.com/problems/employee-bonus/,google-thirty-days,1,2026-05-17
@@ -217,15 +218,16 @@ problem_id,slug,title,difficulty,acceptance,problem_url,source_keys,source_count
 668,kth-smallest-number-in-multiplication-table,Kth Smallest Number in Multiplication Table,Hard,,https://leetcode.com/problems/kth-smallest-number-in-multiplication-table/,coding-plan-deep-work,1,2026-05-17
 684,redundant-connection,Redundant Connection,Medium,,https://leetcode.com/problems/redundant-connection/,coding-plan-deep-work,1,2026-05-17
 692,top-k-frequent-words,Top K Frequent Words,Medium,60.2%,https://leetcode.com/problems/top-k-frequent-words/,licc-bonus-heaps,1,2026-05-17
+695,max-area-of-island,Max Area of Island,Medium,74.0%,https://leetcode.com/problems/max-area-of-island/,classic-3-topics-graph-tree,1,2026-05-19
 701,insert-into-a-binary-search-tree,Insert into a Binary Search Tree,Medium,73.5%,https://leetcode.com/problems/insert-into-a-binary-search-tree/,google-thirty-days,1,2026-05-17
 703,kth-largest-element-in-a-stream,Kth Largest Element in a Stream,Easy,61.0%,https://leetcode.com/problems/kth-largest-element-in-a-stream/,google-thirty-days,1,2026-05-17
 719,find-k-th-smallest-pair-distance,Find K-th Smallest Pair Distance,Hard,,https://leetcode.com/problems/find-k-th-smallest-pair-distance/,coding-plan-deep-work,1,2026-05-17
-721,accounts-merge,Accounts Merge,Medium,,https://leetcode.com/problems/accounts-merge/,coding-plan-deep-work,1,2026-05-17
+721,accounts-merge,Accounts Merge,Medium,,https://leetcode.com/problems/accounts-merge/,coding-plan-deep-work;classic-3-topics-graph-tree,2,2026-05-17
 724,find-pivot-index,Find Pivot Index,Easy,62.6%,https://leetcode.com/problems/find-pivot-index/,licc-bonus-arrays-and-strings,1,2026-05-17
 726,number-of-atoms,Number of Atoms,Hard,,https://leetcode.com/problems/number-of-atoms/,coding-plan-deep-work,1,2026-05-17
 735,asteroid-collision,Asteroid Collision,Medium,47.8%,https://leetcode.com/problems/asteroid-collision/,coding-plan-deep-work;licc-bonus-stacks-and-queues,2,2026-05-17
 739,daily-temperatures,Daily Temperatures,Medium,,https://leetcode.com/problems/daily-temperatures/,coding-plan-deep-work,1,2026-05-17
-743,network-delay-time,Network Delay Time,Medium,,https://leetcode.com/problems/network-delay-time/,coding-plan-deep-work,1,2026-05-17
+743,network-delay-time,Network Delay Time,Medium,,https://leetcode.com/problems/network-delay-time/,coding-plan-deep-work;classic-3-topics-graph-tree,2,2026-05-17
 759,employee-free-time,Employee Free Time,Hard,,https://leetcode.com/problems/employee-free-time/,coding-plan-deep-work,1,2026-05-17
 763,partition-labels,Partition Labels,Medium,,https://leetcode.com/problems/partition-labels/,coding-plan-deep-work,1,2026-05-17
 767,reorganize-string,Reorganize String,Medium,,https://leetcode.com/problems/reorganize-string/,coding-plan-deep-work,1,2026-05-17
@@ -257,7 +259,7 @@ problem_id,slug,title,difficulty,acceptance,problem_url,source_keys,source_count
 986,interval-list-intersections,Interval List Intersections,Medium,,https://leetcode.com/problems/interval-list-intersections/,coding-plan-deep-work,1,2026-05-17
 987,vertical-order-traversal-of-a-binary-tree,Vertical Order Traversal of a Binary Tree,Hard,,https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/,coding-plan-deep-work,1,2026-05-17
 992,subarrays-with-k-different-integers,Subarrays with K Different Integers,Hard,,https://leetcode.com/problems/subarrays-with-k-different-integers/,coding-plan-deep-work,1,2026-05-17
-994,rotting-oranges,Rotting Oranges,Medium,,https://leetcode.com/problems/rotting-oranges/,coding-plan-deep-work,1,2026-05-17
+994,rotting-oranges,Rotting Oranges,Medium,,https://leetcode.com/problems/rotting-oranges/,coding-plan-deep-work;classic-3-topics-graph-tree,2,2026-05-17
 1004,max-consecutive-ones-iii,Max Consecutive Ones III,Medium,67.7%,https://leetcode.com/problems/max-consecutive-ones-iii/,coding-plan-deep-work;google-thirty-days;meta-thirty-days,3,2026-05-17
 1011,capacity-to-ship-packages-within-d-days,Capacity To Ship Packages Within D Days,Medium,,https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/,coding-plan-deep-work,1,2026-05-17
 1027,longest-arithmetic-subsequence,Longest Arithmetic Subsequence,Medium,50.0%,https://leetcode.com/problems/longest-arithmetic-subsequence/,licc-bonus-dp,1,2026-05-17
@@ -268,7 +270,7 @@ problem_id,slug,title,difficulty,acceptance,problem_url,source_keys,source_count
 1091,shortest-path-in-binary-matrix,Shortest Path in Binary Matrix,Medium,,https://leetcode.com/problems/shortest-path-in-binary-matrix/,coding-plan-deep-work,1,2026-05-17
 1109,corporate-flight-bookings,Corporate Flight Bookings,Medium,67.3%,https://leetcode.com/problems/corporate-flight-bookings/,google-thirty-days,1,2026-05-17
 1137,n-th-tribonacci-number,N-th Tribonacci Number,Easy,63.2%,https://leetcode.com/problems/n-th-tribonacci-number/,licc-bonus-dp,1,2026-05-17
-1143,longest-common-subsequence,Longest Common Subsequence,Medium,,https://leetcode.com/problems/longest-common-subsequence/,coding-plan-deep-work,1,2026-05-17
+1143,longest-common-subsequence,Longest Common Subsequence,Medium,,https://leetcode.com/problems/longest-common-subsequence/,coding-plan-deep-work;classic-3-topics-dp,2,2026-05-17
 1148,article-views-i,Article Views I,Easy,76.6%,https://leetcode.com/problems/article-views-i/,google-thirty-days,1,2026-05-17
 1155,number-of-dice-rolls-with-target-sum,Number of Dice Rolls With Target Sum,Medium,62.3%,https://leetcode.com/problems/number-of-dice-rolls-with-target-sum/,licc-bonus-dp,1,2026-05-17
 1207,unique-number-of-occurrences,Unique Number of Occurrences,Easy,78.7%,https://leetcode.com/problems/unique-number-of-occurrences/,licc-bonus-hashing,1,2026-05-17
