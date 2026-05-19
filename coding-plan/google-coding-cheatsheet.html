@@ -1,0 +1,1983 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Google Coding Interview · Quick Cheat Sheet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..100,0..1&family=JetBrains+Mono:wght@400;500;700&family=Newsreader:opsz,wght@6..72,300..700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream: #f6efde;
+    --cream-2: #efe5cb;
+    --paper: #fbf6e8;
+    --ink: #2a2117;
+    --ink-soft: #4a3f30;
+    --ink-mute: #847866;
+    --rule: #d9cdac;
+    --rule-soft: #e8dcbb;
+    /* topic accents */
+    --c-array: #b8651f;   /* amber/rust */
+    --c-array-bg: #f3e4c0;
+    --c-graph: #4a6b3e;   /* forest */
+    --c-graph-bg: #e1e6cf;
+    --c-dp:    #9d3b4a;   /* terracotta rose */
+    --c-dp-bg: #f0d6cf;
+    --c-flow:  #5b4a8c;   /* indigo for general flow */
+    --c-flow-bg:#e1dcef;
+    /* code */
+    --code-bg: #261d12;
+    --code-fg: #f4ecd6;
+  }
+
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:"Newsreader","Fraunces",Georgia,serif;
+    font-weight:400;
+    font-size:16.5px;
+    line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+    background-image:
+      radial-gradient(rgba(120,90,40,.045) 1px, transparent 1px),
+      radial-gradient(rgba(120,90,40,.035) 1px, transparent 1px);
+    background-size: 3px 3px, 7px 7px;
+    background-position: 0 0, 1px 2px;
+  }
+  ::selection{background:#2a2117;color:#f6efde}
+
+  h1,h2,h3,h4,.display{
+    font-family:"Fraunces",Georgia,serif;
+    font-variation-settings:"opsz" 144, "SOFT" 30, "WONK" 0;
+    font-weight:500;
+    color:var(--ink);
+    letter-spacing:-0.01em;
+  }
+  code,pre,.mono{
+    font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;
+    font-feature-settings:"calt" 1,"liga" 1;
+  }
+
+  /* ============ LAYOUT ============ */
+  .wrap{
+    display:grid;
+    grid-template-columns: 260px minmax(0,1fr);
+    max-width: 1280px;
+    margin: 0 auto;
+    gap: 56px;
+    padding: 0 40px;
+  }
+  aside{
+    position:sticky;
+    top:0;
+    align-self:start;
+    height:100vh;
+    overflow-y:auto;
+    padding: 36px 0 24px;
+    border-right:1px dashed var(--rule);
+    padding-right:24px;
+  }
+  main{
+    padding: 48px 0 120px;
+    min-width:0;
+  }
+
+  /* ============ SIDEBAR ============ */
+  .brand{
+    font-family:"Fraunces",serif;
+    font-variation-settings:"opsz" 144, "SOFT" 50, "WONK" 1;
+    font-weight:600;
+    font-size:18px;
+    line-height:1.15;
+    color:var(--ink);
+    margin-bottom:4px;
+  }
+  .brand em{
+    font-style:italic;
+    font-variation-settings:"opsz" 144, "SOFT" 100, "WONK" 1;
+    color:var(--c-array);
+  }
+  .brand-sub{
+    font-size:12.5px;
+    color:var(--ink-mute);
+    letter-spacing:.04em;
+    text-transform:uppercase;
+    margin-bottom: 28px;
+  }
+  .nav-section{
+    margin-bottom: 20px;
+  }
+  .nav-label{
+    font-family:"JetBrains Mono",monospace;
+    font-size:10.5px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--ink-mute);
+    margin-bottom:8px;
+  }
+  nav a{
+    display:block;
+    color:var(--ink-soft);
+    text-decoration:none;
+    padding: 4px 0 4px 12px;
+    margin-left: -12px;
+    border-left: 2px solid transparent;
+    font-size:14.5px;
+    transition: all .15s ease;
+  }
+  nav a:hover{color:var(--ink); border-left-color:var(--ink-mute);}
+  nav a.active{
+    color:var(--ink);
+    border-left-color:var(--c-array);
+    font-weight:500;
+  }
+  nav a .num{
+    font-family:"JetBrains Mono",monospace;
+    font-size:11px;
+    color:var(--ink-mute);
+    margin-right:8px;
+  }
+
+  .progress-mini{
+    margin-top: 24px;
+    padding: 14px;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+  }
+  .progress-mini-label{
+    font-size:11px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--ink-mute);
+    font-family:"JetBrains Mono",monospace;
+    margin-bottom:6px;
+  }
+  .progress-mini-val{
+    font-family:"Fraunces",serif;
+    font-variation-settings:"opsz" 144, "WONK" 1;
+    font-weight:600;
+    font-size:28px;
+    line-height:1;
+    color:var(--ink);
+  }
+  .progress-bar{
+    margin-top:8px;
+    height:4px;
+    background:var(--rule-soft);
+    border-radius:2px;
+    overflow:hidden;
+  }
+  .progress-bar-fill{
+    height:100%;
+    background: linear-gradient(90deg,var(--c-array),var(--c-graph),var(--c-dp));
+    width:0%;
+    transition: width .4s ease;
+  }
+
+  /* ============ HEADER ============ */
+  header.hero{
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 40px;
+    margin-bottom: 56px;
+    position:relative;
+  }
+  .eyebrow{
+    font-family:"JetBrains Mono",monospace;
+    font-size:11.5px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--c-array);
+    margin-bottom:18px;
+  }
+  h1.title{
+    font-size:clamp(40px,5.6vw,68px);
+    line-height:1.02;
+    margin:0 0 18px;
+    font-variation-settings:"opsz" 144,"SOFT" 30,"WONK" 0;
+    font-weight:400;
+  }
+  h1.title em{
+    font-style:italic;
+    font-variation-settings:"opsz" 144,"SOFT" 100,"WONK" 1;
+    font-weight:500;
+    color:var(--c-array);
+  }
+  .hero-meta{
+    display:flex;
+    gap:32px;
+    flex-wrap:wrap;
+    color:var(--ink-soft);
+    font-size:14.5px;
+    font-family:"JetBrains Mono",monospace;
+    margin-top:24px;
+  }
+  .hero-meta span b{
+    color:var(--ink-mute);
+    font-weight:400;
+    margin-right:6px;
+  }
+  .hero-tagline{
+    font-style:italic;
+    font-size:19px;
+    color:var(--ink-soft);
+    max-width: 680px;
+    font-variation-settings:"opsz" 36;
+  }
+
+  /* ============ SECTIONS ============ */
+  section{
+    margin-bottom: 96px;
+    scroll-margin-top: 32px;
+  }
+  .sec-header{
+    display:flex;
+    align-items:baseline;
+    gap:20px;
+    margin-bottom: 8px;
+    flex-wrap:wrap;
+  }
+  .sec-num{
+    font-family:"Fraunces",serif;
+    font-variation-settings:"opsz" 144,"SOFT" 30,"WONK" 1;
+    font-weight:300;
+    font-size: 90px;
+    line-height:.85;
+    color:var(--c-array);
+    font-style:italic;
+    margin-right: 8px;
+  }
+  section.flow .sec-num{color:var(--c-flow)}
+  section.array .sec-num{color:var(--c-array)}
+  section.graph .sec-num{color:var(--c-graph)}
+  section.dp .sec-num{color:var(--c-dp)}
+  section.flow h2 em{color:var(--c-flow)}
+  section.array h2 em{color:var(--c-array)}
+  section.graph h2 em{color:var(--c-graph)}
+  section.dp h2 em{color:var(--c-dp)}
+
+  h2.sec-title{
+    font-size: clamp(28px,3.4vw,40px);
+    line-height:1.1;
+    margin:0;
+    flex:1;
+    min-width:280px;
+  }
+  h2.sec-title em{
+    font-style:italic;
+    font-variation-settings:"opsz" 144,"SOFT" 100,"WONK" 1;
+  }
+  .sec-tag{
+    font-family:"JetBrains Mono",monospace;
+    font-size:11px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--ink-mute);
+  }
+  .sec-divider{
+    height:1px;
+    background:linear-gradient(90deg,var(--ink) 0%,var(--ink) 60px,transparent 60px);
+    margin: 14px 0 32px;
+  }
+  section.array .sec-divider{background:linear-gradient(90deg,var(--c-array) 0%,var(--c-array) 60px,var(--rule) 60px,var(--rule) 100%)}
+  section.graph .sec-divider{background:linear-gradient(90deg,var(--c-graph) 0%,var(--c-graph) 60px,var(--rule) 60px,var(--rule) 100%)}
+  section.dp .sec-divider{background:linear-gradient(90deg,var(--c-dp) 0%,var(--c-dp) 60px,var(--rule) 60px,var(--rule) 100%)}
+  section.flow .sec-divider{background:linear-gradient(90deg,var(--c-flow) 0%,var(--c-flow) 60px,var(--rule) 60px,var(--rule) 100%)}
+
+  h3{
+    font-size: 22px;
+    margin: 40px 0 14px;
+    font-weight:500;
+    font-variation-settings:"opsz" 72,"SOFT" 40,"WONK" 0;
+  }
+  h3 .hashidx{
+    font-family:"JetBrains Mono",monospace;
+    font-size: 12px;
+    color:var(--ink-mute);
+    margin-right:10px;
+    font-weight:400;
+    letter-spacing:.05em;
+  }
+  h4{
+    font-size: 17px;
+    margin: 22px 0 8px;
+    font-weight:500;
+    color:var(--ink);
+  }
+  p{margin: 0 0 14px}
+  p, li{color:var(--ink-soft)}
+  ul,ol{padding-left:1.4em; margin: 4px 0 16px}
+  li{margin-bottom:4px}
+  strong{color:var(--ink); font-weight:600}
+  em.k{
+    font-style:normal;
+    background: var(--c-array-bg);
+    padding: 0 4px;
+    border-radius: 2px;
+    font-family:"JetBrains Mono",monospace;
+    font-size:.92em;
+    color:var(--ink);
+  }
+  section.graph em.k{background:var(--c-graph-bg)}
+  section.dp em.k{background:var(--c-dp-bg)}
+  section.flow em.k{background:var(--c-flow-bg)}
+
+  /* ============ PATTERN TABLE ============ */
+  .pattern-card{
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    overflow:hidden;
+    margin: 18px 0 28px;
+    box-shadow: 0 1px 0 rgba(120,90,40,.04), 0 6px 18px -8px rgba(60,40,15,.08);
+  }
+  .pattern-card .pc-header{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding: 12px 18px;
+    border-bottom: 1px solid var(--rule);
+    background: linear-gradient(180deg, var(--cream-2), var(--paper));
+  }
+  .pc-header .dot{
+    width:8px;height:8px;border-radius:50%;
+    background:var(--c-array);
+  }
+  section.graph .pc-header .dot{background:var(--c-graph)}
+  section.dp .pc-header .dot{background:var(--c-dp)}
+  section.flow .pc-header .dot{background:var(--c-flow)}
+  .pc-title{
+    font-family:"JetBrains Mono",monospace;
+    font-size:12px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--ink);
+    font-weight:500;
+  }
+  table.pattern{
+    width:100%;
+    border-collapse:collapse;
+    font-size:14.5px;
+  }
+  table.pattern th,
+  table.pattern td{
+    text-align:left;
+    padding: 10px 18px;
+    border-bottom: 1px solid var(--rule-soft);
+    vertical-align: top;
+  }
+  table.pattern thead th{
+    font-family:"JetBrains Mono",monospace;
+    font-size:11px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--ink-mute);
+    font-weight:500;
+    background: rgba(217,205,172,.18);
+  }
+  table.pattern tr:last-child td{border-bottom:none}
+  table.pattern td.signal{color:var(--ink-soft); width:42%}
+  table.pattern td.solve{
+    font-family:"JetBrains Mono",monospace;
+    font-size:13.5px;
+    color:var(--ink);
+    font-weight:500;
+  }
+  table.pattern td.cx{
+    font-family:"JetBrains Mono",monospace;
+    font-size:12.5px;
+    color:var(--c-array);
+    width: 110px;
+  }
+  section.graph td.cx{color:var(--c-graph)}
+  section.dp td.cx{color:var(--c-dp)}
+
+  /* ============ DECISION FLOW BOX ============ */
+  .flow-box{
+    background: var(--paper);
+    border-left: 3px solid var(--c-flow);
+    padding: 16px 22px;
+    margin: 14px 0 22px;
+    border-radius: 0 4px 4px 0;
+  }
+  section.array .flow-box{border-left-color:var(--c-array)}
+  section.graph .flow-box{border-left-color:var(--c-graph)}
+  section.dp .flow-box{border-left-color:var(--c-dp)}
+  .flow-box ol{
+    margin: 4px 0;
+    padding-left: 1.2em;
+  }
+  .flow-box ol > li{
+    margin-bottom: 10px;
+  }
+  .flow-box ol > li > strong{display:block; margin-bottom:2px}
+
+  /* ============ CODE BLOCK ============ */
+  .codeblock{
+    position:relative;
+    margin: 14px 0 22px;
+    background: var(--code-bg);
+    border-radius: 8px;
+    overflow:hidden;
+    box-shadow: 0 1px 0 rgba(0,0,0,.05), 0 10px 24px -12px rgba(40,25,10,.35);
+  }
+  .codeblock .cb-bar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding: 9px 14px;
+    background: rgba(255,255,255,.04);
+    border-bottom: 1px solid rgba(255,255,255,.06);
+  }
+  .cb-name{
+    font-family:"JetBrains Mono",monospace;
+    font-size: 11.5px;
+    color: #c9bd9a;
+    letter-spacing:.06em;
+  }
+  .cb-name b{color: var(--c-array); font-weight:500; margin-right:6px}
+  section.graph .cb-name b{color:#9ab987}
+  section.dp .cb-name b{color:#d99a8b}
+  section.flow .cb-name b{color:#a89cd0}
+  .copy-btn{
+    background: transparent;
+    border: 1px solid rgba(244,236,214,.18);
+    color: #c9bd9a;
+    font-family:"JetBrains Mono",monospace;
+    font-size:11px;
+    letter-spacing:.08em;
+    padding: 4px 10px;
+    border-radius: 4px;
+    cursor:pointer;
+    transition: all .15s;
+  }
+  .copy-btn:hover{
+    border-color: rgba(244,236,214,.5);
+    color: var(--code-fg);
+  }
+  .copy-btn.copied{
+    color:#a3d685;
+    border-color: rgba(163,214,133,.4);
+  }
+  .codeblock pre{
+    margin: 0;
+    padding: 16px 18px 18px;
+    font-size: 13.2px;
+    line-height: 1.62;
+    color: var(--code-fg);
+    overflow-x:auto;
+    tab-size: 2;
+  }
+  /* very lightweight token highlighting (manual spans) */
+  .codeblock .kw{color:#e6b35c}    /* keyword */
+  .codeblock .fn{color:#9ec5ff}    /* function */
+  .codeblock .str{color:#a3d685}   /* string */
+  .codeblock .num{color:#e8a0c8}   /* number */
+  .codeblock .cm{color:#7a6f55; font-style:italic} /* comment */
+  .codeblock .self{color:#d99a8b}  /* self/cls */
+  .codeblock .op{color:#e6b35c}    /* operator */
+
+  /* ============ CALLOUT ============ */
+  .callout{
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin: 18px 0;
+    font-size: 14.5px;
+  }
+  .callout-label{
+    font-family:"JetBrains Mono",monospace;
+    font-size: 10.5px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color: var(--c-array);
+    margin-bottom: 6px;
+    font-weight:500;
+  }
+  section.graph .callout-label{color:var(--c-graph)}
+  section.dp .callout-label{color:var(--c-dp)}
+  section.flow .callout-label{color:var(--c-flow)}
+
+  /* ============ TWO-COLUMN ============ */
+  .grid-2{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px,1fr));
+    gap: 24px;
+    margin: 18px 0 24px;
+  }
+  .gcard{
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 18px 22px;
+  }
+  .gcard h4{margin-top:0}
+  .gcard ul{margin-bottom:0}
+  .gcard .tag{
+    display:inline-block;
+    font-family:"JetBrains Mono",monospace;
+    font-size: 10px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color: var(--ink-mute);
+    background: var(--cream-2);
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-bottom: 8px;
+  }
+
+  /* ============ STEP CARDS (general flow) ============ */
+  .step-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+    gap: 16px;
+    margin: 20px 0 28px;
+  }
+  .step{
+    background:var(--paper);
+    border:1px solid var(--rule);
+    border-radius:6px;
+    padding: 18px 20px;
+    position:relative;
+  }
+  .step .step-n{
+    position:absolute;
+    top:-10px;
+    left:18px;
+    background:var(--c-flow);
+    color:var(--paper);
+    font-family:"JetBrains Mono",monospace;
+    font-size:10.5px;
+    letter-spacing:.1em;
+    padding: 3px 9px;
+    border-radius: 3px;
+    font-weight:500;
+  }
+  .step h4{margin: 6px 0 8px; font-size:16px}
+  .step p, .step li{font-size:14px; color:var(--ink-soft)}
+  .step ul{margin:0; padding-left: 1.2em}
+
+  /* ============ CHECKLIST ============ */
+  .checklist-section{
+    background: linear-gradient(180deg, var(--paper), var(--cream));
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 32px 36px;
+    margin-top: 32px;
+  }
+  .checklist-toolbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:16px;
+    margin-bottom: 24px;
+    padding-bottom: 18px;
+    border-bottom: 1px dashed var(--rule);
+  }
+  .cl-stats{
+    display:flex;
+    gap:28px;
+    align-items:baseline;
+  }
+  .cl-stats .num{
+    font-family:"Fraunces",serif;
+    font-variation-settings:"opsz" 144,"SOFT" 30,"WONK" 1;
+    font-weight:500;
+    font-size: 44px;
+    line-height:1;
+    color:var(--ink);
+  }
+  .cl-stats .lbl{
+    font-family:"JetBrains Mono",monospace;
+    font-size:11px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--ink-mute);
+  }
+  .cl-reset{
+    background:transparent;
+    border: 1px solid var(--rule);
+    color:var(--ink-soft);
+    font-family:"JetBrains Mono",monospace;
+    font-size:11.5px;
+    letter-spacing:.1em;
+    padding: 7px 14px;
+    border-radius: 4px;
+    cursor:pointer;
+    text-transform:uppercase;
+    transition: all .15s;
+  }
+  .cl-reset:hover{
+    border-color:var(--ink-mute);
+    color:var(--ink);
+  }
+
+  .cl-group{margin-bottom: 28px}
+  .cl-group:last-child{margin-bottom:0}
+  .cl-group-h{
+    display:flex;
+    align-items:baseline;
+    gap:14px;
+    margin-bottom: 12px;
+  }
+  .cl-group-h .pill{
+    font-family:"JetBrains Mono",monospace;
+    font-size: 10.5px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    padding: 3px 10px;
+    border-radius: 3px;
+    color:var(--paper);
+    font-weight:500;
+  }
+  .cl-group.array .pill{background:var(--c-array)}
+  .cl-group.graph .pill{background:var(--c-graph)}
+  .cl-group.dp    .pill{background:var(--c-dp)}
+  .cl-group-h .title{
+    font-family:"Fraunces",serif;
+    font-variation-settings:"opsz" 72,"SOFT" 40,"WONK" 0;
+    font-size: 20px;
+    font-weight:500;
+  }
+  .cl-group-h .meta{
+    font-family:"JetBrains Mono",monospace;
+    font-size:12px;
+    color:var(--ink-mute);
+    margin-left:auto;
+  }
+
+  .cl-items{
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
+    gap: 6px 24px;
+  }
+  .cl-items label{
+    display:flex;
+    align-items:center;
+    gap: 10px;
+    padding: 6px 0;
+    cursor:pointer;
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    border-bottom: 1px dotted transparent;
+    transition: color .15s;
+  }
+  .cl-items label:hover{
+    color: var(--ink);
+    border-bottom-color: var(--rule);
+  }
+  .cl-items input[type=checkbox]{
+    appearance:none;
+    -webkit-appearance:none;
+    width:16px; height:16px;
+    border: 1.5px solid var(--ink-mute);
+    border-radius: 3px;
+    background: transparent;
+    cursor:pointer;
+    position:relative;
+    flex-shrink:0;
+    transition: all .15s;
+  }
+  .cl-items input[type=checkbox]:checked{
+    background: var(--c-array);
+    border-color: var(--c-array);
+  }
+  .cl-group.graph .cl-items input[type=checkbox]:checked{background:var(--c-graph); border-color:var(--c-graph)}
+  .cl-group.dp .cl-items input[type=checkbox]:checked{background:var(--c-dp); border-color:var(--c-dp)}
+  .cl-items input[type=checkbox]:checked::after{
+    content:"";
+    position:absolute;
+    left: 4px; top: 0px;
+    width: 5px; height: 10px;
+    border: solid var(--paper);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+  .cl-items label.done{
+    color: var(--ink-mute);
+    text-decoration: line-through;
+    text-decoration-color: var(--rule);
+  }
+
+  /* ============ PHASE TIMELINE ============ */
+  .phase-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+    gap: 20px;
+    margin: 20px 0;
+  }
+  .phase{
+    background:var(--paper);
+    border:1px solid var(--rule);
+    border-radius: 6px;
+    padding: 22px 24px;
+    position:relative;
+  }
+  .phase .ph-tag{
+    display:inline-block;
+    font-family:"JetBrains Mono",monospace;
+    font-size:10.5px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    padding: 3px 10px;
+    border-radius: 3px;
+    color:var(--paper);
+    margin-bottom:10px;
+  }
+  .phase.p1 .ph-tag{background:var(--c-array)}
+  .phase.p2 .ph-tag{background:var(--c-graph)}
+  .phase.p3 .ph-tag{background:var(--c-dp)}
+  .phase h4{margin-top:0; font-size:18px}
+  .phase ul{padding-left:1.2em; margin: 8px 0 0}
+  .phase ul li{font-size:13.8px; font-family:"JetBrains Mono",monospace; color:var(--ink-soft)}
+
+  /* ============ MASTERY ============ */
+  .mastery{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .m-card{
+    border:1px solid var(--rule);
+    background: var(--paper);
+    border-radius: 6px;
+    padding: 18px 20px;
+    text-align:center;
+  }
+  .m-card .lvl{
+    font-family:"Fraunces",serif;
+    font-variation-settings:"opsz" 144,"SOFT" 30,"WONK" 1;
+    font-style:italic;
+    font-weight:500;
+    font-size:26px;
+    margin-bottom:6px;
+  }
+  .m-card.easy .lvl{color:var(--c-graph)}
+  .m-card.med .lvl{color:var(--c-array)}
+  .m-card.hard .lvl{color:var(--c-dp)}
+  .m-card .time{
+    font-family:"JetBrains Mono",monospace;
+    font-size:13px;
+    color:var(--ink);
+    margin-bottom:4px;
+    font-weight:500;
+  }
+  .m-card .desc{
+    font-size:13.5px;
+    color:var(--ink-soft);
+  }
+
+  /* ============ FOOTER ============ */
+  footer{
+    margin-top: 80px;
+    padding-top: 32px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--ink-mute);
+    font-family:"JetBrains Mono",monospace;
+    letter-spacing:.04em;
+  }
+  footer em{
+    color: var(--c-array);
+    font-style:italic;
+    font-family:"Fraunces",serif;
+    font-variation-settings:"opsz" 36, "WONK" 1;
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 980px){
+    .wrap{grid-template-columns: 1fr; gap: 0; padding: 0 24px}
+    aside{
+      position:relative; height:auto;
+      border-right:none; border-bottom: 1px dashed var(--rule);
+      padding: 24px 0;
+      margin-bottom: 24px;
+    }
+    main{padding-top: 0}
+    .sec-num{font-size:64px}
+    h1.title{font-size:38px}
+  }
+  @media (max-width: 580px){
+    .wrap{padding: 0 18px}
+    .checklist-section{padding: 22px 18px}
+    .cl-items{grid-template-columns: 1fr}
+    .cl-stats{gap:18px}
+    .cl-stats .num{font-size:32px}
+  }
+
+  /* small util */
+  .kbd{
+    font-family:"JetBrains Mono",monospace;
+    font-size:.9em;
+    background:var(--cream-2);
+    border:1px solid var(--rule);
+    padding: 1px 6px;
+    border-radius: 3px;
+    color:var(--ink);
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+<!-- ============ SIDEBAR ============ -->
+<aside>
+  <div class="brand">Google Coding<br><em>Cheat Sheet</em></div>
+  <div class="brand-sub">3 topics · pattern × template</div>
+
+  <nav>
+    <div class="nav-section">
+      <div class="nav-label">Foundation</div>
+      <a href="#flow"><span class="num">00</span>通用解題流程</a>
+    </div>
+    <div class="nav-section">
+      <div class="nav-label">Topics</div>
+      <a href="#array"><span class="num">01</span>Array / String</a>
+      <a href="#graph"><span class="num">02</span>Graph / Tree</a>
+      <a href="#dp"><span class="num">03</span>Dynamic Programming</a>
+    </div>
+    <div class="nav-section">
+      <div class="nav-label">Practice</div>
+      <a href="#phase"><span class="num">04</span>刷題順序</a>
+      <a href="#mastery"><span class="num">05</span>能舉一反三的標準</a>
+      <a href="#checklist"><span class="num">06</span>必刷 45 題清單</a>
+    </div>
+  </nav>
+
+  <div class="progress-mini">
+    <div class="progress-mini-label">必刷進度</div>
+    <div class="progress-mini-val"><span id="pmCount">0</span> <span style="color:var(--ink-mute);font-size:18px">/ 45</span></div>
+    <div class="progress-bar"><div class="progress-bar-fill" id="pmBar"></div></div>
+  </div>
+</aside>
+
+<!-- ============ MAIN ============ -->
+<main>
+
+  <header class="hero">
+    <div class="eyebrow">Quick reference · 2026 Google interview prep</div>
+    <h1 class="title">Pattern 比題目<br>更<em>值得背</em>。</h1>
+    <p class="hero-tagline">
+      三大高 ROI topic、四步解題框架、一眼看穿訊號詞 → 對應演算法。<br>
+      不是刷答案，是把題目壓縮成 pattern。
+    </p>
+    <div class="hero-meta">
+      <span><b>Target ›</b> Google · Sep 2026</span>
+      <span><b>Stack ›</b> C++17</span>
+      <span><b>Scope ›</b> 3 topics · 45 problems</span>
+    </div>
+  </header>
+
+  <!-- ====================================================== -->
+  <!-- SECTION 0: GENERAL FLOW -->
+  <!-- ====================================================== -->
+  <section id="flow" class="flow">
+    <div class="sec-header">
+      <span class="sec-num">00</span>
+      <h2 class="sec-title">通用解題<em>流程</em></h2>
+      <span class="sec-tag">framework</span>
+    </div>
+    <div class="sec-divider"></div>
+
+    <p>面試時不要拿到題就寫 code。每一題都照這六步走，把<strong>對話結構化</strong>，interviewer 才知道你會怎麼思考。</p>
+
+    <div class="step-grid">
+      <div class="step">
+        <span class="step-n">STEP 1</span>
+        <h4>Clarify 題目</h4>
+        <ul>
+          <li>input size?</li>
+          <li>有 duplicate? 負數?</li>
+          <li>sorted? directed? weighted?</li>
+          <li>return value 還是 path?</li>
+          <li>可以修改 input 嗎?</li>
+        </ul>
+      </div>
+      <div class="step">
+        <span class="step-n">STEP 2</span>
+        <h4>先講 brute force</h4>
+        <p>說出 baseline 與其複雜度，再說明為什麼要優化。<br>例：<span class="mono">O(n²) 太慢，n=10⁵ 需要 O(n) 或 O(n log n)</span></p>
+      </div>
+      <div class="step">
+        <span class="step-n">STEP 3</span>
+        <h4>用 keyword 判斷 pattern</h4>
+        <ul>
+          <li>contiguous → window / prefix</li>
+          <li>shortest path → BFS</li>
+          <li>dependency → topo sort</li>
+          <li>max/min/count + overlap → DP</li>
+        </ul>
+      </div>
+      <div class="step">
+        <span class="step-n">STEP 4</span>
+        <h4>定義 invariant / state</h4>
+        <ul>
+          <li>Window: <span class="mono">[l,r]</span> 維持什麼?</li>
+          <li>Graph: visited 何時 mark?</li>
+          <li>DP: <span class="mono">dp[i]</span> 代表什麼?</li>
+        </ul>
+      </div>
+      <div class="step">
+        <span class="step-n">STEP 5</span>
+        <h4>寫 code</h4>
+        <p>核心通常 20–30 行。<strong>clean、robust、處理 edge cases</strong>。不要寫太長。</p>
+      </div>
+      <div class="step">
+        <span class="step-n">STEP 6</span>
+        <h4>複雜度 + 測試</h4>
+        <ul>
+          <li>empty / single element</li>
+          <li>duplicates / negatives</li>
+          <li>disconnected / cycle</li>
+          <li>large input</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-label">核心原則</div>
+      Pattern matching > 記題目。每題刷完逼自己回答:<em class="k">這題是哪個 pattern?</em>
+      <em class="k">為什麼適用?</em> <em class="k">同 pattern 的另一題我能寫嗎?</em>
+    </div>
+  </section>
+
+
+  <!-- ====================================================== -->
+  <!-- SECTION 1: ARRAY / STRING -->
+  <!-- ====================================================== -->
+  <section id="array" class="array">
+    <div class="sec-header">
+      <span class="sec-num">01</span>
+      <h2 class="sec-title">Array / String <em>+ HashMap · Two Pointers · Window · Prefix</em></h2>
+      <span class="sec-tag">topic 01 / 03</span>
+    </div>
+    <div class="sec-divider"></div>
+
+    <p>最高頻基礎 topic。很多其他題目也會包在 array / sequence 裡面，<strong>不熟這個其他都別想</strong>。</p>
+
+    <!-- pattern table -->
+    <h3><span class="hashidx">1.1</span>Pattern 對應表</h3>
+    <div class="pattern-card">
+      <div class="pc-header"><span class="dot"></span><span class="pc-title">Signal → Solution → Complexity</span></div>
+      <table class="pattern">
+        <thead><tr><th>題目訊號</th><th>優先想到</th><th>典型 Big-O</th></tr></thead>
+        <tbody>
+          <tr><td class="signal">找 pair / existence / frequency</td><td class="solve">HashMap / HashSet</td><td class="cx">O(n)</td></tr>
+          <tr><td class="signal">sorted array / palindrome / merge</td><td class="solve">Two Pointers</td><td class="cx">O(n)</td></tr>
+          <tr><td class="signal">contiguous subarray / substring</td><td class="solve">Sliding Window / Prefix Sum</td><td class="cx">O(n)</td></tr>
+          <tr><td class="signal">subarray sum = k，<strong>可能有負數</strong></td><td class="solve">Prefix Sum + HashMap</td><td class="cx">O(n)</td></tr>
+          <tr><td class="signal">全正數 + min/max window</td><td class="solve">Sliding Window</td><td class="cx">O(n)</td></tr>
+          <tr><td class="signal">interval overlap / merge</td><td class="solve">Sort + Sweep</td><td class="cx">O(n log n)</td></tr>
+          <tr><td class="signal">top k / stream / median</td><td class="solve">Heap</td><td class="cx">O(n log k)</td></tr>
+          <tr><td class="signal">next greater / previous smaller</td><td class="solve">Monotonic Stack</td><td class="cx">O(n)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- decision flow -->
+    <h3><span class="hashidx">1.2</span>看到 array/string 題，先問自己 5 個問題</h3>
+    <div class="flow-box">
+      <ol>
+        <li><strong>是否要保持原本順序?</strong> 要 → 不能 sort，考慮 hash / window / DP · 不要 → sort 可能簡化</li>
+        <li><strong>是否要求 contiguous?</strong> 是 → sliding window / prefix sum · 否 → subsequence / subset / DP / greedy</li>
+        <li><strong>是否有負數?</strong> 有 → sliding window 通常失效，<em class="k">prefix sum + hash</em> · 全正數 → sliding window 成立</li>
+        <li><strong>是否只需要 existence?</strong> 是 → HashSet · 需要 index / count → HashMap</li>
+        <li><strong>input 是否 sorted?</strong> 是 → two pointers / binary search</li>
+      </ol>
+    </div>
+
+    <!-- templates -->
+    <h3><span class="hashidx">1.3</span>核心 Templates</h3>
+
+    <div class="callout">
+      <div class="callout-label">C++ conventions</div>
+      所有範例假設 <span class="mono">#include &lt;bits/stdc++.h&gt;</span> 與 <span class="mono">using namespace std;</span>，為節省篇幅省略 include。範例使用 C++17 (structured bindings <span class="mono">auto [a,b]</span>、<span class="mono">if constexpr</span> 可用)。
+    </div>
+
+    <h4>HashMap · Two Sum 類</h4>
+    <p>用<em class="k">空間換時間</em>，把過去看過的資訊存起來。</p>
+    <div class="codeblock">
+      <div class="cb-bar"><span class="cb-name"><b>cpp</b>two_sum.cpp</span><button class="copy-btn">COPY</button></div>
+<pre><span class="kw">vector</span>&lt;<span class="kw">int</span>&gt; <span class="fn">twoSum</span>(<span class="kw">vector</span>&lt;<span class="kw">int</span>&gt;&amp; nums, <span class="kw">int</span> target) {
+    <span class="kw">unordered_map</span>&lt;<span class="kw">int</span>, <span class="kw">int</span>&gt; seen;  <span class="cm">// value -> index</span>
+
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="num">0</span>; i &lt; (<span class="kw">int</span>)nums.<span class="fn">size</span>(); ++i) {
+        <span class="kw">int</span> need = target - nums[i];
+        <span class="kw">if</span> (seen.<span class="fn">count</span>(need))
+            <span class="kw">return</span> {seen[need], i};
+        seen[nums[i]] = i;
+    }
+    <span class="kw">return</span> {};
+}
+</pre>
+    </div>
+
+    <h4>Sliding Window · 可變長度</h4>
+    <p>適用 longest / shortest substring · 條件可以用移動 left 修復。</p>
+    <div class="codeblock">
+      <div class="cb-bar"><span class="cb-name"><b>cpp</b>sliding_window.cpp</span><button class="copy-btn">COPY</button></div>
+<pre><span class="kw">int</span> <span class="fn">slidingWindow</span>(<span class="kw">const</span> <span class="kw">string</span>&amp; s) {
+    <span class="kw">unordered_map</span>&lt;<span class="kw">char</span>, <span class="kw">int</span>&gt; count;
+    <span class="kw">int</span> left = <span class="num">0</span>, ans = <span class="num">0</span>;
+
+    <span class="kw">for</span> (<span class="kw">int</span> right = <span class="num">0</span>; right &lt; (<span class="kw">int</span>)s.<span class="fn">size</span>(); ++right) {
+        count[s[right]]++;
+
+        <span class="cm">// while window invalid, shrink left</span>
+        <span class="kw">while</span> (!<span class="fn">isValid</span>(count)) {
+            count[s[left]]--;
+            left++;
+        }
+
+        ans = <span class="fn">max</span>(ans, right - left + <span class="num">1</span>);
+    }
+    <span class="kw">return</span> ans;
+}
+</pre>
+    </div>
+
+    <h4>Prefix Sum + HashMap</h4>
+    <p>核心公式: <span class="mono">sum(i..j) = prefix[j] - prefix[i-1]</span>。若 <span class="mono">prefix[j] - prefix[i-1] = k</span>，則 <span class="mono">prefix[i-1] = prefix[j] - k</span>。</p>
+    <div class="codeblock">
+      <div class="cb-bar"><span class="cb-name"><b>cpp</b>subarray_sum.cpp</span><button class="copy-btn">COPY</button></div>
+<pre><span class="kw">int</span> <span class="fn">subarraySum</span>(<span class="kw">vector</span>&lt;<span class="kw">int</span>&gt;&amp; nums, <span class="kw">int</span> k) {
+    <span class="kw">int</span> prefix = <span class="num">0</span>, ans = <span class="num">0</span>;
+    <span class="kw">unordered_map</span>&lt;<span class="kw">int</span>, <span class="kw">int</span>&gt; freq;
+    freq[<span class="num">0</span>] = <span class="num">1</span>;
+
+    <span class="kw">for</span> (<span class="kw">int</span> x : nums) {
+        prefix += x;
+        <span class="kw">if</span> (freq.<span class="fn">count</span>(prefix - k))
+            ans += freq[prefix - k];
+        freq[prefix]++;
+    }
+    <span class="kw">return</span> ans;
+}
+</pre>
+    </div>
+
+    <h4>Two Pointers</h4>
+    <div class="codeblock">
+      <div class="cb-bar"><span class="cb-name"><b>cpp</b>two_pointers.cpp</span><button class="copy-btn">COPY</button></div>
+<pre><span class="kw">vector</span>&lt;<span class="kw">int</span>&gt; <span class="fn">twoPointers</span>(<span class="kw">vector</span>&lt;<span class="kw">int</span>&gt;&amp; nums, <span class="kw">int</span> target) {
+    <span class="kw">int</span> left = <span class="num">0</span>, right = (<span class="kw">int</span>)nums.<span class="fn">size</span>() - <span class="num">1</span>;
+
+    <span class="kw">while</span> (left &lt; right) {
+        <span class="kw">int</span> cur = nums[left] + nums[right];
+        <span class="kw">if</span> (cur == target) <span class="kw">return</span> {left, right};
+        <span class="kw">else</span> <span class="kw">if</span> (cur &lt; target) ++left;
+        <span class="kw">else</span> --right;
+    }
+    <span class="kw">return</span> {};
+}
+</pre>
+    </div>
+
+    <!-- problems -->
+    <h3><span class="hashidx">1.4</span>必刷經典題</h3>
+    <div class="grid-2">
+      <div class="gcard">
+        <span class="tag">基礎必熟</span>
+        <ul>
+          <li>Two Sum</li>
+          <li>Contains Duplicate</li>
+          <li>Valid Anagram · Group Anagrams</li>
+          <li>Best Time to Buy and Sell Stock</li>
+          <li>Product of Array Except Self</li>
+          <li>Maximum Subarray</li>
+          <li>Merge Intervals</li>
+        </ul>
+      </div>
+      <div class="gcard">
+        <span class="tag">Sliding Window</span>
+        <ul>
+          <li>Longest Substring Without Repeating Characters</li>
+          <li>Minimum Window Substring</li>
+          <li>Permutation in String</li>
+          <li>Find All Anagrams in a String</li>
+          <li>Minimum Size Subarray Sum</li>
+          <li>Sliding Window Maximum</li>
+        </ul>
+      </div>
+      <div class="gcard">
+        <span class="tag">Prefix Sum</span>
+        <ul>
+          <li>Subarray Sum Equals K</li>
+          <li>Continuous Subarray Sum</li>
+          <li>Maximum Size Subarray Sum Equals K</li>
+          <li>Range Sum Query</li>
+          <li>Number of Submatrices That Sum to Target</li>
+        </ul>
+      </div>
+      <div class="gcard">
+        <span class="tag">Google 味較重</span>
+        <ul>
+          <li>Minimum Window Substring</li>
+          <li>Text Justification</li>
+          <li>Expressive Words</li>
+          <li>Decode String</li>
+          <li>Longest Line of Consecutive One in Matrix</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ====================================================== -->
+  <!-- SECTION 2: GRAPH / TREE -->
+  <!-- ====================================================== -->
+  <section id="graph" class="graph">
+    <div class="sec-header">
+      <span class="sec-num">02</span>
+      <h2 class="sec-title">Graph / Tree <em>+ BFS · DFS · Topo · Union-Find · Dijkstra</em></h2>
+      <span class="sec-tag">topic 02 / 03</span>
+    </div>
+    <div class="sec-divider"></div>
+
+    <p>Google 很值得重點準備。容易包成<strong>真實世界問題</strong>: 地圖 · 依賴關係 · 網路 · grid · word transformation · robot cleaning · DB dependency。</p>
+
+    <h3><span class="hashidx">2.1</span>Pattern 對應表</h3>
+    <div class="pattern-card">
+      <div class="pc-header"><span class="dot"></span><span class="pc-title">Signal → Algorithm</span></div>
+      <table class="pattern">
+        <thead><tr><th>題目訊號</th><th>優先想到</th><th>備註</th></tr></thead>
+        <tbody>
+          <tr><td class="signal">grid / maze / island / connected area</td><td class="solve">BFS / DFS</td><td class="cx">O(V+E)</td></tr>
+          <tr><td class="signal">shortest path · edge cost 一樣</td><td class="solve">BFS</td><td class="cx">unweighted</td></tr>
+          <tr><td class="signal">shortest path · 正權重</td><td class="solve">Dijkstra</td><td class="cx">heap</td></tr>
+          <tr><td class="signal">dependency / prerequisite / build order</td><td class="solve">Topological Sort</td><td class="cx">DAG</td></tr>
+          <tr><td class="signal">detect cycle in directed graph</td><td class="solve">DFS coloring / Topo</td><td class="cx">—</td></tr>
+          <tr><td class="signal">many connectivity queries</td><td class="solve">Union-Find</td><td class="cx">α(n)</td></tr>
+          <tr><td class="signal">clone / traverse all nodes</td><td class="solve">DFS / BFS</td><td class="cx">—</td></tr>
+          <tr><td class="signal">tree path / subtree / LCA</td><td class="solve">Tree DFS / Postorder</td><td class="cx">O(n)</td></tr>
+          <tr><td class="signal">enumerate all valid paths</td><td class="solve">Backtracking + DFS</td><td class="cx">exp</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3><span class="hashidx">2.2</span>Graph 解題流程</h3>
+    <div class="flow-box">
+      <ol>
+        <li><strong>確認 graph 類型</strong> · directed/undirected · weighted/unweighted · cyclic/acyclic · connected/disconnected</li>
+        <li><strong>選 representation</strong> · adjacency list (常用) · matrix/grid (用 row,col 當 node) · edge list (Union-Find / Bellman-Ford)</li>
+        <li><strong>確認 visited 時機</strong> · BFS: <em class="k">入 queue 時</em> mark · DFS: <em class="k">進入 function 時</em> mark</li>
+        <li><strong>確認答案類型</strong> · count components? · shortest distance? · path exists? · topo order? · detect cycle?</li>
+      </ol>
+    </div>
+
+    <h3><span class="hashidx">2.3</span>核心 Templates</h3>
+
+    <h4>Grid BFS · 最短路徑</h4>
+    <p>Invariant: <em class="k">第一次到達某個 node 時，就是最短距離</em> (只適用 unweighted)。</p>
+    <div class="codeblock">
+      <div class="cb-bar"><span class="cb-name"><b>cpp</b>bfs_grid.cpp</span><button class="copy-btn">COPY</button></div>
+<pre><span class="kw">int</span> <span class="fn">bfsGrid</span>(<span class="kw">vector</span>&lt;<span class="kw">vector</span>&lt;<span class="kw">int</span>&gt;&gt;&amp; grid,
+            <span class="kw">vector</span>&lt;<span class="kw">pair</span>&lt;<span class="kw">int</span>,<span class="kw">int</span>&gt;&gt;&amp; starts) {
+    <span class="kw">int</span> m = grid.<span class="fn">size</span>(), n = grid[<span class="num">0</span>].<span class="fn">size</span>();
+    <span class="kw">queue</span>&lt;<span class="kw">tuple</span>&lt;<span class="kw">int</span>,<span class="kw">int</span>,<span class="kw">int</span>&gt;&gt; q;
+    <span class="kw">vector</span>&lt;<span class="kw">vector</span>&lt;<span class="kw">bool</span>&gt;&gt; visited(m, <span class="kw">vector</span>&lt;<span class="kw">bool</span>&gt;(n, <span class="kw">false</span>));
+
+    <span class="kw">for</span> (<span class="kw">auto</span> [r, c] : starts) {
+        q.<span class="fn">push</span>({r, c, <span class="num">0</span>});
+        visited[r][c] = <span class="kw">true</span>;
+    }
+
+    <span class="kw">int</span> dirs[<span class="num">4</span>][<span class="num">2</span>] = {{<span class="num">1</span>,<span class="num">0</span>},{-<span class="num">1</span>,<span class="num">0</span>},{<span class="num">0</span>,<span class="num">1</span>},{<span class="num">0</span>,-<span class="num">1</span>}};
+
+    <span class="kw">while</span> (!q.<span class="fn">empty</span>()) {
+        <span class="kw">auto</span> [r, c, dist] = q.<span class="fn">front</span>(); q.<span class="fn">pop</span>();
+        <span class="cm">// if (target) return dist;</span>
+
+        <span class="kw">for</span> (<span class="kw">auto</span>&amp; d : dirs) {
+            <span class="kw">int</span> nr = r + d[<span class="num">0</span>], nc = c + d[<span class="num">1</span>];
+            <span class="kw">if</span> (nr &lt; <span class="num">0</span> || nr &gt;= m || nc &lt; <span class="num">0</span> || nc &gt;= n) <span class="kw">continue</span>;
+            <span class="kw">if</span> (visited[nr][nc]) <span class="kw">continue</span>;
+            <span class="kw">if</span> (grid[nr][nc] == <span class="num">1</span>) <span class="kw">continue</span>;
+            visited[nr][nc] = <span class="kw">true</span>;
+            q.<span class="fn">push</span>({nr, nc, dist + <span class="num">1</span>});
+        }
+    }
+    <span class="kw">return</span> -<span class="num">1</span>;
+}
+</pre>
+    </div>
+
+    <h4>DFS · Connected Components</h4>
+    <div class="codeblock">
+      <div class="cb-bar"><span class="cb-name"><b>cpp</b>dfs_components.cpp</span><button class="copy-btn">COPY</button></div>
+<pre><span class="kw">int</span> <span class="fn">countComponents</span>(<span class="kw">unordered_map</span>&lt;<span class="kw">int</span>, <span class="kw">vector</span>&lt;<span class="kw">int</span>&gt;&gt;&amp; graph) {
+    <span class="kw">unordered_set</span>&lt;<span class="kw">int</span>&gt; visited;
+
+    <span class="kw">function</span>&lt;<span class="kw">void</span>(<span class="kw">int</span>)&gt; dfs = [&amp;](<span class="kw">int</span> node) {
+        visited.<span class="fn">insert</span>(node);
+        <span class="kw">for</span> (<span class="kw">int</span> nei : graph[node])
+            <span class="kw">if</span> (!visited.<span class="fn">count</span>(nei)) <span class="fn">dfs</span>(nei);
+    };
+
+    <span class="kw">int</span> ans = <span class="num">0</span>;
+    <span class="kw">for</span> (<span class="kw">auto</span>&amp; [node, _] : graph) {
+        <span class="kw">if</span> (!visited.<span class="fn">count</span>(node)) {
+            ans++;
+            <span class="fn">dfs</span>(node);
+        }
+    }
+    <span class="kw">return</span> ans;
+}
+</pre>
+    </div>
+
+    <h4>Topological Sort · Kahn's BFS</h4>
+    <p>判斷點: 有向圖 + dependency + 要 valid order。若 <span class="mono">len(order) != n</span> → 有 cycle。</p>
+    <div class="codeblock">
+      <div class="cb-bar"><span class="cb-name"><b>cpp</b>topo_sort.cpp</span><button class="copy-btn">COPY</button></div>
+<pre><span class="kw">vector</span>&lt;<span class="kw">int</span>&gt; <span class="fn">topoSort</span>(<span class="kw">int</span> n, <span class="kw">vector</span>&lt;<span class="kw">pair</span>&lt;<span class="kw">int</span>,<span class="kw">int</span>&gt;&gt;&amp; edges) {
+    <span class="kw">vector</span>&lt;<span class="kw">vector</span>&lt;<span class="kw">int</span>&gt;&gt; graph(n);
+    <span class="kw">vector</span>&lt;<span class="kw">int</span>&gt; indeg(n, <span class="num">0</span>);
+
+    <span class="kw">for</span> (<span class="kw">auto</span>&amp; [a, b] : edges) {
+        <span class="cm">// b -> a means a depends on b</span>
+        graph[b].<span class="fn">push_back</span>(a);
+        indeg[a]++;
+    }
+
+    <span class="kw">queue</span>&lt;<span class="kw">int</span>&gt; q;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="num">0</span>; i &lt; n; ++i)
+        <span class="kw">if</span> (indeg[i] == <span class="num">0</span>) q.<span class="fn">push</span>(i);
+
+    <span class="kw">vector</span>&lt;<span class="kw">int</span>&gt; order;
+    <span class="kw">while</span> (!q.<span class="fn">empty</span>()) {
+        <span class="kw">int</span> node = q.<span class="fn">front</span>(); q.<span class="fn">pop</span>();
+        order.<span class="fn">push_back</span>(node);
+        <span class="kw">for</span> (<span class="kw">int</span> nei : graph[node])
+            <span class="kw">if</span> (--indeg[nei] == <span class="num">0</span>) q.<span class="fn">push</span>(nei);
+    }
+
+    <span class="kw">return</span> (<span class="kw">int</span>)order.<span class="fn">size</span>() == n ? order : <span class="kw">vector</span>&lt;<span class="kw">int</span>&gt;{};
+}
+</pre>
+    </div>
+
+    <h4>Union-Find · DSU</h4>
+    <div class="codeblock">
+      <div class="cb-bar"><span class="cb-name"><b>cpp</b>union_find.cpp</span><button class="copy-btn">COPY</button></div>
+<pre><span class="kw">class</span> DSU {
+<span class="kw">public</span>:
+    <span class="kw">vector</span>&lt;<span class="kw">int</span>&gt; parent, rnk;
+
+    <span class="fn">DSU</span>(<span class="kw">int</span> n) : parent(n), rnk(n, <span class="num">0</span>) {
+        <span class="fn">iota</span>(parent.<span class="fn">begin</span>(), parent.<span class="fn">end</span>(), <span class="num">0</span>);
+    }
+
+    <span class="kw">int</span> <span class="fn">find</span>(<span class="kw">int</span> x) {
+        <span class="kw">if</span> (parent[x] != x)
+            parent[x] = <span class="fn">find</span>(parent[x]);
+        <span class="kw">return</span> parent[x];
+    }
+
+    <span class="kw">bool</span> <span class="fn">unite</span>(<span class="kw">int</span> a, <span class="kw">int</span> b) {  <span class="cm">// `union` is a keyword</span>
+        <span class="kw">int</span> ra = <span class="fn">find</span>(a), rb = <span class="fn">find</span>(b);
+        <span class="kw">if</span> (ra == rb) <span class="kw">return</span> <span class="kw">false</span>;
+        <span class="kw">if</span> (rnk[ra] &lt; rnk[rb]) <span class="fn">swap</span>(ra, rb);
+        parent[rb] = ra;
+        <span class="kw">if</span> (rnk[ra] == rnk[rb]) rnk[ra]++;
+        <span class="kw">return</span> <span class="kw">true</span>;
+    }
+};
+</pre>
+    </div>
+
+    <h4>Dijkstra · 正權重最短路徑</h4>
+    <div class="codeblock">
+      <div class="cb-bar"><span class="cb-name"><b>cpp</b>dijkstra.cpp</span><button class="copy-btn">COPY</button></div>
+<pre><span class="kw">vector</span>&lt;<span class="kw">int</span>&gt; <span class="fn">dijkstra</span>(<span class="kw">int</span> n,
+                     <span class="kw">vector</span>&lt;<span class="kw">tuple</span>&lt;<span class="kw">int</span>,<span class="kw">int</span>,<span class="kw">int</span>&gt;&gt;&amp; edges,
+                     <span class="kw">int</span> source) {
+    <span class="kw">vector</span>&lt;<span class="kw">vector</span>&lt;<span class="kw">pair</span>&lt;<span class="kw">int</span>,<span class="kw">int</span>&gt;&gt;&gt; graph(n);
+    <span class="kw">for</span> (<span class="kw">auto</span>&amp; [u, v, w] : edges)
+        graph[u].<span class="fn">push_back</span>({v, w});
+
+    <span class="kw">vector</span>&lt;<span class="kw">int</span>&gt; dist(n, INT_MAX);
+    dist[source] = <span class="num">0</span>;
+
+    <span class="cm">// min-heap of (distance, node)</span>
+    <span class="kw">priority_queue</span>&lt;<span class="kw">pair</span>&lt;<span class="kw">int</span>,<span class="kw">int</span>&gt;,
+                   <span class="kw">vector</span>&lt;<span class="kw">pair</span>&lt;<span class="kw">int</span>,<span class="kw">int</span>&gt;&gt;,
+                   <span class="kw">greater</span>&lt;&gt;&gt; heap;
+    heap.<span class="fn">push</span>({<span class="num">0</span>, source});
+
+    <span class="kw">while</span> (!heap.<span class="fn">empty</span>()) {
+        <span class="kw">auto</span> [d, node] = heap.<span class="fn">top</span>(); heap.<span class="fn">pop</span>();
+        <span class="kw">if</span> (d &gt; dist[node]) <span class="kw">continue</span>;
+
+        <span class="kw">for</span> (<span class="kw">auto</span>&amp; [nei, w] : graph[node]) {
+            <span class="kw">int</span> nd = d + w;
+            <span class="kw">if</span> (nd &lt; dist[nei]) {
+                dist[nei] = nd;
+                heap.<span class="fn">push</span>({nd, nei});
+            }
+        }
+    }
+    <span class="kw">return</span> dist;
+}
+</pre>
+    </div>
+
+    <h4>Tree DFS · Postorder Template</h4>
+    <p>Tree = connected acyclic graph。Path 題基本上都靠 <em class="k">每個 node 回傳子樹資訊 + 全域更新答案</em>。</p>
+    <div class="codeblock">
+      <div class="cb-bar"><span class="cb-name"><b>cpp</b>tree_dfs.cpp</span><button class="copy-btn">COPY</button></div>
+<pre><span class="kw">struct</span> TreeNode { <span class="kw">int</span> val; TreeNode *left, *right; };
+
+ReturnType <span class="fn">dfs</span>(TreeNode* root) {
+    <span class="kw">if</span> (!root) <span class="kw">return</span> baseValue;
+
+    <span class="kw">auto</span> left  = <span class="fn">dfs</span>(root-&gt;left);
+    <span class="kw">auto</span> right = <span class="fn">dfs</span>(root-&gt;right);
+
+    <span class="cm">// combine left, right, root-&gt;val</span>
+    <span class="kw">return</span> result;
+}
+</pre>
+    </div>
+
+    <h3><span class="hashidx">2.4</span>必刷經典題</h3>
+    <div class="grid-2">
+      <div class="gcard"><span class="tag">BFS / DFS</span><ul>
+        <li>Number of Islands · Max Area of Island</li>
+        <li>Flood Fill</li>
+        <li>Clone Graph</li>
+        <li>Pacific Atlantic Water Flow</li>
+        <li>Rotting Oranges · 01 Matrix</li>
+        <li>Walls and Gates</li>
+      </ul></div>
+      <div class="gcard"><span class="tag">Topological Sort</span><ul>
+        <li>Course Schedule I · II</li>
+        <li>Alien Dictionary</li>
+        <li>Sequence Reconstruction</li>
+      </ul></div>
+      <div class="gcard"><span class="tag">Union-Find</span><ul>
+        <li>Accounts Merge</li>
+        <li>Number of Connected Components</li>
+        <li>Graph Valid Tree</li>
+        <li>Redundant Connection</li>
+        <li>Evaluate Division</li>
+      </ul></div>
+      <div class="gcard"><span class="tag">Shortest Path</span><ul>
+        <li>Word Ladder</li>
+        <li>Network Delay Time</li>
+        <li>Cheapest Flights Within K Stops</li>
+        <li>Shortest Path in Binary Matrix</li>
+        <li>Minimum Knight Moves</li>
+      </ul></div>
+      <div class="gcard"><span class="tag">Tree</span><ul>
+        <li>Level Order Traversal</li>
+        <li>Lowest Common Ancestor</li>
+        <li>Serialize / Deserialize Binary Tree</li>
+        <li>Binary Tree Maximum Path Sum</li>
+        <li>Diameter of Binary Tree</li>
+        <li>Validate BST · Kth Smallest in BST</li>
+      </ul></div>
+      <div class="gcard"><span class="tag">Google 味較重</span><ul>
+        <li>Robot Room Cleaner</li>
+        <li>Word Ladder · Alien Dictionary</li>
+        <li>Evaluate Division</li>
+        <li>Number of Islands II</li>
+        <li>Shortest Path in Grid with Obstacles Elimination</li>
+      </ul></div>
+    </div>
+  </section>
+
+
+  <!-- ====================================================== -->
+  <!-- SECTION 3: DP -->
+  <!-- ====================================================== -->
+  <section id="dp" class="dp">
+    <div class="sec-header">
+      <span class="sec-num">03</span>
+      <h2 class="sec-title">Dynamic <em>Programming</em></h2>
+      <span class="sec-tag">topic 03 / 03</span>
+    </div>
+    <div class="sec-divider"></div>
+
+    <p>很多人最怕但 Google 值得準備。DP 解 optimization problem，靠<strong>大量練習辨識 pattern</strong>，不要跳過。</p>
+
+    <h3><span class="hashidx">3.1</span>Pattern 對應表</h3>
+    <div class="pattern-card">
+      <div class="pc-header"><span class="dot"></span><span class="pc-title">Signal → DP Type</span></div>
+      <table class="pattern">
+        <thead><tr><th>題目訊號</th><th>優先想到</th><th>備註</th></tr></thead>
+        <tbody>
+          <tr><td class="signal">max / min / count ways</td><td class="solve">DP</td><td class="cx">core signal</td></tr>
+          <tr><td class="signal">can / cannot</td><td class="solve">Boolean DP</td><td class="cx">bool[]</td></tr>
+          <tr><td class="signal">choices at each step</td><td class="solve">Recursion + memo</td><td class="cx">top-down</td></tr>
+          <tr><td class="signal">overlapping subproblems</td><td class="solve">DP</td><td class="cx">defining</td></tr>
+          <tr><td class="signal">sequence / string comparison</td><td class="solve">2D DP</td><td class="cx">O(mn)</td></tr>
+          <tr><td class="signal">choose or skip item</td><td class="solve">Knapsack DP</td><td class="cx">0/1 vs unbounded</td></tr>
+          <tr><td class="signal">buy / sell / hold states</td><td class="solve">State Machine DP</td><td class="cx">few states</td></tr>
+          <tr><td class="signal">interval merge / burst / palindrome</td><td class="solve">Interval DP</td><td class="cx">O(n³)</td></tr>
+          <tr><td class="signal">subset with bitmask</td><td class="solve">Bitmask DP</td><td class="cx">n ≤ 20</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3><span class="hashidx">3.2</span>DP 解題六步 · 逼自己寫出來</h3>
+    <div class="flow-box">
+      <ol>
+        <li><strong>State</strong> · <em class="k">dp[i]</em> 是什麼? <em class="k">dp[i][j]</em> 是什麼?</li>
+        <li><strong>Transition</strong> · <em class="k">dp[i]</em> 從哪些 smaller states 轉移?</li>
+        <li><strong>Base Case</strong> · <em class="k">dp[0]</em>? empty string / empty array 怎麼處理?</li>
+        <li><strong>Order</strong> · i 從小到大? interval length 從小到大?</li>
+        <li><strong>Answer</strong> · <em class="k">dp[n]</em>? <em class="k">max(dp)</em>? <em class="k">dp[0][n-1]</em>?</li>
+        <li><strong>Optimization</strong> · 能不能從 O(n²) space 降到 O(n)?</li>
+      </ol>
+    </div>
+
+    <h3><span class="hashidx">3.3</span>核心 Templates</h3>
+
+    <h4>Top-down Memoization · 面試最快推導</h4>
+    <div class="codeblock">
+      <div class="cb-bar"><span class="cb-name"><b>cpp</b>memo.cpp</span><button class="copy-btn">COPY</button></div>
+<pre><span class="kw">int</span> <span class="fn">solve</span>(<span class="kw">vector</span>&lt;<span class="kw">int</span>&gt;&amp; nums) {
+    <span class="kw">int</span> n = nums.<span class="fn">size</span>();
+    <span class="kw">vector</span>&lt;<span class="kw">int</span>&gt; memo(n + <span class="num">1</span>, -<span class="num">1</span>);
+
+    <span class="kw">function</span>&lt;<span class="kw">int</span>(<span class="kw">int</span>)&gt; dp = [&amp;](<span class="kw">int</span> i) -&gt; <span class="kw">int</span> {
+        <span class="kw">if</span> (i &gt;= n) <span class="kw">return</span> <span class="num">0</span>;
+        <span class="kw">if</span> (memo[i] != -<span class="num">1</span>) <span class="kw">return</span> memo[i];
+
+        <span class="kw">int</span> take = nums[i] + <span class="fn">dp</span>(i + <span class="num">2</span>);
+        <span class="kw">int</span> skip = <span class="fn">dp</span>(i + <span class="num">1</span>);
+        <span class="kw">return</span> memo[i] = <span class="fn">max</span>(take, skip);
+    };
+
+    <span class="kw">return</span> <span class="fn">dp</span>(<span class="num">0</span>);
+}
+</pre>
+    </div>
+
+    <h4>Bottom-up 1D DP · House Robber Space-Optimized</h4>
+    <div class="codeblock">
+      <div class="cb-bar"><span class="cb-name"><b>cpp</b>house_robber.cpp</span><button class="copy-btn">COPY</button></div>
+<pre><span class="kw">int</span> <span class="fn">houseRobber</span>(<span class="kw">vector</span>&lt;<span class="kw">int</span>&gt;&amp; nums) {
+    <span class="kw">int</span> prev2 = <span class="num">0</span>, prev1 = <span class="num">0</span>;
+
+    <span class="kw">for</span> (<span class="kw">int</span> x : nums) {
+        <span class="kw">int</span> cur = <span class="fn">max</span>(prev1, prev2 + x);
+        prev2 = prev1;
+        prev1 = cur;
+    }
+    <span class="kw">return</span> prev1;
+}
+</pre>
+    </div>
+
+    <h4>2D String DP · LCS</h4>
+    <div class="codeblock">
+      <div class="cb-bar"><span class="cb-name"><b>cpp</b>lcs.cpp</span><button class="copy-btn">COPY</button></div>
+<pre><span class="kw">int</span> <span class="fn">longestCommonSubsequence</span>(<span class="kw">const</span> <span class="kw">string</span>&amp; a,
+                             <span class="kw">const</span> <span class="kw">string</span>&amp; b) {
+    <span class="kw">int</span> m = a.<span class="fn">size</span>(), n = b.<span class="fn">size</span>();
+    <span class="kw">vector</span>&lt;<span class="kw">vector</span>&lt;<span class="kw">int</span>&gt;&gt; dp(m + <span class="num">1</span>, <span class="kw">vector</span>&lt;<span class="kw">int</span>&gt;(n + <span class="num">1</span>, <span class="num">0</span>));
+
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="num">1</span>; i &lt;= m; ++i) {
+        <span class="kw">for</span> (<span class="kw">int</span> j = <span class="num">1</span>; j &lt;= n; ++j) {
+            <span class="kw">if</span> (a[i-<span class="num">1</span>] == b[j-<span class="num">1</span>])
+                dp[i][j] = dp[i-<span class="num">1</span>][j-<span class="num">1</span>] + <span class="num">1</span>;
+            <span class="kw">else</span>
+                dp[i][j] = <span class="fn">max</span>(dp[i-<span class="num">1</span>][j], dp[i][j-<span class="num">1</span>]);
+        }
+    }
+    <span class="kw">return</span> dp[m][n];
+}
+</pre>
+    </div>
+
+    <h4>0/1 Knapsack · Subset Sum</h4>
+    <p>核心: <em class="k">0/1 容量從右往左跑</em> (避免重複用) · <em class="k">unbounded 從左往右跑</em> (可重複用)。</p>
+    <div class="codeblock">
+      <div class="cb-bar"><span class="cb-name"><b>cpp</b>partition.cpp</span><button class="copy-btn">COPY</button></div>
+<pre><span class="kw">bool</span> <span class="fn">canPartition</span>(<span class="kw">vector</span>&lt;<span class="kw">int</span>&gt;&amp; nums) {
+    <span class="kw">int</span> total = <span class="fn">accumulate</span>(nums.<span class="fn">begin</span>(), nums.<span class="fn">end</span>(), <span class="num">0</span>);
+    <span class="kw">if</span> (total % <span class="num">2</span>) <span class="kw">return</span> <span class="kw">false</span>;
+
+    <span class="kw">int</span> target = total / <span class="num">2</span>;
+    <span class="kw">vector</span>&lt;<span class="kw">bool</span>&gt; dp(target + <span class="num">1</span>, <span class="kw">false</span>);
+    dp[<span class="num">0</span>] = <span class="kw">true</span>;
+
+    <span class="kw">for</span> (<span class="kw">int</span> x : nums)
+        <span class="kw">for</span> (<span class="kw">int</span> s = target; s &gt;= x; --s)  <span class="cm">// 0/1: right -&gt; left</span>
+            dp[s] = dp[s] || dp[s - x];
+
+    <span class="kw">return</span> dp[target];
+}
+</pre>
+    </div>
+
+    <h4>Coin Change · Unbounded Knapsack</h4>
+    <div class="codeblock">
+      <div class="cb-bar"><span class="cb-name"><b>cpp</b>coin_change.cpp</span><button class="copy-btn">COPY</button></div>
+<pre><span class="kw">int</span> <span class="fn">coinChange</span>(<span class="kw">vector</span>&lt;<span class="kw">int</span>&gt;&amp; coins, <span class="kw">int</span> amount) {
+    <span class="kw">const</span> <span class="kw">int</span> INF = INT_MAX;
+    <span class="kw">vector</span>&lt;<span class="kw">int</span>&gt; dp(amount + <span class="num">1</span>, INF);
+    dp[<span class="num">0</span>] = <span class="num">0</span>;
+
+    <span class="kw">for</span> (<span class="kw">int</span> a = <span class="num">1</span>; a &lt;= amount; ++a) {
+        <span class="kw">for</span> (<span class="kw">int</span> coin : coins) {
+            <span class="kw">if</span> (a &gt;= coin &amp;&amp; dp[a - coin] != INF)
+                dp[a] = <span class="fn">min</span>(dp[a], dp[a - coin] + <span class="num">1</span>);
+        }
+    }
+    <span class="kw">return</span> dp[amount] == INF ? -<span class="num">1</span> : dp[amount];
+}
+</pre>
+    </div>
+
+    <h4>State Machine DP · Stock Trading</h4>
+    <p><em class="k">hold</em>: 手上有股票時的最大 profit · <em class="k">cash</em>: 沒股票時的最大 profit。</p>
+    <div class="codeblock">
+      <div class="cb-bar"><span class="cb-name"><b>cpp</b>stock.cpp</span><button class="copy-btn">COPY</button></div>
+<pre><span class="kw">int</span> <span class="fn">maxProfit</span>(<span class="kw">vector</span>&lt;<span class="kw">int</span>&gt;&amp; prices) {
+    <span class="kw">int</span> hold = INT_MIN, cash = <span class="num">0</span>;
+
+    <span class="kw">for</span> (<span class="kw">int</span> price : prices) {
+        <span class="kw">int</span> newHold = <span class="fn">max</span>(hold, cash - price);
+        <span class="kw">int</span> newCash = <span class="fn">max</span>(cash, hold + price);
+        hold = newHold;
+        cash = newCash;
+    }
+    <span class="kw">return</span> cash;
+}
+</pre>
+    </div>
+
+    <h3><span class="hashidx">3.4</span>必刷經典題</h3>
+    <div class="grid-2">
+      <div class="gcard"><span class="tag">1D DP</span><ul>
+        <li>Climbing Stairs</li>
+        <li>House Robber I · II</li>
+        <li>Decode Ways</li>
+        <li>Jump Game I · II</li>
+      </ul></div>
+      <div class="gcard"><span class="tag">Knapsack / Subset</span><ul>
+        <li>Partition Equal Subset Sum</li>
+        <li>Target Sum</li>
+        <li>Coin Change I · II</li>
+        <li>Combination Sum IV</li>
+      </ul></div>
+      <div class="gcard"><span class="tag">Sequence / String DP</span><ul>
+        <li>Longest Increasing Subsequence</li>
+        <li>Longest Common Subsequence</li>
+        <li>Edit Distance</li>
+        <li>Word Break</li>
+        <li>Palindromic Substrings</li>
+        <li>Longest Palindromic Subsequence</li>
+      </ul></div>
+      <div class="gcard"><span class="tag">Grid DP</span><ul>
+        <li>Unique Paths I · II</li>
+        <li>Minimum Path Sum</li>
+        <li>Dungeon Game</li>
+        <li>Cherry Pickup</li>
+      </ul></div>
+      <div class="gcard"><span class="tag">State Machine DP</span><ul>
+        <li>Best Time to Buy and Sell Stock I · II · III</li>
+        <li>· with Cooldown</li>
+        <li>· with Transaction Fee</li>
+      </ul></div>
+      <div class="gcard"><span class="tag">Hard / Google 味較重</span><ul>
+        <li>Maximal Rectangle</li>
+        <li>Number of Submatrices That Sum to Target</li>
+        <li>Race Car</li>
+        <li>Regular Expression Matching</li>
+        <li>Burst Balloons · Strange Printer</li>
+      </ul></div>
+    </div>
+  </section>
+
+
+  <!-- ====================================================== -->
+  <!-- SECTION 4: PHASE ORDERING -->
+  <!-- ====================================================== -->
+  <section id="phase" class="flow">
+    <div class="sec-header">
+      <span class="sec-num">04</span>
+      <h2 class="sec-title">三個 topic 的<em>刷題順序</em></h2>
+      <span class="sec-tag">strategy</span>
+    </div>
+    <div class="sec-divider"></div>
+
+    <div class="phase-grid">
+      <div class="phase p1">
+        <span class="ph-tag">Phase 01</span>
+        <h4>Array / String · 先打底</h4>
+        <p><strong>目標</strong> · 看到題目 5 分鐘內判斷: HashMap? Window? Prefix? Two Pointers? Sort?</p>
+        <ul>
+          <li>Two Sum</li>
+          <li>Group Anagrams</li>
+          <li>Longest Substring W/O Repeat</li>
+          <li>Minimum Window Substring</li>
+          <li>Subarray Sum Equals K</li>
+          <li>Product Except Self</li>
+          <li>Maximum Subarray</li>
+          <li>Merge Intervals</li>
+          <li>3Sum</li>
+          <li>Sliding Window Maximum</li>
+        </ul>
+      </div>
+
+      <div class="phase p2">
+        <span class="ph-tag">Phase 02</span>
+        <h4>Graph / Tree</h4>
+        <p><strong>目標</strong> · 看到 graph 題 5 分鐘內判斷: BFS? DFS? Topo? Union-Find? Dijkstra? Tree postorder?</p>
+        <ul>
+          <li>Number of Islands</li>
+          <li>Clone Graph</li>
+          <li>Rotting Oranges</li>
+          <li>Course Schedule</li>
+          <li>Alien Dictionary</li>
+          <li>Word Ladder</li>
+          <li>Accounts Merge</li>
+          <li>Network Delay Time</li>
+          <li>Lowest Common Ancestor</li>
+          <li>Binary Tree Max Path Sum</li>
+        </ul>
+      </div>
+
+      <div class="phase p3">
+        <span class="ph-tag">Phase 03</span>
+        <h4>Dynamic Programming</h4>
+        <p><strong>目標</strong> · 任何 DP 題都能寫出: state · transition · base case · order · answer · space optimization</p>
+        <ul>
+          <li>Climbing Stairs</li>
+          <li>House Robber</li>
+          <li>Coin Change</li>
+          <li>Longest Increasing Subsequence</li>
+          <li>Longest Common Subsequence</li>
+          <li>Word Break</li>
+          <li>Decode Ways</li>
+          <li>Partition Equal Subset Sum</li>
+          <li>Edit Distance</li>
+          <li>Buy & Sell w/ Cooldown</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-label">三個 topic 的本質</div>
+      <ul style="margin:6px 0 0">
+        <li><strong>Array / String</strong> · 維護一段資訊</li>
+        <li><strong>Graph / Tree</strong> · 走訪狀態空間</li>
+        <li><strong>Dynamic Programming</strong> · 重用子問題答案</li>
+      </ul>
+    </div>
+  </section>
+
+
+  <!-- ====================================================== -->
+  <!-- SECTION 5: MASTERY STANDARDS -->
+  <!-- ====================================================== -->
+  <section id="mastery" class="flow">
+    <div class="sec-header">
+      <span class="sec-num">05</span>
+      <h2 class="sec-title">能<em>舉一反三</em>的標準</h2>
+      <span class="sec-tag">benchmark</span>
+    </div>
+    <div class="sec-divider"></div>
+
+    <p>每題刷完不要只看 AC。要能回答這九個問題:</p>
+    <div class="flow-box">
+      <ol>
+        <li>這題是哪個 pattern?</li>
+        <li>為什麼這個 pattern 適用?</li>
+        <li>brute force 是什麼?</li>
+        <li>優化點在哪裡?</li>
+        <li>time / space complexity?</li>
+        <li>有哪些 edge cases?</li>
+        <li>如果 input 變大，還能不能過?</li>
+        <li>如果有 duplicate / negative / cycle / disconnected，會不會壞?</li>
+        <li>能不能寫出同 pattern 的另一題?</li>
+      </ol>
+    </div>
+
+    <h3><span class="hashidx">5.1</span>真正刷熟的時間標準</h3>
+    <div class="mastery">
+      <div class="m-card easy">
+        <div class="lvl">Easy</div>
+        <div class="time">10 min</div>
+        <div class="desc">寫完，幾乎零 bug</div>
+      </div>
+      <div class="m-card med">
+        <div class="lvl">Medium</div>
+        <div class="time">25–35 min</div>
+        <div class="desc">寫完，能講清楚思路</div>
+      </div>
+      <div class="m-card hard">
+        <div class="lvl">Hard</div>
+        <div class="time">45 min</div>
+        <div class="desc">至少講出正確方向 + 核心 transition</div>
+      </div>
+    </div>
+
+    <h3><span class="hashidx">5.2</span>每題筆記固定格式</h3>
+    <div class="codeblock">
+      <div class="cb-bar"><span class="cb-name"><b>note</b>template.md</span><button class="copy-btn">COPY</button></div>
+<pre>Problem:
+Pattern:
+Brute force:
+Optimized idea:
+Invariant / State:
+Template:
+Complexity:
+Edge cases:
+Similar problems:
+</pre>
+    </div>
+    <p>這樣刷 40–60 題，比盲刷 200 題更有效。<strong>重點不是背答案，而是把題目壓縮成 pattern</strong>。Google 題常有變形，但變形通常還是落在這些核心結構裡。</p>
+  </section>
+
+
+  <!-- ====================================================== -->
+  <!-- SECTION 6: 45-PROBLEM CHECKLIST -->
+  <!-- ====================================================== -->
+  <section id="checklist" class="flow">
+    <div class="sec-header">
+      <span class="sec-num">06</span>
+      <h2 class="sec-title">必刷 <em>45 題</em>清單</h2>
+      <span class="sec-tag">tracker · localStorage</span>
+    </div>
+    <div class="sec-divider"></div>
+
+    <p>只想高效準備 Google coding interview，可以先刷這 45 題。<strong>進度自動保存到瀏覽器</strong>。</p>
+
+    <div class="checklist-section">
+      <div class="checklist-toolbar">
+        <div class="cl-stats">
+          <div>
+            <div class="num"><span id="totalDone">0</span></div>
+            <div class="lbl">Completed</div>
+          </div>
+          <div>
+            <div class="num" style="color:var(--ink-mute)"><span id="totalLeft">45</span></div>
+            <div class="lbl">Remaining</div>
+          </div>
+          <div>
+            <div class="num" style="color:var(--c-array)"><span id="totalPct">0</span><span style="font-size:18px">%</span></div>
+            <div class="lbl">Progress</div>
+          </div>
+        </div>
+        <button class="cl-reset" id="resetBtn">RESET ALL</button>
+      </div>
+
+      <div class="cl-group array" data-group="array">
+        <div class="cl-group-h">
+          <span class="pill">01</span>
+          <span class="title">Array / String</span>
+          <span class="meta"><span class="g-done">0</span> / 15</span>
+        </div>
+        <div class="cl-items">
+          <label><input type="checkbox" data-id="a1"><span>Two Sum</span></label>
+          <label><input type="checkbox" data-id="a2"><span>Group Anagrams</span></label>
+          <label><input type="checkbox" data-id="a3"><span>Longest Substring Without Repeating Characters</span></label>
+          <label><input type="checkbox" data-id="a4"><span>Minimum Window Substring</span></label>
+          <label><input type="checkbox" data-id="a5"><span>Subarray Sum Equals K</span></label>
+          <label><input type="checkbox" data-id="a6"><span>Product of Array Except Self</span></label>
+          <label><input type="checkbox" data-id="a7"><span>Maximum Subarray</span></label>
+          <label><input type="checkbox" data-id="a8"><span>Best Time to Buy and Sell Stock</span></label>
+          <label><input type="checkbox" data-id="a9"><span>3Sum</span></label>
+          <label><input type="checkbox" data-id="a10"><span>Container With Most Water</span></label>
+          <label><input type="checkbox" data-id="a11"><span>Search in Rotated Sorted Array</span></label>
+          <label><input type="checkbox" data-id="a12"><span>Merge Intervals</span></label>
+          <label><input type="checkbox" data-id="a13"><span>Insert Interval</span></label>
+          <label><input type="checkbox" data-id="a14"><span>Sliding Window Maximum</span></label>
+          <label><input type="checkbox" data-id="a15"><span>Text Justification</span></label>
+        </div>
+      </div>
+
+      <div class="cl-group graph" data-group="graph">
+        <div class="cl-group-h">
+          <span class="pill">02</span>
+          <span class="title">Graph / Tree</span>
+          <span class="meta"><span class="g-done">0</span> / 15</span>
+        </div>
+        <div class="cl-items">
+          <label><input type="checkbox" data-id="g1"><span>Number of Islands</span></label>
+          <label><input type="checkbox" data-id="g2"><span>Max Area of Island</span></label>
+          <label><input type="checkbox" data-id="g3"><span>Clone Graph</span></label>
+          <label><input type="checkbox" data-id="g4"><span>Rotting Oranges</span></label>
+          <label><input type="checkbox" data-id="g5"><span>01 Matrix</span></label>
+          <label><input type="checkbox" data-id="g6"><span>Pacific Atlantic Water Flow</span></label>
+          <label><input type="checkbox" data-id="g7"><span>Course Schedule</span></label>
+          <label><input type="checkbox" data-id="g8"><span>Course Schedule II</span></label>
+          <label><input type="checkbox" data-id="g9"><span>Alien Dictionary</span></label>
+          <label><input type="checkbox" data-id="g10"><span>Word Ladder</span></label>
+          <label><input type="checkbox" data-id="g11"><span>Accounts Merge</span></label>
+          <label><input type="checkbox" data-id="g12"><span>Evaluate Division</span></label>
+          <label><input type="checkbox" data-id="g13"><span>Network Delay Time</span></label>
+          <label><input type="checkbox" data-id="g14"><span>Lowest Common Ancestor</span></label>
+          <label><input type="checkbox" data-id="g15"><span>Binary Tree Maximum Path Sum</span></label>
+        </div>
+      </div>
+
+      <div class="cl-group dp" data-group="dp">
+        <div class="cl-group-h">
+          <span class="pill">03</span>
+          <span class="title">Dynamic Programming</span>
+          <span class="meta"><span class="g-done">0</span> / 15</span>
+        </div>
+        <div class="cl-items">
+          <label><input type="checkbox" data-id="d1"><span>Climbing Stairs</span></label>
+          <label><input type="checkbox" data-id="d2"><span>House Robber</span></label>
+          <label><input type="checkbox" data-id="d3"><span>House Robber II</span></label>
+          <label><input type="checkbox" data-id="d4"><span>Coin Change</span></label>
+          <label><input type="checkbox" data-id="d5"><span>Coin Change II</span></label>
+          <label><input type="checkbox" data-id="d6"><span>Decode Ways</span></label>
+          <label><input type="checkbox" data-id="d7"><span>Word Break</span></label>
+          <label><input type="checkbox" data-id="d8"><span>Longest Increasing Subsequence</span></label>
+          <label><input type="checkbox" data-id="d9"><span>Longest Common Subsequence</span></label>
+          <label><input type="checkbox" data-id="d10"><span>Edit Distance</span></label>
+          <label><input type="checkbox" data-id="d11"><span>Partition Equal Subset Sum</span></label>
+          <label><input type="checkbox" data-id="d12"><span>Target Sum</span></label>
+          <label><input type="checkbox" data-id="d13"><span>Unique Paths</span></label>
+          <label><input type="checkbox" data-id="d14"><span>Buy and Sell Stock with Cooldown</span></label>
+          <label><input type="checkbox" data-id="d15"><span>Maximal Rectangle</span></label>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Google Coding Interview Cheat Sheet · <em>built for Kevin · target: Sep 2026</em><br>
+    Pattern &gt; Memorization · 三大 topic · 45 problems · localStorage tracked
+  </footer>
+
+</main>
+</div>
+
+<script>
+(function(){
+  /* ==== checklist persistence ==== */
+  const KEY = "gcs-checklist-v1";
+  const checkboxes = document.querySelectorAll('.cl-items input[type=checkbox]');
+
+  function load(){
+    try{
+      const raw = localStorage.getItem(KEY);
+      if(!raw) return {};
+      return JSON.parse(raw);
+    }catch(e){ return {}; }
+  }
+  function save(state){
+    try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){}
+  }
+
+  let state = load();
+
+  function applyState(){
+    checkboxes.forEach(cb=>{
+      const id = cb.dataset.id;
+      const on = !!state[id];
+      cb.checked = on;
+      cb.closest('label').classList.toggle('done', on);
+    });
+    updateStats();
+  }
+
+  function updateStats(){
+    let total = checkboxes.length;
+    let done = 0;
+    const groupTotals = {array:0, graph:0, dp:0};
+    checkboxes.forEach(cb=>{
+      if(cb.checked){
+        done++;
+        const g = cb.closest('.cl-group').dataset.group;
+        groupTotals[g]++;
+      }
+    });
+    document.getElementById('totalDone').textContent = done;
+    document.getElementById('totalLeft').textContent = total - done;
+    document.getElementById('totalPct').textContent = Math.round(done/total*100);
+    document.getElementById('pmCount').textContent = done;
+    document.getElementById('pmBar').style.width = (done/total*100) + '%';
+
+    document.querySelectorAll('.cl-group').forEach(grp=>{
+      const g = grp.dataset.group;
+      grp.querySelector('.g-done').textContent = groupTotals[g];
+    });
+  }
+
+  checkboxes.forEach(cb=>{
+    cb.addEventListener('change', ()=>{
+      const id = cb.dataset.id;
+      if(cb.checked) state[id] = true;
+      else delete state[id];
+      cb.closest('label').classList.toggle('done', cb.checked);
+      save(state);
+      updateStats();
+    });
+  });
+
+  document.getElementById('resetBtn').addEventListener('click', ()=>{
+    if(!confirm('Reset all 45 problems?')) return;
+    state = {};
+    save(state);
+    applyState();
+  });
+
+  applyState();
+
+  /* ==== copy buttons ==== */
+  document.querySelectorAll('.copy-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const pre = btn.closest('.codeblock').querySelector('pre');
+      const text = pre.innerText;
+      navigator.clipboard.writeText(text).then(()=>{
+        btn.classList.add('copied');
+        const old = btn.textContent;
+        btn.textContent = 'COPIED ✓';
+        setTimeout(()=>{
+          btn.classList.remove('copied');
+          btn.textContent = old;
+        }, 1400);
+      });
+    });
+  });
+
+  /* ==== active nav highlighting ==== */
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('nav a[href^="#"]');
+  const linkMap = {};
+  navLinks.forEach(a=> linkMap[a.getAttribute('href').slice(1)] = a);
+
+  function onScroll(){
+    let current = null;
+    const y = window.scrollY + 120;
+    sections.forEach(sec=>{
+      if(sec.offsetTop <= y) current = sec.id;
+    });
+    navLinks.forEach(a=> a.classList.remove('active'));
+    if(current && linkMap[current]) linkMap[current].classList.add('active');
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  /* smooth scroll */
+  navLinks.forEach(a=>{
+    a.addEventListener('click', e=>{
+      const href = a.getAttribute('href');
+      if(href.startsWith('#')){
+        e.preventDefault();
+        const el = document.querySelector(href);
+        if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>

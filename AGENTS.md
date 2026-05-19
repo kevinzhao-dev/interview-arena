@@ -16,6 +16,7 @@ Area: On-device Edge AI Software Engineer
 ## Preparation Plan
 
 我的 Leetcode coding plan 在 coding-plan/deep_work.html
+Google coding classic 3 topics 速查表在 coding-plan/google-coding-cheatsheet.html，用於 mock 前快速複習解題流程、pattern templates、和 45 題必刷清單。
 當你考過題目後, 請放到 progress 資料夾中, 以便追蹤我練習的狀況.
 
 ## LeetCode CLI Integration
