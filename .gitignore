@@ -5,4 +5,6 @@
 node_modules/
 dist/
 build/
-cpp/**/question.md
+
+# leetgo-generated practice workspace
+cpp/
