@@ -43,6 +43,11 @@ Agent / Claude Code 可以使用 `leetgo` 來讀取題目 metadata、產生題�
 - `leetgo test last -L`
 - `leetgo cache update`
 
+低風險操作權限:
+
+- `leetgo info <id-or-slug>`、`leetgo pick <id-or-slug> --skip-editor`、`leetgo test last -L`、`leetgo cache update` 可以直接執行，不需要每次另外確認。
+- 如果 Codex / Claude Code 的 sandbox 或 CLI runtime 因為 network、cache、或 git workspace 權限需要 approval，優先只針對上述安全 prefix 申請放行；不要把 submit、remote run、或 fix 類命令包進免確認範圍。
+
 安全規則:
 
 - 不可以執行 `leetgo submit`，除非我在當回合明確要求 submit。
