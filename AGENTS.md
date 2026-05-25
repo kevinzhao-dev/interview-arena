@@ -33,8 +33,9 @@ Imported LeetCode 題庫:
 - Aggregated bank: `data/leetcode/question-bank.csv`
 - Source lists: `data/leetcode/lists/*.csv`
 - Source manifest: `data/leetcode/lists/manifest.csv`
+- NeetCode 150 source: `data/leetcode/lists/neetcode-150.csv`, with NeetCode `concepts` / pattern categories.
 
-Coding mock 選題時, 除了 `coding-plan/deep_work.html`, 也要讀取 `data/leetcode/question-bank.csv` 和 `data/leetcode/lists/manifest.csv`。優先使用這些已匯入的真實 LeetCode lists, 特別是 Google / Meta 30 days、Blind Curated 75、LICC bonus pattern lists。
+Coding mock 選題時, 除了 `coding-plan/deep_work.html`, 也要讀取 `data/leetcode/question-bank.csv` 和 `data/leetcode/lists/manifest.csv`。優先使用這些已匯入的真實 LeetCode lists, 特別是 Google / Meta 30 days、Blind Curated 75、NeetCode 150、LICC bonus pattern lists；需要 pattern targeting 時可使用 `question-bank.csv` 的 `concepts` 欄位。
 
 Agent / Claude Code 可以使用 `leetgo` 來讀取題目 metadata、產生題目骨架、執行 local test cases:
 

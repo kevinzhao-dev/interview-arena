@@ -12,6 +12,7 @@ const CSV_HEADERS = [
   "difficulty",
   "acceptance",
   "problem_url",
+  "concepts",
   "imported_at",
 ];
 
@@ -24,6 +25,7 @@ const BANK_HEADERS = [
   "problem_url",
   "source_keys",
   "source_count",
+  "concepts",
   "imported_at",
 ];
 
@@ -124,6 +126,13 @@ function problemUrl(slug) {
   return slug ? `https://leetcode.com/problems/${slug}/` : "";
 }
 
+function splitConcepts(value) {
+  return String(value || "")
+    .split(";")
+    .map((s) => s.trim())
+    .filter(Boolean);
+}
+
 function parseProblemLink(link) {
   const text = (link.text || "").replace(/\u00a0/g, " ").trim();
   const lines = text.split(/\n+/).map((s) => s.trim()).filter(Boolean);
@@ -203,7 +212,7 @@ async function writeResults(results, root, importedAt) {
     const type = sourceType(result.url);
     const rows = [CSV_HEADERS];
     for (const p of result.problems) {
-      rows.push([key, name, type, result.url, p.id, p.slug, p.title, p.difficulty, p.acceptance, problemUrl(p.slug), importedAt]);
+      rows.push([key, name, type, result.url, p.id, p.slug, p.title, p.difficulty, p.acceptance, problemUrl(p.slug), p.concepts || "", importedAt]);
     }
     await fs.writeFile(path.join(listsDir, `${key}.csv`), rows.map(csvRow).join("\n") + "\n", "utf8");
     manifestByKey.set(key, {
@@ -223,15 +232,34 @@ async function writeResults(results, root, importedAt) {
   }
   await fs.writeFile(path.join(listsDir, "manifest.csv"), manifestRows.map(csvRow).join("\n") + "\n", "utf8");
 
+  const existingBank = new Map((await readCsv(path.join(dataDir, "question-bank.csv"))).map((row) => [`${row.problem_id}:${row.slug}`, row]));
   const aggregate = new Map();
   const listFiles = (await fs.readdir(listsDir)).filter((f) => f.endsWith(".csv") && f !== "manifest.csv");
   for (const file of listFiles) {
     for (const row of await readCsv(path.join(listsDir, file))) {
+      if (!row.problem_id || !row.slug) continue;
       const key = `${row.problem_id}:${row.slug}`;
       if (!aggregate.has(key)) {
-        aggregate.set(key, { ...row, sources: new Set() });
+        const existing = existingBank.get(key) || {};
+        aggregate.set(key, {
+          problem_id: row.problem_id,
+          slug: row.slug,
+          title: existing.title || row.title || "",
+          difficulty: existing.difficulty || row.difficulty || "",
+          acceptance: existing.acceptance || row.acceptance || "",
+          problem_url: existing.problem_url || row.problem_url || problemUrl(row.slug),
+          sources: new Set(),
+          concepts: new Set(splitConcepts(existing.concepts)),
+        });
       }
-      aggregate.get(key).sources.add(row.source_key);
+      const item = aggregate.get(key);
+      item.sources.add(row.source_key);
+      for (const field of ["title", "difficulty", "acceptance", "problem_url"]) {
+        if (!item[field] && row[field]) item[field] = row[field];
+      }
+      for (const concept of splitConcepts(row.concepts)) {
+        item.concepts.add(concept);
+      }
     }
   }
 
@@ -247,6 +275,7 @@ async function writeResults(results, root, importedAt) {
       problemUrl(item.slug),
       sources.join(";"),
       String(sources.length),
+      Array.from(item.concepts).sort().join(";"),
       importedAt,
     ]);
   }
