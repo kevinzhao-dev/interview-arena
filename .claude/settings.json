@@ -9,17 +9,7 @@
       "Bash(leetgo info *)",
       "Bash(leetgo pick * --skip-editor)",
       "Bash(leetgo test *)",
-      "Bash(leetgo cache *)",
-      "Bash(leetgo submit)",
-      "Bash(leetgo submit *)",
-      "Bash(leetgo test * --submit)",
-      "Bash(leetgo test * --submit *)",
-      "Bash(leetgo test * -s)",
-      "Bash(leetgo test * -s *)",
-      "Bash(leetgo test * --both)",
-      "Bash(leetgo test * --both *)",
-      "Bash(leetgo test * -B)",
-      "Bash(leetgo test * -B *)"
+      "Bash(leetgo cache *)"
     ],
     "deny": [
       "Bash(leetgo fix)",

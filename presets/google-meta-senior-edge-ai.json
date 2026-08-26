@@ -1,0 +1,29 @@
+{
+  "id": "google-meta-senior-edge-ai",
+  "name": "Google L5 / Meta E5 — On-device Edge AI",
+  "targets": [
+    {
+      "company": "Google",
+      "level": "L5",
+      "title": "Senior Software Engineer"
+    },
+    {
+      "company": "Meta",
+      "level": "E5",
+      "title": "Senior Software Engineer"
+    }
+  ],
+  "role": {
+    "focus": "On-device Edge AI Software Engineer"
+  },
+  "programming_language": "Modern C++",
+  "content": {
+    "coding": "General LeetCode patterns; avoid domain overfitting",
+    "system_design": {
+      "general_percent": 60,
+      "specialized_percent": 40,
+      "specialized_focus": "Edge AI, on-device inference, and embedded AI platforms"
+    },
+    "cold_general_every_sessions": 4
+  }
+}

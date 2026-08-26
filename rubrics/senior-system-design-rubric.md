@@ -1,6 +1,6 @@
 # Senior System Design Rubric
 
-Target: Google L5 / Meta E5.
+Target: the active target preset.
 
 ## Hire Bar
 

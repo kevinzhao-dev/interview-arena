@@ -1,6 +1,6 @@
 # Senior Coding Rubric
 
-Target: Google L5 / Meta E5, Modern C++.
+Target: the active target preset; Modern C++ unless the preset says otherwise.
 
 ## Hire Bar
 

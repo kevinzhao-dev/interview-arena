@@ -1,0 +1,24 @@
+{
+  "id": "senior-swe",
+  "name": "Senior Software Engineer",
+  "targets": [
+    {
+      "company": "General",
+      "level": "Senior",
+      "title": "Software Engineer"
+    }
+  ],
+  "role": {
+    "focus": "General software engineering"
+  },
+  "programming_language": "Modern C++",
+  "content": {
+    "coding": "General data structures and algorithms",
+    "system_design": {
+      "general_percent": 100,
+      "specialized_percent": 0,
+      "specialized_focus": null
+    },
+    "cold_general_every_sessions": 4
+  }
+}

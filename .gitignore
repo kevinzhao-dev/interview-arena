@@ -6,5 +6,10 @@ node_modules/
 dist/
 build/
 
+# Local/private interview data and agent preferences
+/.arena/
+/.codex/
+.claude/settings.local.json
+
 # leetgo-generated practice workspace
 cpp/

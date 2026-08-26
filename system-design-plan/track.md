@@ -2,23 +2,26 @@
 
 ## Goal
 
-Build Google L5 / Meta E5 system design readiness while preserving general design strength and using edge AI expertise as a differentiator.
+Build senior system design readiness for the active target preset while preserving broad general-design strength.
 
 ## Cadence
 
 - 1 full system design mock per week, 45 minutes.
 - 1 focused deep dive per week, 20-30 minutes.
-- 1 written recap per mock in `progress/`.
+- 1 written recap per mock in the resolved private `progress_dir`.
 - Every fourth mock must be a cold general system question.
 
 ## Mix
 
-- 60% general product/distributed systems.
-- 40% edge AI / on-device AI systems.
+- Use the general/specialized percentages from the active target preset.
+- For the bundled edge-AI preset, use 60% general product/distributed systems and 40% edge AI / on-device AI systems.
 
-This mix prevents overfitting while still sharpening the story for on-device Edge AI SWE roles.
+The mix prevents overfitting while still developing the preset's specialized focus. Replace specialized sessions with general questions when the active preset has no specialized content.
 
-## Ten-Session Loop
+## Bundled Edge-AI Ten-Session Loop
+
+Use this loop when the active preset's specialized focus is edge AI. For a
+general preset, replace each Edge AI slot with a question from the general bank.
 
 1. General: notification system.
 2. Edge AI: multi-backend inference framework.
